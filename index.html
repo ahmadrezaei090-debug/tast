@@ -1,932 +1,919 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بازی مافیا - نسخه نمایشی (آفلاین)</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* --- CLASH OF CLANS / CLASH ROYALE THEME --- */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بازی مافیا - نسخه نمایشی (آفلاین)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CLASH OF CLANS / CLASH ROYALE THEME --- */
 
-        :root {
-            --clash-blue-dark: #3a5b8a;
-            --clash-blue-light: #5c88c8;
-            --clash-gold: #ffc83a;
-            --clash-gold-dark: #e5a500;
-            --clash-brown-dark: #5b3a29;
-            --clash-text-light: #ffffff;
-            --clash-text-dark: #333333;
-            --clash-green: #59a845;
-            --clash-green-dark: #3a752b;
-            --clash-red: #c74243;
-            --clash-red-dark: #8f2a2b;
-            --clash-panel-bg: #4468a0;
-            --clash-panel-border: #9dc2ff;
-            --clash-panel-border-dark: #2a4166;
-        }
+        :root {
+            --clash-blue-dark: #3a5b8a;
+            --clash-blue-light: #5c88c8;
+            --clash-gold: #ffc83a;
+            --clash-gold-dark: #e5a500;
+            --clash-brown-dark: #5b3a29;
+            --clash-text-light: #ffffff;
+            --clash-text-dark: #333333;
+            --clash-green: #59a845;
+            --clash-green-dark: #3a752b;
+            --clash-red: #c74243;
+            --clash-red-dark: #8f2a2b;
+            --clash-panel-bg: #4468a0;
+            --clash-panel-border: #9dc2ff;
+            --clash-panel-border-dark: #2a4166;
+        }
 
-        /* --- KEYFRAME ANIMATIONS --- */
-        @keyframes clash-panel-intro {
-            0% { opacity: 0; transform: scale(0.8) translateY(-30px); }
-            70% { opacity: 1; transform: scale(1.05) translateY(0); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
-        }
+        /* --- KEYFRAME ANIMATIONS --- */
+        @keyframes clash-panel-intro {
+            0% { opacity: 0; transform: scale(0.8) translateY(-30px); }
+            70% { opacity: 1; transform: scale(1.05) translateY(0); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
 
-        @keyframes breathe {
-            0%, 100% { transform: scale(1); box-shadow: 0 6px 0 #a07200; }
-            50% { transform: scale(1.04); box-shadow: 0 8px 12px rgba(0,0,0,0.3), 0 8px 0 #a07200; }
-        }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); box-shadow: 0 6px 0 #a07200; }
+            50% { transform: scale(1.04); box-shadow: 0 8px 12px rgba(0,0,0,0.3), 0 8px 0 #a07200; }
+        }
 
-        @keyframes subtle-pan {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 200% 200%; }
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* --- NEW LOADING SCREEN ANIMATIONS --- */
-        @keyframes fadeInScaleUp {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        
-        @keyframes pulseGlow {
-            0%, 100% { filter: drop-shadow(0 0 8px rgba(255, 200, 58, 0.4)); }
-            50% { filter: drop-shadow(0 0 16px rgba(255, 200, 58, 0.8)); }
-        }
-        
-        @keyframes tipFadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-
-        body {
-            font-family: 'Vazirmatn', sans-serif;
-            color: var(--clash-text-light);
-            background-color: #1a283e;
-            background-image: url('https://www.transparenttextures.com/patterns/dark-stone-wall.png');
-            overflow: hidden; 
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            position: relative;
-            /* Android Fix: Improve touch responsiveness */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        /* Animated Background Layer */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0;
-            width: 200%; height: 200%;
-            background-image: url('https://www.transparenttextures.com/patterns/dust.png');
-            opacity: 0.15;
-            z-index: 0;
-            animation: subtle-pan 120s linear infinite;
-        }
-
-        .clash-font {
-            font-family: 'Lilita One', cursive;
-            letter-spacing: 1px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .panel-clash {
-            background-color: var(--clash-panel-bg);
-            border: 4px solid var(--clash-panel-border-dark);
-            border-top-color: var(--clash-panel-border);
-            border-left-color: var(--clash-panel-border);
-            border-radius: 16px;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255, 255, 255, 0.2);
-            transition: opacity 0.3s ease-in-out;
-            position: relative;
-        }
-        
-        /* Panel Corner Rivets */
-        .panel-clash::before, .panel-clash::after {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: var(--clash-gold);
-            border-radius: 50%;
-            border: 2px solid var(--clash-brown-dark);
-            box-shadow: 0 0 3px #000;
-        }
-        .panel-clash::before { top: 10px; left: 10px; }
-        .panel-clash::after { top: 10px; right: 10px; }
-        
-        #developers-panel::before, #developers-panel::after, #game-mode-panel::before, #game-mode-panel::after { top: 15px; }
+        @keyframes subtle-pan {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 200%; }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* --- NEW LOADING SCREEN ANIMATIONS --- */
+        @keyframes fadeInScaleUp {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { filter: drop-shadow(0 0 8px rgba(255, 200, 58, 0.4)); }
+            50% { filter: drop-shadow(0 0 16px rgba(255, 200, 58, 0.8)); }
+        }
+        
+        @keyframes tipFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
 
-        .panel-hidden {
-            opacity: 0;
-            transform: scale(0.9) translateY(-20px);
-            pointer-events: none;
-            visibility: hidden;
-        }
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            color: var(--clash-text-light);
+            background-color: #1a283e;
+            background-image: url('https://www.transparenttextures.com/patterns/dark-stone-wall.png');
+            overflow: hidden; 
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            position: relative;
+            /* Android Fix: Improve touch responsiveness */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
-        .panel-visible {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-            visibility: visible;
-            animation: clash-panel-intro 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
+        /* Animated Background Layer */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 200%; height: 200%;
+            background-image: url('https://www.transparenttextures.com/patterns/dust.png');
+            opacity: 0.15;
+            z-index: 0;
+            animation: subtle-pan 120s linear infinite;
+        }
 
-        .btn-clash {
-            border-radius: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: all 0.1s ease-out; /* Faster transition */
-            cursor: pointer;
-            position: relative;
-            white-space: nowrap;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--clash-text-dark);
-            text-shadow: 1px 1px 1px rgba(255,255,255,0.4);
-        }
-        .btn-clash:disabled {
-            filter: grayscale(80%);
-            cursor: not-allowed;
-            box-shadow: 0 4px 0 #555 !important;
-            transform: translateY(0) !important;
-        }
+        .clash-font {
+            font-family: 'Lilita One', cursive;
+            letter-spacing: 1px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-        /* --- Primary Button (Gold) --- */
-        .btn-clash-primary {
-            background: linear-gradient(to bottom, #ffe47a, var(--clash-gold));
-            border: 2px solid var(--clash-brown-dark);
-            box-shadow: 0 6px 0 #a07200;
-            padding: 10px 24px;
-            font-size: 1.1rem;
-        }
-        @media (min-width: 640px) { .btn-clash-primary { padding: 12px 30px; font-size: 1.25rem; } }
-
-        .btn-clash-primary:hover {
-            background: linear-gradient(to bottom, #fff0a0, #ffda5a);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 0 #a07200;
-        }
-        .btn-clash-primary:active {
-            transform: translateY(4px) !important;
-            box-shadow: 0 2px 0 #a07200 !important;
-            transition-duration: 0.05s;
-        }
-        
-        /* Breathing animation for start button */
-        #start-game-btn.breathing {
-            animation: breathe 2.5s ease-in-out infinite;
-        }
-        
-        /* --- Secondary Button (Blue) --- */
-        .btn-clash-secondary {
-            background: linear-gradient(to bottom, #7da8e8, var(--clash-blue-light));
-            border: 2px solid var(--clash-panel-border-dark);
-            box-shadow: 0 5px 0 #2e5185;
-            padding: 8px 18px;
-            font-size: 0.9rem;
-            color: var(--clash-text-light);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-        }
-        @media (min-width: 640px) { .btn-clash-secondary { padding: 10px 22px; font-size: 1rem; } }
-
-        .btn-clash-secondary:hover {
-            background: linear-gradient(to bottom, #9dc2ff, #6c98d8);
-            transform: translateY(-2px);
-            box-shadow: 0 7px 0 #2e5185;
-        }
-        .btn-clash-secondary:active {
-            transform: translateY(3px) !important;
-            box-shadow: 0 2px 0 #2e5185 !important;
-            transition-duration: 0.05s;
-        }
-
-        .input-clash {
-            background-color: var(--clash-panel-border-dark);
-            border: 2px solid #2a4166;
-            color: #fff;
-            border-radius: 10px;
-            padding: 12px;
-            font-size: 1rem;
-            box-shadow: inset 0 3px 6px rgba(0,0,0,0.4);
-            /* Android Fix: Improve touch interaction */
-            -webkit-user-select: auto;
-            -moz-user-select: text;
-            -ms-user-select: text;
-            user-select: auto;
-            touch-action: manipulation;
-        }
-        .input-clash:focus {
-            outline: none;
-            border-color: var(--clash-gold);
-            box-shadow: inset 0 3px 6px rgba(0,0,0,0.4), 0 0 10px var(--clash-gold);
-        }
-        .input-clash.invalid {
-            border-color: var(--clash-red);
-        }
-        .input-clash:read-only {
-            background-color: #314a70;
-            cursor: default;
-        }
-        
-        /* --- Option Buttons (Game Screen) --- */
-        .option-btn {
-            background: linear-gradient(to bottom, #7da8e8, #5c88c8);
-            border: 2px solid #2a4166;
-            box-shadow: 0 4px 0 #2e5185;
-            color: white;
-            transition: all 0.15s ease;
-            font-size: 1rem;
-            padding: 12px;
-            border-radius: 12px;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-        .option-btn:hover:not(:disabled) {
-            background: linear-gradient(to bottom, #9dc2ff, #6c98d8);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 0 #2e5185;
-        }
-        .option-btn.correct {
-            background: linear-gradient(to bottom, #8fdd7d, var(--clash-green)) !important;
-            border-color: #2e6221 !important;
-            box-shadow: 0 4px 0 var(--clash-green-dark) !important;
-            transform: translateY(0) !important;
-        }
-        .option-btn.incorrect {
-            background: linear-gradient(to bottom, #e87b7c, var(--clash-red)) !important;
-            border-color: #7c2425 !important;
-            box-shadow: 0 4px 0 var(--clash-red-dark) !important;
-            transform: translateY(0) !important;
-        }
-        .option-btn:disabled { opacity: 0.8; cursor: not-allowed; }
-
-        .loader {
-            border: 8px solid #3a5b8a;
-            border-top: 8px solid var(--clash-gold);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 1s linear infinite;
-        }
-        
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: var(--clash-blue-dark); }
-        ::-webkit-scrollbar-thumb { background: var(--clash-gold); border-radius: 5px; border: 2px solid var(--clash-blue-dark); }
-        ::-webkit-scrollbar-thumb:hover { background: var(--clash-gold-dark); }
-
-        .screen {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100vh;
-            padding: 10px; /* Base padding */
-            box-sizing: border-box;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease-in-out, visibility 0.5s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-y: auto;
-            z-index: 1; /* Ensure screens are on top of the background */
-        }
-        @media (min-width: 640px) { .screen { padding: 20px; } }
-        #main-screen { justify-content: flex-start; }
-        #loading-screen { 
-            justify-content: center; 
-            background: radial-gradient(circle, rgba(42,65,102,0.5) 0%, rgba(26,40,62,0.8) 70%);
-            /* IMPORTANT: Ensure loading screen covers everything initially */
-            position: fixed;
-            z-index: 999;
-        }
-        .screen.active { opacity: 1; visibility: visible; position: relative; z-index: 10; } /* Adjusted z-index for active screens */
-        #loading-screen.active { position: fixed; z-index: 999; } /* Keep loading screen fixed and high z-index */
-        #main-screen.active { position: absolute; z-index: 10; } 
-        #game-screen.active { position: absolute; z-index: 10; } 
-
-        /* --- NEW: Professional Loading Screen Styles --- */
-        #loading-content-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            width: 100%;
-            max-width: 450px;
-        }
-        #loading-logo {
-            max-width: 280px;
-            width: 70%;
-            margin-bottom: 1.5rem;
-            animation: fadeInScaleUp 1s ease-out, pulseGlow 3s infinite 1s;
-        }
-        #loading-progress-bar-container {
-            width: 100%;
-            background-color: var(--clash-panel-border-dark);
-            border: 3px solid #2a4166;
-            border-radius: 12px;
-            padding: 4px;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-        #loading-progress-bar-fill {
-            height: 18px;
-            width: 0%; /* Starts at 0, controlled by JS */
-            background: linear-gradient(to right, var(--clash-gold-dark), var(--clash-gold));
-            border-radius: 8px;
-            transition: width 0.5s ease-out;
-            box-shadow: 0 0 10px var(--clash-gold);
-        }
-        #loading-message {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--clash-text-light);
-            text-shadow: 1px 1px 2px #000;
-            min-height: 28px; /* Prevent layout shift */
-        }
-        #loading-tip {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: #d0e0ff;
-            font-style: italic;
-            background-color: rgba(0,0,0,0.25);
-            padding: 8px 12px;
-            border-radius: 8px;
-            min-height: 50px; /* Prevent layout shift */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: tipFadeIn 0.8s ease-out;
-        }
-
-        .screen-content-wrapper {
-            width: 100%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-bottom: 10px;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-        @media (min-width: 640px) { .screen-content-wrapper { padding-bottom: 20px; } }
-        /* Adjusted padding-top now that the fixed profile bar is gone */
-        #main-screen .screen-content-wrapper {
-            justify-content: space-between;
-            min-height: calc(100vh - 20px);
-            padding-top: 20px; 
-        }
-        @media (min-width: 640px) { #main-screen .screen-content-wrapper { min-height: calc(100vh - 40px); padding-top: 20px; } }
+        .panel-clash {
+            background-color: var(--clash-panel-bg);
+            border: 4px solid var(--clash-panel-border-dark);
+            border-top-color: var(--clash-panel-border);
+            border-left-color: var(--clash-panel-border);
+            border-radius: 16px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+            transition: opacity 0.3s ease-in-out;
+            position: relative;
+        }
+        
+        /* Panel Corner Rivets */
+        .panel-clash::before, .panel-clash::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--clash-gold);
+            border-radius: 50%;
+            border: 2px solid var(--clash-brown-dark);
+            box-shadow: 0 0 3px #000;
+        }
+        .panel-clash::before { top: 10px; left: 10px; }
+        .panel-clash::after { top: 10px; right: 10px; }
+        
+        #developers-panel::before, #developers-panel::after, #game-mode-panel::before, #game-mode-panel::after { top: 15px; }
 
 
-        #main-screen-header { 
-            display: flex; justify-content: center; /* MODIFIED: Center the title */
-            align-items: center; width: 100%; 
-            padding: 0.5rem; margin-bottom: 1.5rem; /* MODIFIED: Increased margin bottom */
-            background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
-            background-color: #6e4a31;
-            border-radius: 12px;
-            border: 4px solid #4a2f20;
-            box-shadow: 0 6px 10px rgba(0,0,0,0.5);
-            position: relative;
-            z-index: 10;
-        }
-        
-        #main-title {
-            text-align: center;
-            flex-grow: 1;
-            font-size: 3rem;
-            color: var(--clash-gold);
-            text-shadow: 
-                -3px -3px 0 var(--clash-brown-dark), 
-                3px -3px 0 var(--clash-brown-dark),
-                -3px  3px 0 var(--clash-brown-dark),
-                3px  3px 0 var(--clash-brown-dark),
-                -3px 0 0 var(--clash-brown-dark),
-                3px 0 0 var(--clash-brown-dark),
-                0 -3px 0 var(--clash-brown-dark),
-                0 3px 0 var(--clash-brown-dark),
-                6px 6px 8px rgba(0,0,0,0.7);
-        }
-        @media (min-width: 640px) { #main-title { font-size: 4.5rem; } }
-        @media (min-width: 768px) { #main-title { font-size: 5.5rem; } }
+        .panel-hidden {
+            opacity: 0;
+            transform: scale(0.9) translateY(-20px);
+            pointer-events: none;
+            visibility: hidden;
+        }
 
-        #main-screen-buttons-layout { display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: auto; padding-top: 1rem; }
-        #top-action-buttons { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem; width: 100%; padding-bottom: 5px; }
-        
-        #input-error-message, #user-id-error-message, #change-name-error-message, #login-error-message, #avatar-error-message {
-            color: #ffdddd; font-size: 0.9rem; text-align: center; min-height: 1.2rem; margin-top: 0.5rem; font-weight: bold; background-color: rgba(200, 60, 60, 0.7); padding: 4px 8px; border-radius: 6px; border: 1px solid var(--clash-red);
-        }
-        .hidden { display: none !important; }
+        .panel-visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            visibility: visible;
+            animation: clash-panel-intro 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
 
-        /* Styles for Pop-up Panels */
-        #developers-panel-container, #game-mode-panel-container { background-color: rgba(10, 10, 10, 0.85); }
-        #developers-panel, #game-mode-panel {
-            background-color: var(--clash-panel-bg);
-            border: 4px solid var(--clash-panel-border-dark);
-            border-top-color: var(--clash-panel-border);
-            border-left-color: var(--clash-panel-border);
-        }
-        #close-developers-panel-btn, #close-game-mode-panel-btn {
-            position: absolute; top: 12px; right: 12px; width: 40px; height: 40px;
-            background: linear-gradient(to bottom, #e87b7c, var(--clash-red));
-            border: 2px solid #7c2425;
-            box-shadow: 0 4px 0 #8f2a2b;
-            color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px;
-            font-weight: bold; line-height: 1; cursor: pointer; transition: all 0.2s ease;
-        }
-        #close-developers-panel-btn:hover, #close-game-mode-panel-btn:hover { transform: scale(1.1) rotate(90deg); }
-        #close-developers-panel-btn:active, #close-game-mode-panel-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #8f2a2b; }
+        .btn-clash {
+            border-radius: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.1s ease-out; /* Faster transition */
+            cursor: pointer;
+            position: relative;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--clash-text-dark);
+            text-shadow: 1px 1px 1px rgba(255,255,255,0.4);
+        }
+        .btn-clash:disabled {
+            filter: grayscale(80%);
+            cursor: not-allowed;
+            box-shadow: 0 4px 0 #555 !important;
+            transform: translateY(0) !important;
+        }
 
-        .developer-item {
-            background-color: rgba(42, 65, 102, 0.9);
-            padding: 1rem 1.2rem; border-radius: 12px;
-            border: 2px solid rgba(157, 194, 255, 0.4);
-        }
-        .dev-header { border-bottom: 2px solid rgba(157, 194, 255, 0.3); }
-        .dev-role-icon { font-size: 1.7em; color: var(--clash-gold); margin-left: 10px; }
-        .dev-role { font-size: 1.15rem; font-weight: 700; color: #fff; font-family: 'Vazirmatn'; }
-        .dev-username { color: #fff8a8; font-weight: bold; font-size: 1.25rem; }
-        .dev-description { font-size: 0.9rem; color: #d0e0ff; line-height: 1.65; font-family: 'Vazirmatn'; }
+        /* --- Primary Button (Gold) --- */
+        .btn-clash-primary {
+            background: linear-gradient(to bottom, #ffe47a, var(--clash-gold));
+            border: 2px solid var(--clash-brown-dark);
+            box-shadow: 0 6px 0 #a07200;
+            padding: 10px 24px;
+            font-size: 1.1rem;
+        }
+        @media (min-width: 640px) { .btn-clash-primary { padding: 12px 30px; font-size: 1.25rem; } }
 
-        /* --- REMOVED STYLES for Avatar/Name Input --- */
+        .btn-clash-primary:hover {
+            background: linear-gradient(to bottom, #fff0a0, #ffda5a);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #a07200;
+        }
+        .btn-clash-primary:active {
+            transform: translateY(4px) !important;
+            box-shadow: 0 2px 0 #a07200 !important;
+            transition-duration: 0.05s;
+        }
+        
+        /* Breathing animation for start button */
+        #start-game-btn.breathing {
+            animation: breathe 2.5s ease-in-out infinite;
+        }
+        
+        /* --- Secondary Button (Blue) --- */
+        .btn-clash-secondary {
+            background: linear-gradient(to bottom, #7da8e8, var(--clash-blue-light));
+            border: 2px solid var(--clash-panel-border-dark);
+            box-shadow: 0 5px 0 #2e5185;
+            padding: 8px 18px;
+            font-size: 0.9rem;
+            color: var(--clash-text-light);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+        @media (min-width: 640px) { .btn-clash-secondary { padding: 10px 22px; font-size: 1rem; } }
 
-        /* --- NEW STYLES for Game Mode Panel --- */
-        #game-mode-panel .btn-clash-primary {
-            padding: 16px 32px;
-            font-size: 1.5rem;
-            width: 100%;
-            max-width: 300px;
-        }
-        #game-mode-panel .btn-clash-primary .icon {
-            font-size: 2rem;
-            margin-left: 12px;
-        }
-        
-        /* --- NEW STYLES for Question Timer --- */
-        #timer-container {
-            position: relative;
-            width: 60px;
-            height: 60px;
-        }
-        #timer-svg {
-            transform: rotate(-90deg); /* Start from the top */
-        }
-        .timer-circle {
-            fill: none;
-            stroke-width: 8;
-        }
-        .timer-bg {
-            stroke: var(--clash-panel-border-dark);
-        }
-        .timer-progress {
-            stroke: var(--clash-gold);
-            stroke-linecap: round;
-            transition: stroke-dashoffset 1s linear;
-        }
-        #timer-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Lilita One', cursive;
-            font-size: 1.8rem;
-            color: var(--clash-gold);
-            text-shadow: 2px 2px 2px #000;
-        }
+        .btn-clash-secondary:hover {
+            background: linear-gradient(to bottom, #9dc2ff, #6c98d8);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 0 #2e5185;
+        }
+        .btn-clash-secondary:active {
+            transform: translateY(3px) !important;
+            box-shadow: 0 2px 0 #2e5185 !important;
+            transition-duration: 0.05s;
+        }
 
-    </style>
+        .input-clash {
+            background-color: var(--clash-panel-border-dark);
+            border: 2px solid #2a4166;
+            color: #fff;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 1rem;
+            box-shadow: inset 0 3px 6px rgba(0,0,0,0.4);
+            /* Android Fix: Improve touch interaction */
+            -webkit-user-select: auto;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: auto;
+            touch-action: manipulation;
+        }
+        .input-clash:focus {
+            outline: none;
+            border-color: var(--clash-gold);
+            box-shadow: inset 0 3px 6px rgba(0,0,0,0.4), 0 0 10px var(--clash-gold);
+        }
+        .input-clash.invalid {
+            border-color: var(--clash-red);
+        }
+        .input-clash:read-only {
+            background-color: #314a70;
+            cursor: default;
+        }
+        
+        /* --- Option Buttons (Game Screen) --- */
+        .option-btn {
+            background: linear-gradient(to bottom, #7da8e8, #5c88c8);
+            border: 2px solid #2a4166;
+            box-shadow: 0 4px 0 #2e5185;
+            color: white;
+            transition: all 0.15s ease;
+            font-size: 1rem;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .option-btn:hover:not(:disabled) {
+            background: linear-gradient(to bottom, #9dc2ff, #6c98d8);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #2e5185;
+        }
+        .option-btn.correct {
+            background: linear-gradient(to bottom, #8fdd7d, var(--clash-green)) !important;
+            border-color: #2e6221 !important;
+            box-shadow: 0 4px 0 var(--clash-green-dark) !important;
+            transform: translateY(0) !important;
+        }
+        .option-btn.incorrect {
+            background: linear-gradient(to bottom, #e87b7c, var(--clash-red)) !important;
+            border-color: #7c2425 !important;
+            box-shadow: 0 4px 0 var(--clash-red-dark) !important;
+            transform: translateY(0) !important;
+        }
+        .option-btn:disabled { opacity: 0.8; cursor: not-allowed; }
+
+        .loader {
+            border: 8px solid #3a5b8a;
+            border-top: 8px solid var(--clash-gold);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+        
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--clash-blue-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--clash-gold); border-radius: 5px; border: 2px solid var(--clash-blue-dark); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--clash-gold-dark); }
+
+        .screen {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100vh;
+            padding: 10px; /* Base padding */
+            box-sizing: border-box;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+            z-index: 1; /* Ensure screens are on top of the background */
+        }
+        @media (min-width: 640px) { .screen { padding: 20px; } }
+        #main-screen { justify-content: flex-start; }
+        #loading-screen { 
+            justify-content: center; 
+            background: radial-gradient(circle, rgba(42,65,102,0.5) 0%, rgba(26,40,62,0.8) 70%);
+            /* IMPORTANT: Ensure loading screen covers everything initially */
+            position: fixed;
+            z-index: 999;
+        }
+        .screen.active { opacity: 1; visibility: visible; position: relative; z-index: 10; } /* Adjusted z-index for active screens */
+        #loading-screen.active { position: fixed; z-index: 999; } /* Keep loading screen fixed and high z-index */
+        #main-screen.active { position: absolute; z-index: 10; } 
+        #game-screen.active { position: absolute; z-index: 10; } 
+
+        /* --- NEW: Professional Loading Screen Styles --- */
+        #loading-content-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+        }
+        #loading-logo {
+            max-width: 280px;
+            width: 70%;
+            margin-bottom: 1.5rem;
+            animation: fadeInScaleUp 1s ease-out, pulseGlow 3s infinite 1s;
+        }
+        #loading-progress-bar-container {
+            width: 100%;
+            background-color: var(--clash-panel-border-dark);
+            border: 3px solid #2a4166;
+            border-radius: 12px;
+            padding: 4px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        #loading-progress-bar-fill {
+            height: 18px;
+            width: 0%; /* Starts at 0, controlled by JS */
+            background: linear-gradient(to right, var(--clash-gold-dark), var(--clash-gold));
+            border-radius: 8px;
+            transition: width 0.5s ease-out;
+            box-shadow: 0 0 10px var(--clash-gold);
+        }
+        #loading-message {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--clash-text-light);
+            text-shadow: 1px 1px 2px #000;
+            min-height: 28px; /* Prevent layout shift */
+        }
+        #loading-tip {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #d0e0ff;
+            font-style: italic;
+            background-color: rgba(0,0,0,0.25);
+            padding: 8px 12px;
+            border-radius: 8px;
+            min-height: 50px; /* Prevent layout shift */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: tipFadeIn 0.8s ease-out;
+        }
+
+        .screen-content-wrapper {
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 10px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        @media (min-width: 640px) { .screen-content-wrapper { padding-bottom: 20px; } }
+        /* Adjusted padding-top now that the fixed profile bar is gone */
+        #main-screen .screen-content-wrapper {
+            justify-content: space-between;
+            min-height: calc(100vh - 20px);
+            padding-top: 20px; 
+        }
+        @media (min-width: 640px) { #main-screen .screen-content-wrapper { min-height: calc(100vh - 40px); padding-top: 20px; } }
+
+
+        #main-screen-header { 
+            display: flex; justify-content: center; /* MODIFIED: Center the title */
+            align-items: center; width: 100%; 
+            padding: 0.5rem; margin-bottom: 1.5rem; /* MODIFIED: Increased margin bottom */
+            background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+            background-color: #6e4a31;
+            border-radius: 12px;
+            border: 4px solid #4a2f20;
+            box-shadow: 0 6px 10px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 10;
+        }
+        
+        #main-title {
+            text-align: center;
+            flex-grow: 1;
+            font-size: 3rem;
+            color: var(--clash-gold);
+            text-shadow: 
+                -3px -3px 0 var(--clash-brown-dark), 
+                3px -3px 0 var(--clash-brown-dark),
+                -3px  3px 0 var(--clash-brown-dark),
+                3px  3px 0 var(--clash-brown-dark),
+                -3px 0 0 var(--clash-brown-dark),
+                3px 0 0 var(--clash-brown-dark),
+                0 -3px 0 var(--clash-brown-dark),
+                0 3px 0 var(--clash-brown-dark),
+                6px 6px 8px rgba(0,0,0,0.7);
+        }
+        @media (min-width: 640px) { #main-title { font-size: 4.5rem; } }
+        @media (min-width: 768px) { #main-title { font-size: 5.5rem; } }
+
+        #main-screen-buttons-layout { display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: auto; padding-top: 1rem; }
+        #top-action-buttons { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem; width: 100%; padding-bottom: 5px; }
+        
+        #input-error-message, #user-id-error-message, #change-name-error-message, #login-error-message, #avatar-error-message {
+            color: #ffdddd; font-size: 0.9rem; text-align: center; min-height: 1.2rem; margin-top: 0.5rem; font-weight: bold; background-color: rgba(200, 60, 60, 0.7); padding: 4px 8px; border-radius: 6px; border: 1px solid var(--clash-red);
+        }
+        .hidden { display: none !important; }
+
+        /* Styles for Pop-up Panels */
+        #developers-panel-container, #game-mode-panel-container { background-color: rgba(10, 10, 10, 0.85); }
+        #developers-panel, #game-mode-panel {
+            background-color: var(--clash-panel-bg);
+            border: 4px solid var(--clash-panel-border-dark);
+            border-top-color: var(--clash-panel-border);
+            border-left-color: var(--clash-panel-border);
+        }
+        #close-developers-panel-btn, #close-game-mode-panel-btn {
+            position: absolute; top: 12px; right: 12px; width: 40px; height: 40px;
+            background: linear-gradient(to bottom, #e87b7c, var(--clash-red));
+            border: 2px solid #7c2425;
+            box-shadow: 0 4px 0 #8f2a2b;
+            color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px;
+            font-weight: bold; line-height: 1; cursor: pointer; transition: all 0.2s ease;
+        }
+        #close-developers-panel-btn:hover, #close-game-mode-panel-btn:hover { transform: scale(1.1) rotate(90deg); }
+        #close-developers-panel-btn:active, #close-game-mode-panel-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #8f2a2b; }
+
+        .developer-item {
+            background-color: rgba(42, 65, 102, 0.9);
+            padding: 1rem 1.2rem; border-radius: 12px;
+            border: 2px solid rgba(157, 194, 255, 0.4);
+        }
+        .dev-header { border-bottom: 2px solid rgba(157, 194, 255, 0.3); }
+        .dev-role-icon { font-size: 1.7em; color: var(--clash-gold); margin-left: 10px; }
+        .dev-role { font-size: 1.15rem; font-weight: 700; color: #fff; font-family: 'Vazirmatn'; }
+        .dev-username { color: #fff8a8; font-weight: bold; font-size: 1.25rem; }
+        .dev-description { font-size: 0.9rem; color: #d0e0ff; line-height: 1.65; font-family: 'Vazirmatn'; }
+
+        /* --- REMOVED STYLES for Avatar/Name Input --- */
+
+        /* --- NEW STYLES for Game Mode Panel --- */
+        #game-mode-panel .btn-clash-primary {
+            padding: 16px 32px;
+            font-size: 1.5rem;
+            width: 100%;
+            max-width: 300px;
+        }
+        #game-mode-panel .btn-clash-primary .icon {
+            font-size: 2rem;
+            margin-left: 12px;
+        }
+        
+        /* --- NEW STYLES for Question Timer --- */
+        #timer-container {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+        #timer-svg {
+            transform: rotate(-90deg); /* Start from the top */
+        }
+        .timer-circle {
+            fill: none;
+            stroke-width: 8;
+        }
+        .timer-bg {
+            stroke: var(--clash-panel-border-dark);
+        }
+        .timer-progress {
+            stroke: var(--clash-gold);
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1s linear;
+        }
+        #timer-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Lilita One', cursive;
+            font-size: 1.8rem;
+            color: var(--clash-gold);
+            text-shadow: 2px 2px 2px #000;
+        }
+
+    </style>
 </head>
 <body>
-    <!-- User Profile Area was here but has been removed as requested -->
+    <div id="loading-screen" class="screen active">
+        <div id="loading-content-box">
+            <img id="loading-logo" src="https://up.20script.ir/file/7e7a-Copilot-20250812-110015-removebg-preview.png" alt="لوگوی بازی شهر مافیا">
+            <h1 class="text-4xl sm:text-5xl font-bold clash-font text-[var(--clash-gold)]" style="text-shadow: 3px 3px 4px #000;">شهر مافیا</h1>
+            
+            <div id="loading-progress-bar-container">
+                <div id="loading-progress-bar-fill"></div>
+            </div>
+            
+            <p id="loading-message" class="text-lg">در حال آماده سازی...</p>
+            
+            <p id="loading-tip">✨ به دنیای رمزآلود مافیا خوش آمدید... ✨</p>
+        </div>
+    </div>
 
-    <!-- Loading Screen -->
-    <div id="loading-screen" class="screen active">
-        <div id="loading-content-box">
-            <img id="loading-logo" src="https://up.20script.ir/file/7e7a-Copilot-20250812-110015-removebg-preview.png" alt="لوگوی بازی شهر مافیا">
-            <h1 class="text-4xl sm:text-5xl font-bold clash-font text-[var(--clash-gold)]" style="text-shadow: 3px 3px 4px #000;">شهر مافیا</h1>
-            
-            <div id="loading-progress-bar-container">
-                <div id="loading-progress-bar-fill"></div>
-            </div>
-            
-            <p id="loading-message" class="text-lg">در حال آماده سازی...</p>
-            
-            <p id="loading-tip">✨ به دنیای رمزآلود مافیا خوش آمدید... ✨</p>
-        </div>
-    </div>
+    <div id="main-screen" class="screen">
+        <div class="screen-content-wrapper">
+            <div>
+                <div id="main-screen-header">
+                    <h1 id="main-title" class="clash-font">شهر مافیا</h1>
+                </div>
+                </div>
 
-    <!-- Main Menu Screen (Now shown immediately after loading) -->
-    <div id="main-screen" class="screen">
-        <div class="screen-content-wrapper">
-            <div>
-                <div id="main-screen-header">
-                    <h1 id="main-title" class="clash-font">شهر مافیا</h1>
-                </div>
-                <!-- REMOVED: Registration Form / Auth Panel -->
-            </div>
+            <div id="main-screen-buttons-layout" class="pb-2 sm:pb-4"> <div id="top-action-buttons">
+                    <button id="start-game-btn" class="btn-clash btn-clash-primary clash-font">شروع بازی</button>
+                    <button id="developers-btn" class="btn-clash btn-clash-secondary clash-font">👥 سازندگان</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            <div id="main-screen-buttons-layout" class="pb-2 sm:pb-4"> <!-- Removed 'hidden' class -->
-                <div id="top-action-buttons">
-                    <button id="start-game-btn" class="btn-clash btn-clash-primary clash-font">شروع بازی</button>
-                    <button id="developers-btn" class="btn-clash btn-clash-secondary clash-font">👥 سازندگان</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="game-screen" class="screen">
+        <div class="screen-content-wrapper justify-start">
+            <div class="flex justify-between items-center mb-4 sm:mb-6 p-3 bg-[rgba(0,0,0,0.3)] rounded-lg text-lg w-full">
+                <button id="back-to-main-btn" class="btn-clash btn-clash-secondary clash-font text-sm">بازگشت</button>
+                <div class="font-bold">مرحله: <span id="stage-display" class="clash-font text-[var(--clash-gold)] text-2xl">1</span></div>
+                <div id="timer-container">
+                    <svg id="timer-svg" width="60" height="60" viewBox="0 0 60 60">
+                        <circle class="timer-circle timer-bg" cx="30" cy="30" r="26"></circle>
+                        <circle id="timer-progress-circle" class="timer-circle timer-progress" cx="30" cy="30" r="26"></circle>
+                    </svg>
+                    <span id="timer-text">20</span>
+                </div>
+            </div>
 
-    <!-- Game Screen (Game flow remains the same) -->
-    <div id="game-screen" class="screen">
-        <div class="screen-content-wrapper justify-start">
-            <div class="flex justify-between items-center mb-4 sm:mb-6 p-3 bg-[rgba(0,0,0,0.3)] rounded-lg text-lg w-full">
-                <button id="back-to-main-btn" class="btn-clash btn-clash-secondary clash-font text-sm">بازگشت</button>
-                <div class="font-bold">مرحله: <span id="stage-display" class="clash-font text-[var(--clash-gold)] text-2xl">1</span></div>
-                <div id="timer-container">
-                    <svg id="timer-svg" width="60" height="60" viewBox="0 0 60 60">
-                        <circle class="timer-circle timer-bg" cx="30" cy="30" r="26"></circle>
-                        <circle id="timer-progress-circle" class="timer-circle timer-progress" cx="30" cy="30" r="26"></circle>
-                    </svg>
-                    <span id="timer-text">20</span>
-                </div>
-            </div>
+            <div id="question-container" class="panel-clash panel-visible p-4 sm:p-6 rounded-lg mb-4 sm:mb-6 min-h-[200px] flex flex-col justify-center w-full">
+                <p id="question-text" class="text-xl md:text-2xl mb-6 text-center leading-relaxed font-bold">سوال بارگذاری می‌شود...</p>
+                <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4"></div>
+                <p id="question-explanation" class="text-sm mt-4 text-gray-200 bg-black/30 p-2 rounded-md text-center hidden"></p>
+            </div>
 
-            <div id="question-container" class="panel-clash panel-visible p-4 sm:p-6 rounded-lg mb-4 sm:mb-6 min-h-[200px] flex flex-col justify-center w-full">
-                <p id="question-text" class="text-xl md:text-2xl mb-6 text-center leading-relaxed font-bold">سوال بارگذاری می‌شود...</p>
-                <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4"></div>
-                <p id="question-explanation" class="text-sm mt-4 text-gray-200 bg-black/30 p-2 rounded-md text-center hidden"></p>
-            </div>
+            <div id="game-feedback" class="text-center text-lg font-semibold my-4 h-8 clash-font"></div>
+        </div>
+    </div>
 
-            <div id="game-feedback" class="text-center text-lg font-semibold my-4 h-8 clash-font"></div>
-        </div>
-    </div>
+    <div id="modal-container" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 panel-hidden z-50">
+        <div class="panel-clash p-6 sm:p-8 rounded-lg max-w-md md:max-lg w-full text-center">
+            <h3 id="modal-title" class="text-2xl sm:text-3xl font-bold mb-4 clash-font text-[var(--clash-gold)]" style="text-shadow: 2px 2px 3px #000;">توجه</h3>
+            <div id="modal-content-dynamic">
+                <p id="modal-message" class="mb-3 text-base"></p>
+                
+                <div class="flex justify-center gap-4 mt-4">
+                    <button id="modal-confirm-btn" class="btn-clash btn-clash-primary clash-font">تأیید</button>
+                    <button id="modal-cancel-btn" class="btn-clash btn-clash-secondary clash-font hidden">لغو</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Modal Containers (for General messages / Confirmation) -->
-    <div id="modal-container" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 panel-hidden z-50">
-        <div class="panel-clash p-6 sm:p-8 rounded-lg max-w-md md:max-w-lg w-full text-center">
-            <h3 id="modal-title" class="text-2xl sm:text-3xl font-bold mb-4 clash-font text-[var(--clash-gold)]" style="text-shadow: 2px 2px 3px #000;">توجه</h3>
-            <div id="modal-content-dynamic">
-                <p id="modal-message" class="mb-3 text-base"></p>
-                
-                <!-- Removed: Change Name Input and Avatar Upload UI -->
-                
-                <div class="flex justify-center gap-4 mt-4">
-                    <button id="modal-confirm-btn" class="btn-clash btn-clash-primary clash-font">تأیید</button>
-                    <button id="modal-cancel-btn" class="btn-clash btn-clash-secondary clash-font hidden">لغو</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="developers-panel-container" class="fixed inset-0 flex items-center justify-center p-4 panel-hidden z-40">
+        <div id="developers-panel" class="panel-clash p-6 sm:p-10 rounded-lg max-w-md w-full relative">
+            <button id="close-developers-panel-btn">✕</button>
+            <h3 class="text-center text-3xl font-bold mb-6 clash-font text-[var(--clash-gold)]" style="text-shadow: 2px 2px 3px #000;">👥 سازندگان</h3>
+            <div class="space-y-4">
+                <div class="developer-item">
+                    <div class="dev-header flex items-center mb-2 pb-2">
+                        <span class="dev-role-icon">💻</span>
+                        <span class="dev-role">برنامه‌نویسان</span>
+                    </div>
+                    <p class="dev-username">سید عباس سجادی و علی بابایی</p>
+                    <p class="dev-description">پیاده‌سازی منطق و توسعه سمت کاربر (HTML, CSS, JavaScript).</p>
+                </div>
 
-    <!-- Developers Panel -->
-    <div id="developers-panel-container" class="fixed inset-0 flex items-center justify-center p-4 panel-hidden z-40">
-        <div id="developers-panel" class="panel-clash p-6 sm:p-10 rounded-lg max-w-md w-full relative">
-            <button id="close-developers-panel-btn">✕</button>
-            <h3 class="text-center text-3xl font-bold mb-6 clash-font text-[var(--clash-gold)]" style="text-shadow: 2px 2px 3px #000;">👥 سازندگان</h3>
-            <div class="space-y-4">
-                <!-- سید عباس سجادی - برنامه‌نویس ارشد -->
-                <div class="developer-item">
-                    <div class="dev-header flex items-center mb-2 pb-2">
-                        <span class="dev-role-icon">👨‍💻</span>
-                        <span class="dev-role">برنامه‌نویس ارشد</span>
-                    </div>
-                    <p class="dev-username">سید عباس سجادی</p>
-                    <p class="dev-description">مسئول معماری و توسعه‌ی بخش‌های اصلی کد بازی.</p>
-                </div>
+                <div class="developer-item">
+                    <div class="dev-header flex items-center mb-2 pb-2">
+                        <span class="dev-role-icon">🎨</span>
+                        <span class="dev-role">طراح رابط کاربری</span>
+                    </div>
+                    <p class="dev-username">وحید فریدونی</p>
+                    <p class="dev-description">طراحی بصری، استایل‌های Clash و تجربه کاربری (UI/UX).</p>
+                </div>
 
-                <!-- علی بابایی - برنامه‌نویس دوم و ایده‌پرداز -->
-                <div class="developer-item">
-                    <div class="dev-header flex items-center mb-2 pb-2">
-                        <span class="dev-role-icon">💡</span>
-                        <span class="dev-role">برنامه‌نویس دوم و ایده‌پرداز</span>
-                    </div>
-                    <p class="dev-username">علی بابایی</p>
-                    <p class="dev-description">مسئول اجرای برخی از ویژگی‌ها و ارائه سناریوها و ایده‌های بازی.</p>
-                </div>
+            </div>
+        </div>
+    </div>
 
-                <!-- وحید فریدونی - طراح رابط کاربری -->
-                <div class="developer-item">
-                    <div class="dev-header flex items-center mb-2 pb-2">
-                        <span class="dev-role-icon">🎨</span>
-                        <span class="dev-role">طراح رابط کاربری</span>
-                    </div>
-                    <p class="dev-username">وحید فریدونی</p>
-                    <p class="dev-description">مسئول طراحی بصری و تجربه کاربری (UX/UI) با استفاده از Tailwind CSS.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <script>
+        // --- Game Setup Data (Simplified for Demo) ---
+        const gameData = [
+            {
+                question: "کدام نقش در بازی مافیا توانایی بیدار کردن و معرفی یک شهروند به عنوان نگهبان را دارد؟",
+                options: ["مافیا", "شهروند ساده", "کارآگاه", "دکتر"],
+                answer: "دکتر",
+                explanation: "نقش دکتر یا پزشک می‌تواند هر شب یک نفر (از جمله خودش) را از حملات مافیا نجات دهد. اما این سؤال درباره **نگهبان** اشتباه است. در سناریوهای رایج، نقش **پزشک/دکتر** یا **نجات‌دهنده** وجود دارد که افراد را از مرگ نجات می‌دهد. چون هیچ نقشی به نام 'نگهبان' معرفی نمی‌کند و گزینه 'دکتر' نزدیک‌ترین نقش حمایت‌کننده است، برای این دمو، 'دکتر' را به عنوان نقش حمایت‌کننده در نظر می‌گیریم."
+            },
+            {
+                question: "هدف اصلی تیم مافیا در شب چیست؟",
+                options: ["شلیک به یک شهروند", "بحث و گفتگو", "شناسایی نقش‌های شهروند", "انتخاب شهردار"],
+                answer: "شلیک به یک شهروند",
+                explanation: "وظیفه اصلی تیم مافیا هر شب، حذف یک نفر از شهروندان است تا نسبت تعدادشان برابر شود و پیروز شوند."
+            },
+            {
+                question: "نقش «کارآگاه» در فاز روز چه مزیتی نسبت به شهروندان عادی دارد؟",
+                options: ["دارای حق شلیک است.", "از شب قبل به نقش یک نفر پی برده است.", "می‌تواند حکم را صادر کند.", "می‌تواند سکوت کند."],
+                answer: "از شب قبل به نقش یک نفر پی برده است.",
+                explanation: "کارآگاه (یا بازپرس) هر شب می‌تواند از نقش یک نفر استعلام بگیرد و در روز از این اطلاعات برای هدایت بحث استفاده کند."
+            },
+            {
+                question: "چه زمانی بازی مافیا به پایان می‌رسد؟",
+                options: ["پس از ۵ دور بازی", "وقتی تعداد شهروندان و مافیا برابر شود.", "وقتی فقط دو نفر باقی بمانند.", "وقتی شهردار انتخاب شود."],
+                answer: "وقتی تعداد شهروندان و مافیا برابر شود.",
+                explanation: "مافیا زمانی پیروز می‌شود که تعداد اعضای مافیا برابر یا بیشتر از تعداد شهروندان شود (سناریوهای استاندارد)."
+            }
+        ];
 
-    <script>
-        // --- Game Setup Data (Simplified for Demo) ---
-        const gameData = [
-            {
-                question: "کدام نقش در بازی مافیا توانایی بیدار کردن و معرفی یک شهروند به عنوان نگهبان را دارد؟",
-                options: ["مافیا", "شهروند ساده", "کارآگاه", "دکتر"],
-                answer: "دکتر",
-                explanation: "نقش دکتر یا پزشک می‌تواند هر شب یک نفر (از جمله خودش) را از حملات مافیا نجات دهد. اما این سؤال درباره **نگهبان** اشتباه است. در سناریوهای رایج، نقش **پزشک/دکتر** یا **نجات‌دهنده** وجود دارد که افراد را از مرگ نجات می‌دهد. چون هیچ نقشی به نام 'نگهبان' معرفی نمی‌کند و گزینه 'دکتر' نزدیک‌ترین نقش حمایت‌کننده است، برای این دمو، 'دکتر' را به عنوان نقش حمایت‌کننده در نظر می‌گیریم."
-            },
-            {
-                question: "هدف اصلی تیم مافیا در شب چیست؟",
-                options: ["شلیک به یک شهروند", "بحث و گفتگو", "شناسایی نقش‌های شهروند", "انتخاب شهردار"],
-                answer: "شلیک به یک شهروند",
-                explanation: "وظیفه اصلی تیم مافیا هر شب، حذف یک نفر از شهروندان است تا نسبت تعدادشان برابر شود و پیروز شوند."
-            },
-            {
-                question: "نقش «کارآگاه» در فاز روز چه مزیتی نسبت به شهروندان عادی دارد؟",
-                options: ["دارای حق شلیک است.", "از شب قبل به نقش یک نفر پی برده است.", "می‌تواند حکم را صادر کند.", "می‌تواند سکوت کند."],
-                answer: "از شب قبل به نقش یک نفر پی برده است.",
-                explanation: "کارآگاه (یا بازپرس) هر شب می‌تواند از نقش یک نفر استعلام بگیرد و در روز از این اطلاعات برای هدایت بحث استفاده کند."
-            },
-            {
-                question: "چه زمانی بازی مافیا به پایان می‌رسد؟",
-                options: ["پس از ۵ دور بازی", "وقتی تعداد شهروندان و مافیا برابر شود.", "وقتی فقط دو نفر باقی بمانند.", "وقتی شهردار انتخاب شود."],
-                answer: "وقتی تعداد شهروندان و مافیا برابر شود.",
-                explanation: "مافیا زمانی پیروز می‌شود که تعداد اعضای مافیا برابر یا بیشتر از تعداد شهروندان شود (سناریوهای استاندارد)."
-            }
-        ];
+        // --- DOM Elements ---
+        const loadingScreen = document.getElementById('loading-screen');
+        const mainScreen = document.getElementById('main-screen');
+        const gameScreen = document.getElementById('game-screen');
 
-        // --- DOM Elements ---
-        const loadingScreen = document.getElementById('loading-screen');
-        const mainScreen = document.getElementById('main-screen');
-        const gameScreen = document.getElementById('game-screen');
+        const startGameBtn = document.getElementById('start-game-btn');
+        const developersBtn = document.getElementById('developers-btn');
+        const backToMainBtn = document.getElementById('back-to-main-btn');
 
-        const startGameBtn = document.getElementById('start-game-btn');
-        const developersBtn = document.getElementById('developers-btn');
-        const backToMainBtn = document.getElementById('back-to-main-btn');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const stageDisplay = document.getElementById('stage-display');
+        const gameFeedback = document.getElementById('game-feedback');
+        const questionExplanation = document.getElementById('question-explanation');
+        
+        // Timer elements
+        const timerText = document.getElementById('timer-text');
+        const timerProgressCircle = document.getElementById('timer-progress-circle');
+        const circleRadius = 26; // Should match CSS
+        const circleCircumference = 2 * Math.PI * circleRadius;
+        timerProgressCircle.style.strokeDasharray = `${circleCircumference} ${circleCircumference}`;
+        timerProgressCircle.style.strokeDashoffset = circleCircumference;
 
-        const questionText = document.getElementById('question-text');
-        const optionsContainer = document.getElementById('options-container');
-        const stageDisplay = document.getElementById('stage-display');
-        const gameFeedback = document.getElementById('game-feedback');
-        const questionExplanation = document.getElementById('question-explanation');
-        
-        // Timer elements
-        const timerText = document.getElementById('timer-text');
-        const timerProgressCircle = document.getElementById('timer-progress-circle');
-        const circleRadius = 26; // Should match CSS
-        const circleCircumference = 2 * Math.PI * circleRadius;
-        timerProgressCircle.style.strokeDasharray = `${circleCircumference} ${circleCircumference}`;
-        timerProgressCircle.style.strokeDashoffset = circleCircumference;
+        // Modal elements
+        const modalContainer = document.getElementById('modal-container');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMessage = document.getElementById('modal-message');
+        const modalConfirmBtn = document.getElementById('modal-confirm-btn');
+        const modalCancelBtn = document.getElementById('modal-cancel-btn');
+        const developersPanelContainer = document.getElementById('developers-panel-container');
+        const closeDevelopersPanelBtn = document.getElementById('close-developers-panel-btn');
 
-        // Modal elements
-        const modalContainer = document.getElementById('modal-container');
-        const modalTitle = document.getElementById('modal-title');
-        const modalMessage = document.getElementById('modal-message');
-        const modalConfirmBtn = document.getElementById('modal-confirm-btn');
-        const modalCancelBtn = document.getElementById('modal-cancel-btn');
-        const developersPanelContainer = document.getElementById('developers-panel-container');
-        const closeDevelopersPanelBtn = document.getElementById('close-developers-panel-btn');
+        // --- Game State ---
+        let currentStage = 0;
+        let timerInterval;
+        let gameTime = 20;
 
-        // --- Game State ---
-        let currentStage = 0;
-        let timerInterval;
-        let gameTime = 20;
+        /**
+         * Cleans up the previous game stage elements.
+         */
+        function cleanupGameScreen() {
+            optionsContainer.innerHTML = '';
+            gameFeedback.textContent = '';
+            questionExplanation.textContent = '';
+            questionExplanation.classList.add('hidden');
+        }
 
-        /**
-         * Cleans up the previous game stage elements.
-         */
-        function cleanupGameScreen() {
-            optionsContainer.innerHTML = '';
-            gameFeedback.textContent = '';
-            questionExplanation.textContent = '';
-            questionExplanation.classList.add('hidden');
-        }
+        /**
+         * Updates the circular timer and text display.
+         * @param {number} timeRemaining - Seconds left.
+         */
+        function updateTimerUI(timeRemaining) {
+            timerText.textContent = timeRemaining;
+            const percentage = timeRemaining / gameTime;
+            const offset = circleCircumference * (1 - percentage);
+            timerProgressCircle.style.strokeDashoffset = offset;
 
-        /**
-         * Updates the circular timer and text display.
-         * @param {number} timeRemaining - Seconds left.
-         */
-        function updateTimerUI(timeRemaining) {
-            timerText.textContent = timeRemaining;
-            const percentage = timeRemaining / gameTime;
-            const offset = circleCircumference * (1 - percentage);
-            timerProgressCircle.style.strokeDashoffset = offset;
+            // Change color for low time
+            if (timeRemaining <= 5) {
+                timerProgressCircle.style.stroke = 'var(--clash-red)';
+            } else {
+                timerProgressCircle.style.stroke = 'var(--clash-gold)';
+            }
+        }
 
-            // Change color for low time
-            if (timeRemaining <= 5) {
-                timerProgressCircle.style.stroke = 'var(--clash-red)';
-            } else {
-                timerProgressCircle.style.stroke = 'var(--clash-gold)';
-            }
-        }
+        /**
+         * Handles the game timer logic.
+         */
+        function startTimer() {
+            clearInterval(timerInterval);
+            let timeRemaining = gameTime;
+            updateTimerUI(timeRemaining);
 
-        /**
-         * Handles the game timer logic.
-         */
-        function startTimer() {
-            clearInterval(timerInterval);
-            let timeRemaining = gameTime;
-            updateTimerUI(timeRemaining);
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                updateTimerUI(timeRemaining);
 
-            timerInterval = setInterval(() => {
-                timeRemaining--;
-                updateTimerUI(timeRemaining);
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    handleAnswer(null); // Time's up
+                }
+            }, 1000);
+        }
 
-                if (timeRemaining <= 0) {
-                    clearInterval(timerInterval);
-                    handleAnswer(null); // Time's up
-                }
-            }, 1000);
-        }
+        /**
+         * Loads and displays the current question.
+         */
+        function loadStage() {
+            cleanupGameScreen();
+            const stageData = gameData[currentStage];
+            stageDisplay.textContent = currentStage + 1;
+            questionText.textContent = stageData.question;
+            
+            // Reset timer duration for each stage
+            gameTime = 20 + (currentStage * 5); // Increase time slightly for complexity
 
-        /**
-         * Loads and displays the current question.
-         */
-        function loadStage() {
-            cleanupGameScreen();
-            const stageData = gameData[currentStage];
-            stageDisplay.textContent = currentStage + 1;
-            questionText.textContent = stageData.question;
-            
-            // Reset timer duration for each stage
-            gameTime = 20 + (currentStage * 5); // Increase time slightly for complexity
+            stageData.options.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.className = 'option-btn clash-font text-xl';
+                button.onclick = () => handleAnswer(option, button);
+                optionsContainer.appendChild(button);
+            });
 
-            // Create option buttons
-            stageData.options.forEach(option => {
-                const button = document.createElement('button');
-                button.textContent = option;
-                button.className = 'option-btn clash-font';
-                button.onclick = () => handleAnswer(option);
-                optionsContainer.appendChild(button);
-            });
+            startTimer();
+        }
 
-            startTimer();
-        }
+        /**
+         * پاسخ انتخاب شده توسط کاربر یا اتمام زمان را مدیریت می‌کند.
+         * @param {string | null} selectedAnswer - متن گزینه انتخاب شده، یا null در صورت اتمام زمان.
+         * @param {HTMLElement | null} selectedButton - المان دکمه انتخاب شده.
+         */
+        function handleAnswer(selectedAnswer, selectedButton = null) {
+            clearInterval(timerInterval);
+            const stageData = gameData[currentStage];
+            const isCorrect = selectedAnswer === stageData.answer;
 
-        /**
-         * Handles the user's answer selection or timeout.
-         * @param {string | null} selectedOption - The selected option text or null if timed out.
-         */
-        function handleAnswer(selectedOption) {
-            clearInterval(timerInterval);
-            const stageData = gameData[currentStage];
-            const isCorrect = selectedOption === stageData.answer;
+            // غیرفعال کردن همه دکمه‌ها و نمایش پاسخ صحیح/غلط
+            Array.from(optionsContainer.children).forEach(btn => {
+                btn.disabled = true;
+                if (btn.textContent === stageData.answer) {
+                    btn.classList.add('correct');
+                } else if (btn === selectedButton) {
+                    btn.classList.add('incorrect');
+                }
+            });
 
-            // Disable all buttons and highlight the result
-            Array.from(optionsContainer.children).forEach(button => {
-                button.disabled = true;
-                if (button.textContent === stageData.answer) {
-                    button.classList.add('correct');
-                } else if (button.textContent === selectedOption) {
-                    button.classList.add('incorrect');
-                }
-            });
-            
-            // Show explanation
-            questionExplanation.textContent = `توضیح: ${stageData.explanation}`;
-            questionExplanation.classList.remove('hidden');
+            // نمایش بازخورد و توضیح
+            if (selectedAnswer === null) {
+                gameFeedback.textContent = '❌ زمان به پایان رسید! ❌';
+            } else if (isCorrect) {
+                gameFeedback.textContent = '✅ پاسخ صحیح است!';
+            } else {
+                gameFeedback.textContent = '❌ پاسخ اشتباه است. پاسخ صحیح مشخص شد.';
+            }
+            
+            questionExplanation.textContent = 'توضیح: ' + stageData.explanation;
+            questionExplanation.classList.remove('hidden');
 
+            // رفتن به مرحله بعد با تأخیر
+            setTimeout(() => {
+                currentStage++;
+                if (currentStage < gameData.length) {
+                    loadStage();
+                } else {
+                    showGameOver();
+                }
+            }, 4000); // 4 ثانیه برای خواندن توضیح
+        }
 
-            // Provide feedback
-            if (selectedOption === null) {
-                gameFeedback.textContent = "وقت تمام شد! ⏳";
-                gameFeedback.className = 'text-center text-xl font-semibold my-4 h-8 clash-font text-[var(--clash-red)]';
-            } else if (isCorrect) {
-                gameFeedback.textContent = "پاسخ صحیح! تبریک! 🎉";
-                gameFeedback.className = 'text-center text-xl font-semibold my-4 h-8 clash-font text-[var(--clash-green)]';
-            } else {
-                gameFeedback.textContent = "متأسفیم! پاسخ اشتباه است. 💔";
-                gameFeedback.className = 'text-center text-xl font-semibold my-4 h-8 clash-font text-[var(--clash-red)]';
-            }
+        /**
+         * صفحه پایان بازی را نمایش می‌دهد (با استفاده از مدال).
+         */
+        function showGameOver() {
+            showModal({
+                title: 'پایان بازی! 🏁',
+                message: 'شما به تمام سوالات پاسخ دادید. برای شروع دوباره به منوی اصلی بازگردید.',
+                onConfirm: () => {
+                    currentStage = 0; // بازنشانی وضعیت بازی
+                    navigateTo('main-screen');
+                }
+            });
+        }
 
-            // Prepare for the next stage
-            setTimeout(nextStage, 4000);
-        }
+        /**
+         * مدیریت جابجایی بین صفحات.
+         * @param {string} screenId - شناسه صفحه‌ای که باید فعال شود ('loading-screen', 'main-screen', 'game-screen').
+         */
+        function navigateTo(screenId) {
+            Array.from(document.querySelectorAll('.screen')).forEach(screen => {
+                screen.classList.remove('active');
+            });
+            document.getElementById(screenId).classList.add('active');
+        }
 
-        /**
-         * Moves to the next stage or ends the game.
-         */
-        function nextStage() {
-            currentStage++;
-            if (currentStage < gameData.length) {
-                loadStage();
-            } else {
-                endGame();
-            }
-        }
-        
-        /**
-         * Ends the game and shows final message.
-         */
-        function endGame() {
-            cleanupGameScreen();
-            questionText.textContent = "پایان بازی! شما به تمام سوالات پاسخ دادید. برای شروع مجدد به منوی اصلی بازگردید.";
-            stageDisplay.textContent = '-';
-            updateTimerUI(0);
-        }
+        /**
+         * نمایش یک مدال (پاپ‌آپ) سفارشی.
+         * @param {object} options - تنظیمات مدال.
+         * @param {string} options.title - عنوان مدال.
+         * @param {string} options.message - پیام مدال.
+         * @param {function} options.onConfirm - تابعی که هنگام تأیید اجرا می‌شود.
+         * @param {function} [options.onCancel] - تابعی که هنگام لغو اجرا می‌شود (دکمه لغو را نمایش می‌دهد).
+         */
+        function showModal({ title, message, onConfirm, onCancel }) {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            modalCancelBtn.classList.add('hidden');
+            
+            // بازنشانی شنونده‌های رویداد قبل از تنظیم مجدد
+            modalConfirmBtn.onclick = null;
+            modalCancelBtn.onclick = null;
 
-        // --- Screen Management ---
+            modalConfirmBtn.onclick = () => {
+                hideModal();
+                if (onConfirm) onConfirm();
+            };
 
-        function showScreen(screenToShow) {
-            [loadingScreen, mainScreen, gameScreen, developersPanelContainer].forEach(screen => {
-                if (screen) {
-                    screen.classList.remove('active', 'panel-visible');
-                    screen.classList.add('panel-hidden');
-                }
-            });
+            if (onCancel) {
+                modalCancelBtn.classList.remove('hidden');
+                modalCancelBtn.onclick = hideModal;
+            }
 
-            if (screenToShow) {
-                if (screenToShow === developersPanelContainer) {
-                    // Special case: Show panel over current active screen
-                    screenToShow.classList.remove('panel-hidden');
-                    screenToShow.classList.add('panel-visible');
-                } else {
-                    screenToShow.classList.remove('panel-hidden');
-                    screenToShow.classList.add('active');
-                }
-            }
-        }
+            modalContainer.classList.remove('panel-hidden');
+            modalContainer.classList.add('panel-visible');
+        }
 
+        function hideModal() {
+            modalContainer.classList.remove('panel-visible');
+            modalContainer.classList.add('panel-hidden');
+        }
 
-        // --- Event Listeners ---
-        
-        startGameBtn.addEventListener('click', () => {
-            currentStage = 0;
-            showScreen(gameScreen);
-            loadStage();
-        });
+        // --- شنونده‌های رویداد و بارگذاری اولیه ---
+        startGameBtn.addEventListener('click', () => {
+            navigateTo('game-screen');
+            currentStage = 0;
+            loadStage();
+        });
+        
+        backToMainBtn.addEventListener('click', () => {
+            // درخواست تأیید قبل از ترک بازی
+            showModal({
+                title: 'ترک بازی؟',
+                message: 'آیا مطمئن هستید که می‌خواهید بازی را ترک کنید؟ پیشرفت شما ذخیره نخواهد شد.',
+                onConfirm: () => {
+                    clearInterval(timerInterval); // توقف زمان‌سنج
+                    currentStage = 0; // بازنشانی وضعیت بازی
+                    navigateTo('main-screen');
+                },
+                onCancel: () => {}
+            });
+        });
 
-        backToMainBtn.addEventListener('click', () => {
-            clearInterval(timerInterval);
-            showScreen(mainScreen);
-        });
-        
-        developersBtn.addEventListener('click', () => {
-            showScreen(developersPanelContainer);
-        });
+        // مدیریت پنل سازندگان
+        developersBtn.addEventListener('click', () => {
+            developersPanelContainer.classList.remove('panel-hidden');
+            developersPanelContainer.classList.add('panel-visible');
+        });
+        closeDevelopersPanelBtn.addEventListener('click', () => {
+            developersPanelContainer.classList.remove('panel-visible');
+            developersPanelContainer.classList.add('panel-hidden');
+        });
 
-        closeDevelopersPanelBtn.addEventListener('click', () => {
-            developersPanelContainer.classList.remove('panel-visible');
-            developersPanelContainer.classList.add('panel-hidden');
-        });
+        // توالی بارگذاری اولیه
+        const progressBarFill = document.getElementById('loading-progress-bar-fill');
+        const loadingMessage = document.getElementById('loading-message');
+        const loadingTips = [
+            "شهروندان باید با استدلال مافیا را شناسایی کنند.",
+            "سکوت مافیا می‌تواند خطرناک‌تر از حرف زدن باشد.",
+            "دکتر فقط یک بار می‌تواند خودش را نجات دهد.",
+            "بیش از حد مطمئن بودن می‌تواند نشانه مافیا باشد!"
+        ];
+        let loadProgress = 0;
+        const loadingInterval = setInterval(() => {
+            loadProgress += 10;
+            progressBarFill.style.width = `${loadProgress}%`;
 
+            if (loadProgress >= 100) {
+                clearInterval(loadingInterval);
+                loadingMessage.textContent = 'آماده ورود به شهر!';
+                setTimeout(() => {
+                    loadingScreen.classList.remove('active');
+                    mainScreen.classList.add('active');
+                    startGameBtn.classList.add('breathing'); // اضافه کردن انیمیشن تنفس
+                }, 500);
+            } else if (loadProgress > 50 && loadProgress < 70) {
+                loadingMessage.textContent = 'بارگذاری منابع بازی...';
+            } else if (loadProgress > 80) {
+                loadingMessage.textContent = 'اعمال تنظیمات نهایی...';
+            }
 
-        // --- Initial Setup & Loading Animation ---
-        const loadingMessage = document.getElementById('loading-message');
-        const loadingProgressBarFill = document.getElementById('loading-progress-bar-fill');
-        const loadingTips = [
-            "شهروندان باید مافیا را پیدا کنند.",
-            "مافیا باید خود را شهروند جا بزند.",
-            "به حرف‌های دیگران خوب گوش دهید.",
-            "دروغگوها را شناسایی کنید!",
-            "پزشک جان یک نفر را نجات می‌دهد."
-        ];
-        const loadingTipElement = document.getElementById('loading-tip');
-        let progress = 0;
+            // به‌روزرسانی نکته به صورت دوره‌ای
+            document.getElementById('loading-tip').textContent = `💡 نکته: ${loadingTips[Math.floor(Math.random() * loadingTips.length)]}`;
 
-        function updateLoading() {
-            progress += Math.random() * 15;
-            if (progress > 100) progress = 100;
+        }, 500);
 
-            loadingProgressBarFill.style.width = `${progress}%`;
-
-            if (progress < 40) {
-                loadingMessage.textContent = "در حال بارگذاری دارایی‌ها...";
-            } else if (progress < 80) {
-                loadingMessage.textContent = "در حال تعیین نقش‌ها...";
-            } else if (progress < 100) {
-                loadingMessage.textContent = "تقریباً آماده است...";
-            } else {
-                loadingMessage.textContent = "شروع بازی...";
-                clearInterval(loadingInterval);
-                setTimeout(() => {
-                    showScreen(mainScreen);
-                    startGameBtn.classList.add('breathing');
-                }, 500);
-            }
-            
-            // Update Tip (less frequently)
-            if (Math.random() < 0.2) {
-                loadingTipElement.textContent = `نکته: ${loadingTips[Math.floor(Math.random() * loadingTips.length)]}`;
-            }
-        }
-
-        const loadingInterval = setInterval(updateLoading, 200);
-
-        // Ensure main screen is shown correctly on load after loading is complete
-        window.onload = () => {
-            if (progress < 100) {
-                // Force end loading if somehow it hasn't finished after load
-                progress = 100;
-                updateLoading();
-            }
-        };
-    </script>
+    </script>
 </body>
 </html>
