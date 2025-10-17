@@ -388,10 +388,9 @@
         @media (min-width: 640px) { .screen-content-wrapper { padding-bottom: 20px; } }
         /* Adjusted padding-top now that the fixed profile bar is gone */
         #main-screen .screen-content-wrapper {
-            /* REPLACED `justify-content` with `flex-grow` on child */
+            justify-content: space-between;
             min-height: calc(100vh - 20px);
             padding-top: 20px; 
-            padding-bottom: 0; /* Remove padding bottom to allow footer to stick */
         }
         @media (min-width: 640px) { #main-screen .screen-content-wrapper { min-height: calc(100vh - 40px); padding-top: 20px; } }
 
@@ -428,9 +427,8 @@
         @media (min-width: 640px) { #main-title { font-size: 4.5rem; } }
         @media (min-width: 768px) { #main-title { font-size: 5.5rem; } }
 
-        /* REMOVED UNUSED STYLES */
-        /* #main-screen-buttons-layout { ... } */
-        /* #top-action-buttons { ... } */
+        #main-screen-buttons-layout { display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: auto; padding-top: 1rem; }
+        #top-action-buttons { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem; width: 100%; padding-bottom: 5px; }
         
         #input-error-message, #user-id-error-message, #change-name-error-message, #login-error-message, #avatar-error-message {
             color: #ffdddd; font-size: 0.9rem; text-align: center; min-height: 1.2rem; margin-top: 0.5rem; font-weight: bold; background-color: rgba(200, 60, 60, 0.7); padding: 4px 8px; border-radius: 6px; border: 1px solid var(--clash-red);
@@ -533,28 +531,28 @@
 
     <div id="main-screen" class="screen">
         <div class="screen-content-wrapper">
-            
-            <div id="main-screen-header">
-                <h1 id="main-title" class="clash-font">شهر مافیا</h1>
+            <div>
+                <div id="main-screen-header">
+                    <h1 id="main-title" class="clash-font">شهر مافیا</h1>
+                </div>
             </div>
 
-            <div class="flex-grow flex flex-col items-center justify-center gap-4 py-4">
-                <button id="start-game-btn" class="btn-clash btn-clash-primary clash-font breathing !text-2xl sm:!text-4xl !px-12 !py-4 sm:!px-16 sm:!py-5">
-                    شروع بازی
-                </button>
-                <button id="online-game-btn" class="btn-clash btn-clash-secondary clash-font !text-lg">
-                    🎮 بازی آنلاین
-                </button>
+            <div class="flex-grow flex flex-col items-center justify-center pb-12">
+                <div class="flex flex-col items-center gap-4">
+                    <button id="start-game-btn" class="btn-clash btn-clash-primary clash-font text-2xl py-4 px-10 sm:text-3xl sm:py-5 sm:px-12 breathing">شروع بازی</button>
+                    <button onclick="alert('به زودی')" class="btn-clash btn-clash-secondary clash-font py-2 px-6">بازی آنلاین</button>
+                </div>
             </div>
 
-            <div class="w-full flex justify-center items-center gap-2 sm:gap-4 p-3 border-t-4 border-t-[var(--clash-panel-border-dark)] bg-black/20">
-                <button id="challenges-btn" class="btn-clash btn-clash-secondary clash-font text-xs sm:text-sm">🏆 چالش ها</button>
-                <button id="developers-btn" class="btn-clash btn-clash-secondary clash-font text-xs sm:text-sm">👥 سازندگان</button>
-                <button id="collective-jump-btn" class="btn-clash btn-clash-secondary clash-font text-xs sm:text-sm">🚀 جهش جمعی</button>
+            <div class="w-full py-2">
+                <div class="flex justify-around items-center gap-2 bg-[rgba(0,0,0,0.3)] p-2 rounded-lg">
+                    <button id="developers-btn" class="btn-clash btn-clash-secondary clash-font text-xs sm:text-sm flex-1">👥 سازندگان</button>
+                    <button class="btn-clash btn-clash-secondary clash-font text-xs sm:text-sm flex-1" onclick="alert('به زودی')">🏆 چالش ها</button>
+                    <button class="btn-clash btn-clash-secondary clash-font text-xs sm:text-sm flex-1" onclick="alert('به زودی')">🚀 جهش جمعی</button>
+                </div>
             </div>
         </div>
     </div>
-
     <div id="game-screen" class="screen">
         <div class="screen-content-wrapper justify-start">
             <div class="flex justify-between items-center mb-4 sm:mb-6 p-3 bg-[rgba(0,0,0,0.3)] rounded-lg text-lg w-full">
@@ -657,11 +655,6 @@
         const startGameBtn = document.getElementById('start-game-btn');
         const developersBtn = document.getElementById('developers-btn');
         const backToMainBtn = document.getElementById('back-to-main-btn');
-        // --- دکمه های جدید ---
-        const onlineGameBtn = document.getElementById('online-game-btn');
-        const challengesBtn = document.getElementById('challenges-btn');
-        const collectiveJumpBtn = document.getElementById('collective-jump-btn');
-
 
         const questionText = document.getElementById('question-text');
         const optionsContainer = document.getElementById('options-container');
@@ -690,39 +683,6 @@
         let currentStage = 0;
         let timerInterval;
         let gameTime = 20;
-
-        // --- NEW: Modal Logic ---
-        let modalConfirmCallback = null;
-
-        function showModal(title, message, confirmText = 'تأیید', cancelText = null, onConfirm = null) {
-            modalTitle.textContent = title;
-            modalMessage.innerHTML = message; // Use innerHTML to allow for simple styling if needed
-            modalConfirmBtn.textContent = confirmText;
-            
-            if (cancelText) {
-                modalCancelBtn.textContent = cancelText;
-                modalCancelBtn.classList.remove('hidden');
-            } else {
-                modalCancelBtn.classList.add('hidden');
-            }
-
-            modalContainer.classList.remove('panel-hidden');
-            modalConfirmCallback = onConfirm;
-        }
-
-        function hideModal() {
-            modalContainer.classList.add('panel-hidden');
-            modalConfirmCallback = null;
-        }
-
-        modalConfirmBtn.addEventListener('click', () => {
-            if (modalConfirmCallback) {
-                modalConfirmCallback();
-            }
-            hideModal();
-        });
-
-        modalCancelBtn.addEventListener('click', hideModal);
 
         /**
          * Cleans up the previous game stage elements.
@@ -781,51 +741,7 @@
             questionText.textContent = stageData.question;
             
             // Reset timer duration for each stage
-            gameTime = 20; // Reset to 20 seconds for each question
-            
-            // --- بقیه کد جاوا اسکریپت شما ---
-            // (بخش مربوط به انتخاب گزینه‌ها، نمایش جواب و ... بدون تغییر باقی مانده است)
-            // ...
-        }
-
-        // --- رویدادهای کلیک دکمه های جدید ---
-        onlineGameBtn.addEventListener('click', () => {
-            showModal('بازی آنلاین', 'این بخش به زودی در دسترس خواهد بود!', 'باشه');
-        });
-
-        challengesBtn.addEventListener('click', () => {
-            showModal('چالش‌ها', 'این بخش به زودی اضافه خواهد شد.', 'متوجه شدم');
-        });
-
-        collectiveJumpBtn.addEventListener('click', () => {
-            showModal('جهش جمعی', 'این بخش به زودی در دسترس قرار می‌گیرد.', 'باشه');
-        });
-        
-        // --- رویدادهای قبلی (بدون تغییر) ---
-        developersBtn.addEventListener('click', () => {
-            developersPanelContainer.classList.remove('panel-hidden');
-        });
-        
-        closeDevelopersPanelBtn.addEventListener('click', () => {
-            developersPanelContainer.classList.add('panel-hidden');
-        });
-
-        startGameBtn.addEventListener('click', () => {
-            currentStage = 0;
-            mainScreen.classList.remove('active');
-            gameScreen.classList.add('active');
-            loadStage();
-            startTimer(); // Timer starts when game starts
-        });
-
-        backToMainBtn.addEventListener('click', () => {
-            gameScreen.classList.remove('active');
-            mainScreen.classList.add('active');
-            clearInterval(timerInterval);
-        });
-
-        // (اینجا باید بقیه منطق بازی شما که در کد اصلی بود قرار بگیرد)
-
+            gam
     </script>
 </body>
 </html>
