@@ -189,6 +189,18 @@
         #start-game-btn.breathing {
             animation: breathe 2.5s ease-in-out infinite;
         }
+
+        /* --- NEW: Larger Start Game Button --- */
+        #start-game-btn {
+            padding: 16px 32px;
+            font-size: 1.8rem;
+        }
+        @media (min-width: 640px) {
+            #start-game-btn {
+                padding: 20px 50px;
+                font-size: 2.2rem;
+            }
+        }
         
         /* --- Secondary Button (Blue) --- */
         .btn-clash-secondary {
@@ -438,7 +450,7 @@
         /* Styles for Pop-up Panels */
         #developers-panel-container, #game-mode-panel-container { background-color: rgba(10, 10, 10, 0.85); }
         #developers-panel, #game-mode-panel {
-            background-color: var(--clash-panel-bg);
+            background-color: var(--clاش-panel-bg);
             border: 4px solid var(--clash-panel-border-dark);
             border-top-color: var(--clash-panel-border);
             border-left-color: var(--clash-panel-border);
@@ -531,28 +543,28 @@
 
     <div id="main-screen" class="screen">
         <div class="screen-content-wrapper">
+            <!-- Header -->
             <div>
                 <div id="main-screen-header">
                     <h1 id="main-title" class="clash-font">شهر مافیا</h1>
                 </div>
             </div>
 
-            <div class="flex-grow flex flex-col items-center justify-center pb-12">
-                <div class="flex flex-col items-center gap-4">
-                    <button id="start-game-btn" class="btn-clash btn-clash-primary clash-font text-2xl py-4 px-10 sm:text-3xl sm:py-5 sm:px-12 breathing">شروع بازی</button>
-                    <button onclick="alert('به زودی')" class="btn-clash btn-clash-secondary clash-font py-2 px-6">بازی آنلاین</button>
-                </div>
+            <!-- Center Content: Main Buttons -->
+            <div class="flex-grow flex flex-col justify-center items-center gap-4">
+                <button id="start-game-btn" class="btn-clash btn-clash-primary clash-font breathing">شروع بازی</button>
+                <button onclick="alert('به زودی')" class="btn-clash btn-clash-secondary clash-font">بازی انلاین</button>
             </div>
 
-            <div class="w-full py-2">
-                <div class="flex justify-around items-center gap-2 bg-[rgba(0,0,0,0.3)] p-2 rounded-lg">
-                    <button id="developers-btn" class="btn-clash btn-clash-secondary clash-font text-xs sm:text-sm flex-1">👥 سازندگان</button>
-                    <button class="btn-clash btn-clash-secondary clash-font text-xs sm:text-sm flex-1" onclick="alert('به زودی')">🏆 چالش ها</button>
-                    <button class="btn-clash btn-clash-secondary clash-font text-xs sm:text-sm flex-1" onclick="alert('به زودی')">🚀 جهش جمعی</button>
-                </div>
+            <!-- Footer Layer: Other Buttons -->
+            <div class="w-full flex justify-center items-center gap-2 sm:gap-4 pb-2">
+                <button id="developers-btn" class="btn-clash btn-clash-secondary clash-font">👥 سازندگان</button>
+                <button class="btn-clash btn-clash-secondary clash-font">چالش ها</button>
+                <button class="btn-clash btn-clash-secondary clash-font">جهش جمعی</button>
             </div>
         </div>
     </div>
+
     <div id="game-screen" class="screen">
         <div class="screen-content-wrapper justify-start">
             <div class="flex justify-between items-center mb-4 sm:mb-6 p-3 bg-[rgba(0,0,0,0.3)] rounded-lg text-lg w-full">
@@ -742,6 +754,3 @@
             
             // Reset timer duration for each stage
             gam
-    </script>
-</body>
-</html>
