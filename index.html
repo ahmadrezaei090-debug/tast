@@ -3,1092 +3,936 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بازی مافیا - نسخه نمایشی (آفلاین)</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <title>ثبت‌نام</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* --- CLASH OF CLANS / CLASH ROYALE THEME --- */
-
-        :root {
-            --clash-blue-dark: #3a5b8a;
-            --clash-blue-light: #5c88c8;
-            --clash-gold: #ffc83a;
-            --clash-gold-dark: #e5a500;
-            --clash-brown-dark: #5b3a29;
-            --clash-text-light: #ffffff;
-            --clash-text-dark: #333333;
-            --clash-green: #59a845;
-            --clash-green-dark: #3a752b;
-            --clash-red: #c74243;
-            --clash-red-dark: #8f2a2b;
-            --clash-panel-bg: #4468a0;
-            --clash-panel-border: #9dc2ff;
-            --clash-panel-border-dark: #2a4166;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* --- KEYFRAME ANIMATIONS --- */
-        @keyframes clash-panel-intro {
-            0% { opacity: 0; transform: scale(0.8) translateY(-30px); }
-            70% { opacity: 1; transform: scale(1.05) translateY(0); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes breathe {
-            0%, 100% { transform: scale(1); box-shadow: 0 6px 0 #a07200; }
-            50% { transform: scale(1.04); box-shadow: 0 8px 12px rgba(0,0,0,0.3), 0 8px 0 #a07200; }
+        /* Sign-up page styles */
+        .signup-page {
+            background-image: url('https://cdn.imgurl.ir/uploads/s6214_InShot__.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        @keyframes subtle-pan {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 200% 200%; }
+        .signup-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
         }
-        
+
+        .signup-container {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .signup-title {
+            text-align: center;
+            color: #FFD700;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-family: 'Vazirmatn', sans-serif;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #FFD700;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .signup-button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border: none;
+            border-radius: 15px;
+            color: #000;
+            font-size: 18px;
+            font-weight: 600;
+            font-family: 'Vazirmatn', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .signup-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(135deg, #FFA500, #FFD700);
+        }
+
+        .signup-button:active {
+            transform: translateY(0);
+        }
+
+        /* Game menu page styles */
+        .game-menu {
+            display: none;
+            background-image: url('https://cdn.imgurl.ir/uploads/w253923_InShot__.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            flex-direction: column;
+        }
+
+        .game-menu::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .game-header {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            border: 2px solid #FFD700;
+            background-image: url('https://cdn.imgurl.ir/uploads/f32084_IMG_20250827_144709_907.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .user-name {
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .game-stats {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 8px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .stat-icon {
+            width: 20px;
+            height: 20px;
+            background: #FFD700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .stat-value {
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .game-content {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .start-game-button {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border: none;
+            border-radius: 20px;
+            padding: 20px 60px;
+            color: #000;
+            font-size: 24px;
+            font-weight: 600;
+            font-family: 'Vazirmatn', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .start-game-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Avatar selection page styles */
+        .avatar-page {
+            display: none;
+            background-image: url('https://cdn.imgurl.ir/uploads/s6214_InShot__.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            flex-direction: column;
+        }
+
+        .avatar-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .avatar-header {
+            position: relative;
+            z-index: 2;
+            padding: 20px 25px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .avatar-title {
+            color: #FFD700;
+            font-size: 24px;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .avatar-content {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            padding: 50px 20px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 80px;
+        }
+
+        .avatar-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 800px;
+            width: 100%;
+            flex-wrap: nowrap;
+        }
+
+        .avatar-card {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .avatar-card:hover {
+            transform: translateY(-5px);
+            border-color: #FFD700;
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .avatar-card.active {
+            border-color: #FFD700;
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .avatar-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto 15px;
+            border: 2px solid rgba(255, 215, 0, 0.5);
+        }
+
+        .avatar-status {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .avatar-status:hover {
+            background: linear-gradient(135deg, #FFA500, #FFD700);
+        }
+
+        .avatar-status.active-status {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Vazirmatn', sans-serif;
+            z-index: 3;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 215, 0, 0.2);
+        }
+
+        /* Scenario selection panel styles */
+        .scenario-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scenario-panel {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .scenario-title {
+            color: #FFD700;
+            font-size: 24px;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .close-panel {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 0, 0, 0.7);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-panel:hover {
+            background: rgba(255, 0, 0, 0.9);
+        }
+
+        .scenario-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .scenario-card {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .scenario-card:hover {
+            transform: translateY(-5px);
+            border-color: #FFD700;
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .scenario-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .scenario-name {
+            color: #FFD700;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .scenario-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Search page styles */
+        .search-page {
+            display: none;
+            background-image: url('https://cdn.imgurl.ir/uploads/s6214_InShot__.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            flex-direction: column;
+        }
+
+        .search-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .search-header {
+            position: relative;
+            z-index: 2;
+            padding: 20px 25px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .search-title {
+            color: #FFD700;
+            font-size: 24px;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .selected-scenario {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+        }
+
+        .search-content {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-animation {
+            width: 120px;
+            height: 120px;
+            border: 4px solid rgba(255, 215, 0, 0.3);
+            border-top: 4px solid #FFD700;
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+            margin-bottom: 30px;
+        }
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        
-        /* --- NEW LOADING SCREEN ANIMATIONS --- */
-        @keyframes fadeInScaleUp {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        
-        @keyframes pulseGlow {
-            0%, 100% { filter: drop-shadow(0 0 8px rgba(255, 200, 58, 0.4)); }
-            50% { filter: drop-shadow(0 0 16px rgba(255, 200, 58, 0.8)); }
-        }
-        
-        @keyframes tipFadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
 
-        /* --- NEW: Mind Game Animations --- */
-        @keyframes fallAndFade {
-            0% {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            20% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            80% {
-                transform: translateY(100px); /* Adjust based on container height */
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(150px);
-                opacity: 0;
-            }
-        }
-
-
-        body {
-            font-family: 'Vazirmatn', sans-serif;
-            color: var(--clash-text-light);
-            background-color: #1a283e;
-            background-image: url('https://www.transparenttextures.com/patterns/dark-stone-wall.png');
-            overflow: hidden; 
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            position: relative;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0;
-            width: 200%; height: 200%;
-            background-image: url('https://www.transparenttextures.com/patterns/dust.png');
-            opacity: 0.15;
-            z-index: 0;
-            animation: subtle-pan 120s linear infinite;
-        }
-
-        .clash-font {
-            font-family: 'Lilita One', cursive;
-            letter-spacing: 1px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .panel-clash {
-            background-color: var(--clash-panel-bg);
-            border: 4px solid var(--clash-panel-border-dark);
-            border-top-color: var(--clash-panel-border);
-            border-left-color: var(--clash-panel-border);
-            border-radius: 16px;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255, 255, 255, 0.2);
-            transition: opacity 0.3s ease-in-out;
-            position: relative;
-        }
-        
-        .panel-clash::before, .panel-clash::after {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: var(--clash-gold);
-            border-radius: 50%;
-            border: 2px solid var(--clash-brown-dark);
-            box-shadow: 0 0 3px #000;
-        }
-        .panel-clash::before { top: 10px; left: 10px; }
-        .panel-clash::after { top: 10px; right: 10px; }
-        
-        #developers-panel::before, #developers-panel::after, #game-mode-panel::before, #game-mode-panel::after { top: 15px; }
-
-
-        .panel-hidden {
-            opacity: 0;
-            transform: scale(0.9) translateY(-20px);
-            pointer-events: none;
-            visibility: hidden;
-        }
-
-        .panel-visible {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-            visibility: visible;
-            animation: clash-panel-intro 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .btn-clash {
-            border-radius: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: all 0.1s ease-out;
-            cursor: pointer;
-            position: relative;
-            white-space: nowrap;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--clash-text-dark);
-            text-shadow: 1px 1px 1px rgba(255,255,255,0.4);
-        }
-        .btn-clash:disabled {
-            filter: grayscale(80%);
-            cursor: not-allowed;
-            box-shadow: 0 4px 0 #555 !important;
-            transform: translateY(0) !important;
-        }
-
-        .btn-clash-primary {
-            background: linear-gradient(to bottom, #ffe47a, var(--clash-gold));
-            border: 2px solid var(--clash-brown-dark);
-            box-shadow: 0 6px 0 #a07200;
-            padding: 10px 24px;
-            font-size: 1.1rem;
-        }
-        @media (min-width: 640px) { .btn-clash-primary { padding: 12px 30px; font-size: 1.25rem; } }
-
-        .btn-clash-primary:hover {
-            background: linear-gradient(to bottom, #fff0a0, #ffda5a);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 0 #a07200;
-        }
-        .btn-clash-primary:active {
-            transform: translateY(4px) !important;
-            box-shadow: 0 2px 0 #a07200 !important;
-            transition-duration: 0.05s;
-        }
-        
-        #start-game-btn.breathing {
-            animation: breathe 2.5s ease-in-out infinite;
-        }
-        
-        .btn-clash-secondary {
-            background: linear-gradient(to bottom, #7da8e8, var(--clash-blue-light));
-            border: 2px solid var(--clash-panel-border-dark);
-            box-shadow: 0 5px 0 #2e5185;
-            padding: 8px 18px;
-            font-size: 0.9rem;
-            color: var(--clash-text-light);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-        }
-        @media (min-width: 640px) { .btn-clash-secondary { padding: 10px 22px; font-size: 1rem; } }
-
-        .btn-clash-secondary:hover {
-            background: linear-gradient(to bottom, #9dc2ff, #6c98d8);
-            transform: translateY(-2px);
-            box-shadow: 0 7px 0 #2e5185;
-        }
-        .btn-clash-secondary:active {
-            transform: translateY(3px) !important;
-            box-shadow: 0 2px 0 #2e5185 !important;
-            transition-duration: 0.05s;
-        }
-
-        .input-clash {
-            background-color: var(--clash-panel-border-dark);
-            border: 2px solid #2a4166;
-            color: #fff;
-            border-radius: 10px;
-            padding: 12px;
-            font-size: 1rem;
-            box-shadow: inset 0 3px 6px rgba(0,0,0,0.4);
-            -webkit-user-select: auto;
-            -moz-user-select: text;
-            -ms-user-select: text;
-            user-select: auto;
-            touch-action: manipulation;
-        }
-        .input-clash:focus {
-            outline: none;
-            border-color: var(--clash-gold);
-            box-shadow: inset 0 3px 6px rgba(0,0,0,0.4), 0 0 10px var(--clash-gold);
-        }
-        .input-clash.invalid {
-            border-color: var(--clash-red);
-        }
-        .input-clash:read-only {
-            background-color: #314a70;
-            cursor: default;
-        }
-        
-        .option-btn {
-            background: linear-gradient(to bottom, #7da8e8, #5c88c8);
-            border: 2px solid #2a4166;
-            box-shadow: 0 4px 0 #2e5185;
+        .search-text {
             color: white;
-            transition: all 0.15s ease;
-            font-size: 1rem;
-            padding: 12px;
-            border-radius: 12px;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-        .option-btn:hover:not(:disabled) {
-            background: linear-gradient(to bottom, #9dc2ff, #6c98d8);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 0 #2e5185;
-        }
-        .option-btn.correct {
-            background: linear-gradient(to bottom, #8fdd7d, var(--clash-green)) !important;
-            border-color: #2e6221 !important;
-            box-shadow: 0 4px 0 var(--clash-green-dark) !important;
-            transform: translateY(0) !important;
-        }
-        .option-btn.incorrect {
-            background: linear-gradient(to bottom, #e87b7c, var(--clash-red)) !important;
-            border-color: #7c2425 !important;
-            box-shadow: 0 4px 0 var(--clash-red-dark) !important;
-            transform: translateY(0) !important;
-        }
-        .option-btn:disabled { opacity: 0.8; cursor: not-allowed; }
-
-        .loader {
-            border: 8px solid #3a5b8a;
-            border-top: 8px solid var(--clash-gold);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 1s linear infinite;
-        }
-        
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: var(--clash-blue-dark); }
-        ::-webkit-scrollbar-thumb { background: var(--clash-gold); border-radius: 5px; border: 2px solid var(--clash-blue-dark); }
-        ::-webkit-scrollbar-thumb:hover { background: var(--clash-gold-dark); }
-
-        .screen {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100vh;
-            padding: 10px;
-            box-sizing: border-box;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease-in-out, visibility 0.5s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-y: auto;
-            z-index: 1;
-        }
-        @media (min-width: 640px) { .screen { padding: 20px; } }
-        #main-screen { justify-content: flex-start; }
-        #loading-screen { 
-            justify-content: center; 
-            background: radial-gradient(circle, rgba(42,65,102,0.5) 0%, rgba(26,40,62,0.8) 70%);
-            position: fixed;
-            z-index: 999;
-        }
-        .screen.active { opacity: 1; visibility: visible; position: relative; z-index: 10; }
-        #loading-screen.active { position: fixed; z-index: 999; }
-        #main-screen.active { position: absolute; z-index: 10; } 
-        #game-screen.active { position: absolute; z-index: 10; } 
-        #mind-game-screen.active { position: absolute; z-index: 10; }
-
-        #loading-content-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 20px;
             text-align: center;
-            width: 100%;
-            max-width: 450px;
-        }
-        #loading-logo {
-            max-width: 280px;
-            width: 70%;
-            margin-bottom: 1.5rem;
-            animation: fadeInScaleUp 1s ease-out, pulseGlow 3s infinite 1s;
-        }
-        #loading-progress-bar-container {
-            width: 100%;
-            background-color: var(--clاش-panel-border-dark);
-            border: 3px solid #2a4166;
-            border-radius: 12px;
-            padding: 4px;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-        #loading-progress-bar-fill {
-            height: 18px;
-            width: 0%;
-            background: linear-gradient(to right, var(--clash-gold-dark), var(--clash-gold));
-            border-radius: 8px;
-            transition: width 0.5s ease-out;
-            box-shadow: 0 0 10px var(--clash-gold);
-        }
-        #loading-message {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--clash-text-light);
-            text-shadow: 1px 1px 2px #000;
-            min-height: 28px;
-        }
-        #loading-tip {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: #d0e0ff;
-            font-style: italic;
-            background-color: rgba(0,0,0,0.25);
-            padding: 8px 12px;
-            border-radius: 8px;
-            min-height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: tipFadeIn 0.8s ease-out;
         }
 
-        .screen-content-wrapper {
-            width: 100%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-bottom: 10px;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-        @media (min-width: 640px) { .screen-content-wrapper { padding-bottom: 20px; } }
-        #main-screen .screen-content-wrapper {
-            justify-content: space-between;
-            min-height: calc(100vh - 20px);
-            padding-top: 20px; 
-        }
-        @media (min-width: 640px) { #main-screen .screen-content-wrapper { min-height: calc(100vh - 40px); padding-top: 20px; } }
-
-
-        #main-screen-header { 
-            display: flex; justify-content: center;
-            align-items: center; width: 100%; 
-            padding: 0.5rem; margin-bottom: 1.5rem;
-            background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
-            background-color: #6e4a31;
-            border-radius: 12px;
-            border: 4px solid #4a2f20;
-            box-shadow: 0 6px 10px rgba(0,0,0,0.5);
-            position: relative;
-            z-index: 10;
-        }
-        
-        #main-title {
+        .search-status {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
             text-align: center;
-            flex-grow: 1;
-            font-size: 3rem;
-            color: var(--clash-gold);
-            text-shadow: 
-                -3px -3px 0 var(--clash-brown-dark), 
-                3px -3px 0 var(--clash-brown-dark),
-                -3px  3px 0 var(--clash-brown-dark),
-                3px  3px 0 var(--clash-brown-dark),
-                -3px 0 0 var(--clash-brown-dark),
-                3px 0 0 var(--clash-brown-dark),
-                0 -3px 0 var(--clاش-brown-dark),
-                0 3px 0 var(--clash-brown-dark),
-                6px 6px 8px rgba(0,0,0,0.7);
-        }
-        @media (min-width: 640px) { #main-title { font-size: 4.5rem; } }
-        @media (min-width: 768px) { #main-title { font-size: 5.5rem; } }
-
-        #main-screen-buttons-layout { display: flex; flex-direction: column; align-items: center; width: 100%; margin: auto 0; padding-top: 1rem; }
-        #top-action-buttons { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem; width: 100%; padding-bottom: 5px; margin-top: 2rem; }
-        
-        .hidden { display: none !important; }
-
-        /* Styles for Pop-up Panels */
-        #developers-panel-container, #game-mode-panel-container { background-color: rgba(10, 10, 10, 0.85); }
-        #developers-panel, #game-mode-panel {
-            background-color: var(--clash-panel-bg);
-            border: 4px solid var(--clash-panel-border-dark);
-            border-top-color: var(--clash-panel-border);
-            border-left-color: var(--clash-panel-border);
-        }
-        #close-developers-panel-btn, #close-game-mode-panel-btn {
-            position: absolute; top: 12px; right: 12px; width: 40px; height: 40px;
-            background: linear-gradient(to bottom, #e87b7c, var(--clash-red));
-            border: 2px solid #7c2425;
-            box-shadow: 0 4px 0 #8f2a2b;
-            color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px;
-            font-weight: bold; line-height: 1; cursor: pointer; transition: all 0.2s ease;
-        }
-        #close-developers-panel-btn:hover, #close-game-mode-panel-btn:hover { transform: scale(1.1) rotate(90deg); }
-        #close-developers-panel-btn:active, #close-game-mode-panel-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #8f2a2b; }
-
-        .developer-item {
-            background-color: rgba(42, 65, 102, 0.9);
-            padding: 1rem 1.2rem; border-radius: 12px;
-            border: 2px solid rgba(157, 194, 255, 0.4);
-        }
-        .dev-header { border-bottom: 2px solid rgba(157, 194, 255, 0.3); }
-        .dev-role-icon { font-size: 1.7em; color: var(--clash-gold); margin-left: 10px; }
-        .dev-role { font-size: 1.15rem; font-weight: 700; color: #fff; font-family: 'Vazirmatn'; }
-        .dev-username { color: #fff8a8; font-weight: bold; font-size: 1.25rem; }
-        .dev-description { font-size: 0.9rem; color: #d0e0ff; line-height: 1.65; font-family: 'Vazirmatn'; }
-
-        #game-mode-panel .btn-clash-primary {
-            padding: 16px 32px;
-            font-size: 1.5rem;
-            width: 100%;
-            max-width: 300px;
-        }
-        #game-mode-panel .btn-clash-primary .icon {
-            font-size: 2rem;
-            margin-left: 12px;
-        }
-        
-        #timer-container {
-            position: relative;
-            width: 60px;
-            height: 60px;
-        }
-        #timer-svg {
-            transform: rotate(-90deg);
-        }
-        .timer-circle {
-            fill: none;
-            stroke-width: 8;
-        }
-        .timer-bg {
-            stroke: var(--clash-panel-border-dark);
-        }
-        .timer-progress {
-            stroke: var(--clash-gold);
-            stroke-linecap: round;
-            transition: stroke-dashoffset 1s linear;
-        }
-        #timer-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Lilita One', cursive;
-            font-size: 1.8rem;
-            color: var(--clash-gold);
-            text-shadow: 2px 2px 2px #000;
-        }
-        
-        /* --- NEW: Mind Game Styles --- */
-        #mind-game-screen .screen-content-wrapper {
-            justify-content: center;
-        }
-        #falling-sentence-container {
-            height: 200px;
-            width: 100%;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            overflow: hidden;
-            margin-bottom: 2rem;
-        }
-        .falling-sentence {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--clash-gold);
-            text-shadow: 2px 2px 4px #000;
-            animation: fallAndFade 4s ease-in-out forwards;
-        }
-        #mind-game-input-area {
-            width: 100%;
-            max-width: 500px;
+            margin-bottom: 30px;
         }
 
+        .cancel-search-button {
+            background: rgba(255, 0, 0, 0.7);
+            border: 1px solid rgba(255, 0, 0, 0.5);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .cancel-search-button:hover {
+            background: rgba(255, 0, 0, 0.9);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .avatar-grid {
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .avatar-image {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .signup-container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            
+            .signup-title {
+                font-size: 24px;
+            }
+            
+            .form-input {
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+            
+            .signup-button {
+                padding: 15px;
+                font-size: 16px;
+            }
+
+            .game-header {
+                padding: 15px 20px;
+            }
+
+            .game-stats {
+                gap: 10px;
+            }
+
+            .stat-item {
+                padding: 6px 10px;
+            }
+
+            .start-game-button {
+                padding: 18px 40px;
+                font-size: 20px;
+            }
+
+            .user-avatar {
+                width: 40px;
+                height: 40px;
+            }
+
+            .user-name {
+                font-size: 16px;
+            }
+
+            .avatar-title {
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div id="loading-screen" class="screen active">
-        <div id="loading-content-box">
-            <img id="loading-logo" src="https://up.20script.ir/file/7e7a-Copilot-20250812-110015-removebg-preview.png" alt="لوگوی بازی شهر مافیا">
-            <h1 class="text-4xl sm:text-5xl font-bold clash-font text-[var(--clash-gold)]" style="text-shadow: 3px 3px 4px #000;">شهر مافیا</h1>
-            <div id="loading-progress-bar-container">
-                <div id="loading-progress-bar-fill"></div>
-            </div>
-            <p id="loading-message" class="text-lg">در حال آماده سازی...</p>
-            <p id="loading-tip">✨ به دنیای رمزآلود مافیا خوش آمدید... ✨</p>
+    <!-- Sign-up Page -->
+    <div class="signup-page" id="signupPage">
+        <div class="signup-container">
+            <h1 class="signup-title">ثبت‌نام</h1>
+            <form id="signupForm">
+                <div class="form-group">
+                    <input type="text" class="form-input" id="usernameInput" placeholder="نام کاربری" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-input" placeholder="رمز عبور" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-input" placeholder="تکرار رمز عبور" required>
+                </div>
+                <button type="submit" class="signup-button">ثبت‌نام</button>
+            </form>
         </div>
     </div>
 
-    <div id="main-screen" class="screen">
-        <div class="screen-content-wrapper">
-            <div>
-                <div id="main-screen-header">
-                    <h1 id="main-title" class="clash-font">شهر مافیا</h1>
+    <!-- Game Menu Page -->
+    <div class="game-menu" id="gameMenu">
+        <div class="game-header">
+            <div class="user-profile">
+                <div class="user-avatar" id="currentAvatar" onclick="openAvatarSelection()"></div>
+                <div class="user-name" id="displayUsername">کاربر جدید</div>
+            </div>
+            <div class="game-stats">
+                <div class="stat-item">
+                    <div class="stat-icon">🪙</div>
+                    <div class="stat-value">1,250</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">💎</div>
+                    <div class="stat-value">45</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-value">12</div>
                 </div>
             </div>
+        </div>
 
-            <div id="main-screen-buttons-layout" class="pb-2 sm:pb-4">
-                <button id="start-game-btn" class="btn-clash btn-clash-primary clash-font py-4 px-8 text-2xl">شروع بازی</button>
-                <button id="online-game-btn" class="btn-clash btn-clash-secondary clash-font mt-4">بازی آنلاین</button>
-                <div id="top-action-buttons">
-                    <button id="challenge-btn" class="btn-clash btn-clash-secondary clash-font">چالش</button>
-                    <button id="developers-btn" class="btn-clash btn-clash-secondary clash-font">👥 سازندگان</button>
-                    <button id="coordination-btn" class="btn-clash btn-clash-secondary clash-font">هماهنگی</button>
+        <div class="game-content">
+            <button class="start-game-button" onclick="startGame()">شروع بازی</button>
+        </div>
+
+
+    </div>
+
+    <!-- Avatar Selection Page -->
+    <div class="avatar-page" id="avatarPage">
+        <button class="back-button" onclick="backToMenu()">← بازگشت</button>
+        
+        <div class="avatar-header">
+            <h1 class="avatar-title">انتخاب آواتار</h1>
+        </div>
+
+        <div class="avatar-content">
+            <div class="avatar-grid">
+                <div class="avatar-card active" data-avatar="1">
+                    <div class="avatar-image" style="background-image: url('https://cdn.imgurl.ir/uploads/f32084_IMG_20250827_144709_907.jpg');"></div>
+                    <button class="avatar-status active-status">آواتار فعال</button>
+                </div>
+                
+                <div class="avatar-card" data-avatar="2">
+                    <div class="avatar-image" style="background-image: url('https://cdn.imgurl.ir/uploads/k49298_IMG_20250827_160949_096.jpg');"></div>
+                    <button class="avatar-status">استفاده</button>
+                </div>
+                
+                <div class="avatar-card" data-avatar="3">
+                    <div class="avatar-image" style="background-image: url('https://cdn.imgurl.ir/uploads/m87957_IMG_20250827_164921_059.jpg');"></div>
+                    <button class="avatar-status">استفاده</button>
+                </div>
+                
+                <div class="avatar-card" data-avatar="4">
+                    <div class="avatar-image" style="background-image: url('https://cdn.imgurl.ir/uploads/a519305_IMG_20250827_164946_814.jpg');"></div>
+                    <button class="avatar-status">استفاده</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="game-screen" class="screen">
-        <div class="screen-content-wrapper justify-start">
-            <div class="flex justify-between items-center mb-4 sm:mb-6 p-3 bg-[rgba(0,0,0,0.3)] rounded-lg text-lg w-full">
-                <button id="back-to-main-btn-mafia" class="btn-clash btn-clash-secondary clash-font text-sm">بازگشت</button>
-                <div class="font-bold">مرحله: <span id="stage-display" class="clash-font text-[var(--clash-gold)] text-2xl">1</span></div>
-                <div id="timer-container">
-                    <svg id="timer-svg" width="60" height="60" viewBox="0 0 60 60">
-                        <circle class="timer-circle timer-bg" cx="30" cy="30" r="26"></circle>
-                        <circle id="timer-progress-circle" class="timer-circle timer-progress" cx="30" cy="30" r="26"></circle>
-                    </svg>
-                    <span id="timer-text">20</span>
-                </div>
-            </div>
-            <div id="question-container" class="panel-clash panel-visible p-4 sm:p-6 rounded-lg mb-4 sm:mb-6 min-h-[200px] flex flex-col justify-center w-full">
-                <p id="question-text" class="text-xl md:text-2xl mb-6 text-center leading-relaxed font-bold">سوال بارگذاری می‌شود...</p>
-                <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4"></div>
-                <p id="question-explanation" class="text-sm mt-4 text-gray-200 bg-black/30 p-2 rounded-md text-center hidden"></p>
-            </div>
-            <div id="game-feedback" class="text-center text-lg font-semibold my-4 h-8 clash-font"></div>
-        </div>
-    </div>
-    
-    <!-- ===== START: NEW MIND GAME SCREEN ===== -->
-    <div id="mind-game-screen" class="screen">
-        <div class="screen-content-wrapper justify-start">
-            <div class="flex justify-between items-center mb-4 sm:mb-6 p-3 bg-[rgba(0,0,0,0.3)] rounded-lg text-lg w-full">
-                <button id="back-to-main-btn-mind" class="btn-clash btn-clash-secondary clash-font text-sm">بازگشت</button>
-                <div class="font-bold">مرحله: <span id="mind-game-stage-display" class="clash-font text-[var(--clash-gold)] text-2xl">1</span></div>
-                <div class="font-bold">امتیاز: <span id="mind-game-score-display" class="clash-font text-[var(--clash-gold)] text-2xl">0</span></div>
-            </div>
+    <!-- Scenario Selection Panel -->
+    <div class="scenario-overlay" id="scenarioOverlay">
+        <div class="scenario-panel">
+            <button class="close-panel" onclick="closeScenarioPanel()">×</button>
+            <h1 class="scenario-title">انتخاب سناریو</h1>
             
-            <div class="panel-clash p-6 w-full text-center">
-                <h2 id="mind-game-instruction" class="text-2xl font-bold mb-4">جمله را به خاطر بسپار!</h2>
-                <div id="falling-sentence-container">
-                    <!-- The falling sentence will be injected here by JS -->
+            <div class="scenario-grid">
+                <div class="scenario-card" onclick="selectScenario('آتیش بازی')">
+                    <div class="scenario-icon">🎆</div>
+                    <div class="scenario-name">آتیش بازی</div>
+                    <div class="scenario-description">در این سناریو شما باید با مهارت و دقت آتیش بازی کنید</div>
                 </div>
                 
-                <div id="mind-game-input-area" class="hidden mx-auto">
-                    <p class="mb-4">حالا جمله را تایپ کن:</p>
-                    <input type="text" id="mind-game-input" class="input-clash w-full text-center text-lg mb-4" dir="rtl">
-                    <button id="mind-game-submit-btn" class="btn-clash btn-clash-primary">ثبت پاسخ</button>
+                <div class="scenario-card" onclick="selectScenario('کارت برنده')">
+                    <div class="scenario-icon">🃏</div>
+                    <div class="scenario-name">کارت برنده</div>
+                    <div class="scenario-description">کارت‌های شما را انتخاب کنید و برنده شوید</div>
                 </div>
                 
-                <div id="mind-game-feedback" class="text-center text-lg font-semibold my-4 h-8 clash-font"></div>
-            </div>
-        </div>
-    </div>
-    <!-- ===== END: NEW MIND GAME SCREEN ===== -->
-
-    <div id="modal-container" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 panel-hidden z-50">
-        <div class="panel-clash p-6 sm:p-8 rounded-lg max-w-md md:max-lg w-full text-center">
-            <h3 id="modal-title" class="text-2xl sm:text-3xl font-bold mb-4 clash-font text-[var(--clash-gold)]" style="text-shadow: 2px 2px 3px #000;">توجه</h3>
-            <div id="modal-content-dynamic">
-                <p id="modal-message" class="mb-3 text-base"></p>
-                <div class="flex justify-center gap-4 mt-4">
-                    <button id="modal-confirm-btn" class="btn-clash btn-clash-primary clash-font">تأیید</button>
-                    <button id="modal-cancel-btn" class="btn-clash btn-clash-secondary clash-font hidden">لغو</button>
+                <div class="scenario-card" onclick="selectScenario('اکسیر سیاه')">
+                    <div class="scenario-icon">🧪</div>
+                    <div class="scenario-name">اکسیر سیاه</div>
+                    <div class="scenario-description">اکسیر جادویی را پیدا کنید و قدرت آن را کشف کنید</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="developers-panel-container" class="fixed inset-0 flex items-center justify-center p-4 panel-hidden z-40">
-        <div id="developers-panel" class="panel-clash p-6 sm:p-10 rounded-lg max-w-md w-full relative">
-            <button id="close-developers-panel-btn">✕</button>
-            <h3 class="text-center text-3xl font-bold mb-6 clash-font text-[var(--clash-gold)]" style="text-shadow: 2px 2px 3px #000;">👥 سازندگان</h3>
-            <div class="space-y-4">
-                <div class="developer-item">
-                    <div class="dev-header flex items-center mb-2 pb-2">
-                        <span class="dev-role-icon">💻</span>
-                        <span class="dev-role">برنامه‌نویسان</span>
-                    </div>
-                    <p class="dev-username">سید عباس سجادی و علی بابایی</p>
-                    <p class="dev-description">پیاده‌سازی منطق و توسعه سمت کاربر (HTML, CSS, JavaScript).</p>
-                </div>
-                <div class="developer-item">
-                    <div class="dev-header flex items-center mb-2 pb-2">
-                        <span class="dev-role-icon">🎨</span>
-                        <span class="dev-role">طراح رابط کاربری</span>
-                    </div>
-                    <p class="dev-username">وحید فریدونی</p>
-                    <p class="dev-description">طراحی بصری، استایل‌های Clash و تجربه کاربری (UI/UX).</p>
-                </div>
-            </div>
+    <!-- Search Page -->
+    <div class="search-page" id="searchPage">
+        <div class="search-header">
+            <h1 class="search-title">جستجوی کاربران</h1>
+            <div class="selected-scenario" id="selectedScenarioText">سناریو: آتیش بازی</div>
         </div>
-    </div>
-    
-    <!-- ===== START: NEW GAME MODE PANEL ===== -->
-    <div id="game-mode-panel-container" class="fixed inset-0 flex items-center justify-center p-4 panel-hidden z-40">
-        <div id="game-mode-panel" class="panel-clash p-6 sm:p-10 rounded-lg max-w-md w-full relative text-center">
-            <button id="close-game-mode-panel-btn">✕</button>
-            <h3 class="text-center text-3xl font-bold mb-8 clash-font text-[var(--clash-gold)]" style="text-shadow: 2px 2px 3px #000;">انتخاب بازی</h3>
-            <div class="space-y-6 flex flex-col items-center">
-                <button id="mafia-mode-btn" class="btn-clash btn-clash-primary clash-font">
-                    بازجویی مافیا
-                </button>
-                <button id="mind-game-mode-btn" class="btn-clash btn-clash-primary clash-font">
-                     بازی ذهن
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- ===== END: NEW GAME MODE PANEL ===== -->
 
+        <div class="search-content">
+            <div class="search-animation"></div>
+            <div class="search-text">در حال جستجوی کاربران آنلاین...</div>
+            <div class="search-status" id="searchStatus">تعداد کاربران یافت شده: 0</div>
+            <button class="cancel-search-button" onclick="cancelSearch()">لغو جستجو</button>
+        </div>
+    </div>
 
     <script>
-        // --- MAFIA Game Data ---
-        const mafiaGameData = [
-            {
-                question: "کدام نقش در بازی مافیا توانایی بیدار کردن و معرفی یک شهروند به عنوان نگهبان را دارد؟",
-                options: ["مافیا", "شهروند ساده", "کارآگاه", "دکتر"],
-                answer: "دکتر",
-                explanation: "نقش دکتر یا پزشک می‌تواند هر شب یک نفر (از جمله خودش) را از حملات مافیا نجات دهد. اما این سؤال درباره **نگهبان** اشتباه است. در سناریوهای رایج، نقش **پزشک/دکتر** یا **نجات‌دهنده** وجود دارد که افراد را از مرگ نجات می‌دهد. چون هیچ نقشی به نام 'نگهبان' معرفی نمی‌کند و گزینه 'دکتر' نزدیک‌ترین نقش حمایت‌کننده است، برای این دمو، 'دکتر' را به عنوان نقش حمایت‌کننده در نظر می‌گیریم."
-            },
-            {
-                question: "هدف اصلی تیم مافیا در شب چیست؟",
-                options: ["شلیک به یک شهروند", "بحث و گفتگو", "شناسایی نقش‌های شهروند", "انتخاب شهردار"],
-                answer: "شلیک به یک شهروند",
-                explanation: "وظیفه اصلی تیم مافیا هر شب، حذف یک نفر از شهروندان است تا نسبت تعدادشان برابر شود و پیروز شوند."
-            },
-            {
-                question: "نقش «کارآگاه» در فاز روز چه مزیتی نسبت به شهروندان عادی دارد؟",
-                options: ["دارای حق شلیک است.", "از شب قبل به نقش یک نفر پی برده است.", "می‌تواند حکم را صادر کند.", "می‌تواند سکوت کند."],
-                answer: "از شب قبل به نقش یک نفر پی برده است.",
-                explanation: "کارآگاه (یا بازپرس) هر شب می‌تواند از نقش یک نفر استعلام بگیرد و در روز از این اطلاعات برای هدایت بحث استفاده کند."
-            },
-            {
-                question: "چه زمانی بازی مافیا به پایان می‌رسد؟",
-                options: ["پس از ۵ دور بازی", "وقتی تعداد شهروندان و مافیا برابر شود.", "وقتی فقط دو نفر باقی بمانند.", "وقتی شهردار انتخاب شود."],
-                answer: "وقتی تعداد شهروندان و مافیا برابر شود.",
-                explanation: "مافیا زمانی پیروز می‌شود که تعداد اعضای مافیا برابر یا بیشتر از تعداد شهروندان شود (سناریوهای استاندارد)."
-            }
-        ];
-        
-        // --- NEW: MIND Game Data ---
-        const mindGameSentences = [
-            "سکوت همیشه به معنای رضایت نیست",
-            "موفقیت نتیجه تلاش های کوچک روزانه است",
-            "زندگی مثل دوچرخه سواری است برای حفظ تعادل باید حرکت کنی",
-            "تنها راه انجام کارهای بزرگ دوست داشتن کاری است که انجام میدهی",
-            "آینده متعلق به کسانی است که به زیبایی رویاهایشان ایمان دارند"
-        ];
-
-        // --- DOM Elements ---
-        const loadingScreen = document.getElementById('loading-screen');
-        const mainScreen = document.getElementById('main-screen');
-        const gameScreen = document.getElementById('game-screen');
-        const mindGameScreen = document.getElementById('mind-game-screen');
-
-        const startGameBtn = document.getElementById('start-game-btn');
-        const developersBtn = document.getElementById('developers-btn');
-        const onlineGameBtn = document.getElementById('online-game-btn');
-        const challengeBtn = document.getElementById('challenge-btn');
-        const coordinationBtn = document.getElementById('coordination-btn');
-
-        // Mafia Game Elements
-        const backToMainBtnMafia = document.getElementById('back-to-main-btn-mafia');
-        const questionText = document.getElementById('question-text');
-        const optionsContainer = document.getElementById('options-container');
-        const stageDisplay = document.getElementById('stage-display');
-        const gameFeedback = document.getElementById('game-feedback');
-        const questionExplanation = document.getElementById('question-explanation');
-        const timerText = document.getElementById('timer-text');
-        const timerProgressCircle = document.getElementById('timer-progress-circle');
-        const circleRadius = 26;
-        const circleCircumference = 2 * Math.PI * circleRadius;
-        timerProgressCircle.style.strokeDasharray = `${circleCircumference} ${circleCircumference}`;
-        timerProgressCircle.style.strokeDashoffset = circleCircumference;
-
-        // NEW: Mind Game Elements
-        const backToMainBtnMind = document.getElementById('back-to-main-btn-mind');
-        const mindGameInstruction = document.getElementById('mind-game-instruction');
-        const fallingSentenceContainer = document.getElementById('falling-sentence-container');
-        const mindGameInputArea = document.getElementById('mind-game-input-area');
-        const mindGameInput = document.getElementById('mind-game-input');
-        const mindGameSubmitBtn = document.getElementById('mind-game-submit-btn');
-        const mindGameFeedback = document.getElementById('mind-game-feedback');
-        const mindGameStageDisplay = document.getElementById('mind-game-stage-display');
-        const mindGameScoreDisplay = document.getElementById('mind-game-score-display');
-        
-        // Modal & Panels Elements
-        const modalContainer = document.getElementById('modal-container');
-        const modalTitle = document.getElementById('modal-title');
-        const modalMessage = document.getElementById('modal-message');
-        const modalConfirmBtn = document.getElementById('modal-confirm-btn');
-        const modalCancelBtn = document.getElementById('modal-cancel-btn');
-        const developersPanelContainer = document.getElementById('developers-panel-container');
-        const closeDevelopersPanelBtn = document.getElementById('close-developers-panel-btn');
-        const gameModePanelContainer = document.getElementById('game-mode-panel-container');
-        const closeGameModePanelBtn = document.getElementById('close-game-mode-panel-btn');
-        const mafiaModeBtn = document.getElementById('mafia-mode-btn');
-        const mindGameModeBtn = document.getElementById('mind-game-mode-btn');
-
-        // --- Game State ---
-        let currentMafiaStage = 0;
-        let mafiaTimerInterval;
-        let mafiaGameTime = 20;
-
-        let currentMindGameStage = 0;
-        let mindGameScore = 0;
-        let currentMindGameSentence = '';
-
-        // ====================================================
-        // --- General Functions (Navigation, Modals, etc.) ---
-        // ====================================================
-
-        function navigateTo(screenId) {
-            document.querySelectorAll('.screen').forEach(screen => {
-                screen.classList.remove('active');
-            });
-            document.getElementById(screenId).classList.add('active');
-        }
-
-        function showModal({ title, message, onConfirm, onCancel }) {
-            modalTitle.textContent = title;
-            modalMessage.textContent = message;
-            modalCancelBtn.classList.add('hidden');
-            modalConfirmBtn.onclick = null;
-            modalCancelBtn.onclick = null;
-            modalConfirmBtn.onclick = () => {
-                hideModal();
-                if (onConfirm) onConfirm();
-            };
-            if (onCancel) {
-                modalCancelBtn.classList.remove('hidden');
-                modalCancelBtn.onclick = () => {
-                     hideModal();
-                     if(onCancel) onCancel();
-                }
-            }
-            modalContainer.classList.remove('panel-hidden');
-            modalContainer.classList.add('panel-visible');
-        }
-
-        function hideModal() {
-            modalContainer.classList.remove('panel-visible');
-            modalContainer.classList.add('panel-hidden');
-        }
-        
-        function createBackToMainConfirmation(onConfirm) {
-             showModal({
-                title: 'ترک بازی؟',
-                message: 'آیا مطمئن هستید که می‌خواهید بازی را ترک کنید؟ پیشرفت شما ذخیره نخواهد شد.',
-                onConfirm: onConfirm,
-                onCancel: () => {}
-            });
-        }
-
-
-        // ==================================
-        // --- MAFIA GAME LOGIC ---
-        // ==================================
-
-        function cleanupMafiaScreen() {
-            optionsContainer.innerHTML = '';
-            gameFeedback.textContent = '';
-            questionExplanation.textContent = '';
-            questionExplanation.classList.add('hidden');
-        }
-
-        function updateMafiaTimerUI(timeRemaining) {
-            timerText.textContent = timeRemaining;
-            const percentage = timeRemaining / mafiaGameTime;
-            const offset = circleCircumference * (1 - percentage);
-            timerProgressCircle.style.strokeDashoffset = offset;
-            timerProgressCircle.style.stroke = timeRemaining <= 5 ? 'var(--clash-red)' : 'var(--clash-gold)';
-        }
-
-        function startMafiaTimer() {
-            clearInterval(mafiaTimerInterval);
-            let timeRemaining = mafiaGameTime;
-            updateMafiaTimerUI(timeRemaining);
-            mafiaTimerInterval = setInterval(() => {
-                timeRemaining--;
-                updateMafiaTimerUI(timeRemaining);
-                if (timeRemaining <= 0) {
-                    clearInterval(mafiaTimerInterval);
-                    handleMafiaAnswer(null);
-                }
-            }, 1000);
-        }
-
-        function loadMafiaStage() {
-            cleanupMafiaScreen();
-            const stageData = mafiaGameData[currentMafiaStage];
-            stageDisplay.textContent = currentMafiaStage + 1;
-            questionText.textContent = stageData.question;
-            mafiaGameTime = 20;
-
-            stageData.options.forEach(option => {
-                const button = document.createElement('button');
-                button.textContent = option;
-                button.className = 'option-btn clash-font text-xl';
-                button.onclick = () => handleMafiaAnswer(option, button);
-                optionsContainer.appendChild(button);
-            });
-            startMafiaTimer();
-        }
-
-        function handleMafiaAnswer(selectedAnswer, selectedButton = null) {
-            clearInterval(mafiaTimerInterval);
-            const stageData = mafiaGameData[currentMafiaStage];
-            const isCorrect = selectedAnswer === stageData.answer;
-
-            Array.from(optionsContainer.children).forEach(btn => {
-                btn.disabled = true;
-                if (btn.textContent === stageData.answer) btn.classList.add('correct');
-                else if (btn === selectedButton) btn.classList.add('incorrect');
-            });
-
-            if (selectedAnswer === null) gameFeedback.textContent = '❌ زمان به پایان رسید! ❌';
-            else if (isCorrect) gameFeedback.textContent = '✅ پاسخ صحیح است!';
-            else gameFeedback.textContent = '❌ پاسخ اشتباه است.';
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            questionExplanation.textContent = 'توضیح: ' + stageData.explanation;
-            questionExplanation.classList.remove('hidden');
-
-            setTimeout(() => {
-                currentMafiaStage++;
-                if (currentMafiaStage < mafiaGameData.length) {
-                    loadMafiaStage();
-                } else {
-                    showMafiaGameOver();
-                }
-            }, 4000);
-        }
-
-        function showMafiaGameOver() {
-            showModal({
-                title: 'پایان بازی! 🏁',
-                message: 'شما به تمام سوالات بازجویی پاسخ دادید. برای شروع دوباره به منوی اصلی بازگردید.',
-                onConfirm: () => navigateTo('main-screen')
-            });
-        }
-        
-        function startMafiaGame() {
-            currentMafiaStage = 0;
-            navigateTo('game-screen');
-            loadMafiaStage();
-        }
-
-        // ==================================
-        // --- MIND GAME LOGIC ---
-        // ==================================
-        
-        function startMindGame() {
-            currentMindGameStage = 0;
-            mindGameScore = 0;
-            mindGameScoreDisplay.textContent = mindGameScore;
-            navigateTo('mind-game-screen');
-            loadMindGameRound();
-        }
-        
-        function loadMindGameRound() {
-            // Reset UI
-            mindGameFeedback.textContent = '';
-            mindGameInput.value = '';
-            mindGameInput.classList.remove('correct', 'incorrect');
-            fallingSentenceContainer.innerHTML = '';
+            const inputs = this.querySelectorAll('.form-input');
+            const username = inputs[0].value.trim();
+            const password = inputs[1].value;
+            const confirmPassword = inputs[2].value;
             
-            if (currentMindGameStage >= mindGameSentences.length) {
-                showMindGameOver();
+            // Basic validation
+            if (!username) {
+                alert('لطفاً نام کاربری را وارد کنید');
+                inputs[0].focus();
                 return;
             }
             
-            mindGameStageDisplay.textContent = currentMindGameStage + 1;
-            currentMindGameSentence = mindGameSentences[currentMindGameStage];
+            if (password.length < 6) {
+                alert('رمز عبور باید حداقل ۶ کاراکتر باشد');
+                inputs[1].focus();
+                return;
+            }
             
-            // Phase 1: Show the falling sentence
-            mindGameInstruction.textContent = 'جمله را به خاطر بسپار!';
-            mindGameInputArea.classList.add('hidden');
-            const sentenceEl = document.createElement('div');
-            sentenceEl.textContent = currentMindGameSentence;
-            sentenceEl.className = 'falling-sentence';
-            fallingSentenceContainer.appendChild(sentenceEl);
+            if (password !== confirmPassword) {
+                alert('رمز عبور و تکرار آن یکسان نیستند');
+                inputs[2].focus();
+                return;
+            }
             
-            // Phase 2: Show input area after animation
+            // Success animation
+            const button = this.querySelector('.signup-button');
+            button.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+            button.textContent = 'در حال ثبت‌نام...';
+            
             setTimeout(() => {
-                mindGameInstruction.textContent = 'حالا جمله را تایپ کن!';
-                fallingSentenceContainer.innerHTML = ''; // Clear the sentence
-                mindGameInputArea.classList.remove('hidden');
-                mindGameInput.focus();
-            }, 4000); // Must match animation duration
-        }
-        
-        function handleMindGameAnswer() {
-            const userAnswer = mindGameInput.value.trim();
-            const isCorrect = userAnswer === currentMindGameSentence;
-            
-            if(isCorrect) {
-                mindGameScore++;
-                mindGameScoreDisplay.textContent = mindGameScore;
-                mindGameFeedback.textContent = '✅ عالی بود!';
-                mindGameFeedback.style.color = 'var(--clash-green)';
-            } else {
-                mindGameFeedback.textContent = '❌ اشتباه بود! جمله صحیح: ' + currentMindGameSentence;
-                mindGameFeedback.style.color = 'var(--clash-red)';
-            }
-            
-            currentMindGameStage++;
-            
-            setTimeout(loadMindGameRound, 3000); // Wait 3 seconds before next round
-        }
-        
-        function showMindGameOver() {
-             showModal({
-                title: 'پایان بازی ذهن! 🏁',
-                message: `امتیاز شما: ${mindGameScore} از ${mindGameSentences.length}. برای شروع دوباره به منوی اصلی بازگردید.`,
-                onConfirm: () => navigateTo('main-screen')
-            });
-        }
-        
-        // ==================================
-        // --- Event Listeners & Init ---
-        // ==================================
-        
-        // Main Screen Buttons
-        startGameBtn.addEventListener('click', () => {
-            gameModePanelContainer.classList.remove('panel-hidden');
-            gameModePanelContainer.classList.add('panel-visible');
-        });
-        
-        developersBtn.addEventListener('click', () => {
-            developersPanelContainer.classList.remove('panel-hidden');
-            developersPanelContainer.classList.add('panel-visible');
-        });
-        
-        // Game Mode Panel Buttons
-        closeGameModePanelBtn.addEventListener('click', () => {
-            gameModePanelContainer.classList.remove('panel-visible');
-            gameModePanelContainer.classList.add('panel-hidden');
-        });
-
-        // ===== START: FIX =====
-        mafiaModeBtn.addEventListener('click', () => {
-            gameModePanelContainer.classList.remove('panel-visible');
-            gameModePanelContainer.classList.add('panel-hidden');
-            startMafiaGame();
-        });
-        
-        mindGameModeBtn.addEventListener('click', () => {
-            gameModePanelContainer.classList.remove('panel-visible');
-            gameModePanelContainer.classList.add('panel-hidden');
-            startMindGame();
-        });
-        // ===== END: FIX =====
-        
-        // In-Game Back Buttons
-        backToMainBtnMafia.addEventListener('click', () => {
-            createBackToMainConfirmation(() => {
-                clearInterval(mafiaTimerInterval);
-                navigateTo('main-screen');
-            });
-        });
-        
-        backToMainBtnMind.addEventListener('click', () => {
-             createBackToMainConfirmation(() => {
-                navigateTo('main-screen');
-            });
-        });
-        
-        // Mind Game Submit
-        mindGameSubmitBtn.addEventListener('click', handleMindGameAnswer);
-        mindGameInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleMindGameAnswer();
-        });
-
-        // Other Buttons & Panels
-        closeDevelopersPanelBtn.addEventListener('click', () => {
-            developersPanelContainer.classList.remove('panel-visible');
-            developersPanelContainer.classList.add('panel-hidden');
-        });
-
-        function showComingSoonModal() {
-            showModal({
-                title: 'به زودی...',
-                message: 'این بخش در حال توسعه است و به زودی در دسترس شما قرار خواهد گرفت!',
-                onConfirm: () => {}
-            });
-        }
-        onlineGameBtn.addEventListener('click', showComingSoonModal);
-        challengeBtn.addEventListener('click', showComingSoonModal);
-        coordinationBtn.addEventListener('click', showComingSoonModal);
-
-        // Initial Loading Sequence
-        const progressBarFill = document.getElementById('loading-progress-bar-fill');
-        const loadingMessage = document.getElementById('loading-message');
-        const loadingTips = [
-            "شهروندان باید با استدلال مافیا را شناسایی کنند.",
-            "سکوت مافیا می‌تواند خطرناک‌تر از حرف زدن باشد.",
-            "دکتر فقط یک بار می‌تواند خودش را نجات دهد.",
-            "بیش از حد مطمئن بودن می‌تواند نشانه مافیا باشد!"
-        ];
-        let loadProgress = 0;
-        const loadingInterval = setInterval(() => {
-            loadProgress += 10;
-            progressBarFill.style.width = `${loadProgress}%`;
-
-            if (loadProgress >= 100) {
-                clearInterval(loadingInterval);
-                loadingMessage.textContent = 'آماده ورود به شهر!';
+                button.textContent = '✓ ثبت‌نام موفق';
                 setTimeout(() => {
-                    loadingScreen.classList.remove('active');
-                    mainScreen.classList.add('active');
-                    startGameBtn.classList.add('breathing');
-                }, 500);
-            } else if (loadProgress > 50 && loadProgress < 70) {
-                loadingMessage.textContent = 'بارگذاری منابع بازی...';
-            } else if (loadProgress > 80) {
-                loadingMessage.textContent = 'اعمال تنظیمات نهایی...';
+                    // Navigate to game menu
+                    showGameMenu(username);
+                }, 1500);
+            }, 1500);
+        });
+
+        function showGameMenu(username) {
+            document.getElementById('signupPage').style.display = 'none';
+            document.getElementById('gameMenu').style.display = 'flex';
+            document.getElementById('displayUsername').textContent = username;
+        }
+
+        function startGame() {
+            document.getElementById('scenarioOverlay').style.display = 'flex';
+        }
+
+        function openAvatarSelection() {
+            document.getElementById('gameMenu').style.display = 'none';
+            document.getElementById('avatarPage').style.display = 'flex';
+        }
+
+        function backToMenu() {
+            document.getElementById('avatarPage').style.display = 'none';
+            document.getElementById('gameMenu').style.display = 'flex';
+        }
+
+        // Avatar selection functionality
+        const avatarUrls = {
+            1: 'https://cdn.imgurl.ir/uploads/f32084_IMG_20250827_144709_907.jpg',
+            2: 'https://cdn.imgurl.ir/uploads/k49298_IMG_20250827_160949_096.jpg',
+            3: 'https://cdn.imgurl.ir/uploads/m87957_IMG_20250827_164921_059.jpg',
+            4: 'https://cdn.imgurl.ir/uploads/a519305_IMG_20250827_164946_814.jpg'
+        };
+
+        let currentActiveAvatar = 1;
+
+        document.querySelectorAll('.avatar-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const avatarId = parseInt(this.dataset.avatar);
+                const statusButton = this.querySelector('.avatar-status');
+                
+                if (!statusButton.classList.contains('active-status')) {
+                    // Remove active status from all avatars
+                    document.querySelectorAll('.avatar-card').forEach(c => {
+                        c.classList.remove('active');
+                        const btn = c.querySelector('.avatar-status');
+                        btn.classList.remove('active-status');
+                        btn.textContent = 'استفاده';
+                    });
+                    
+                    // Set new active avatar
+                    this.classList.add('active');
+                    statusButton.classList.add('active-status');
+                    statusButton.textContent = 'آواتار فعال';
+                    
+                    // Update profile avatar
+                    currentActiveAvatar = avatarId;
+                    document.getElementById('currentAvatar').style.backgroundImage = `url('${avatarUrls[avatarId]}')`;
+                    
+                    // Show success message
+                    setTimeout(() => {
+                        alert('آواتار با موفقیت تغییر کرد! ✨');
+                    }, 300);
+                }
+            });
+        });
+
+        function closeScenarioPanel() {
+            document.getElementById('scenarioOverlay').style.display = 'none';
+        }
+
+        function selectScenario(scenarioName) {
+            document.getElementById('scenarioOverlay').style.display = 'none';
+            document.getElementById('gameMenu').style.display = 'none';
+            document.getElementById('searchPage').style.display = 'flex';
+            document.getElementById('selectedScenarioText').textContent = `سناریو: ${scenarioName}`;
+            
+            // Start search simulation
+            startUserSearch();
+        }
+
+        function startUserSearch() {
+            let userCount = 0;
+            const searchStatus = document.getElementById('searchStatus');
+            
+            const searchInterval = setInterval(() => {
+                userCount += Math.floor(Math.random() * 3) + 1;
+                searchStatus.textContent = `تعداد کاربران یافت شده: ${userCount}`;
+                
+                if (userCount >= 10) {
+                    clearInterval(searchInterval);
+                    setTimeout(() => {
+                        alert(`بازی پیدا شد! ${userCount} کاربر آنلاین یافت شد 🎮`);
+                        // Here you can add logic to start the actual game
+                    }, 1000);
+                }
+            }, 1500);
+            
+            // Store interval ID for cancellation
+            window.currentSearchInterval = searchInterval;
+        }
+
+        function cancelSearch() {
+            if (window.currentSearchInterval) {
+                clearInterval(window.currentSearchInterval);
             }
+            document.getElementById('searchPage').style.display = 'none';
+            document.getElementById('gameMenu').style.display = 'flex';
+        }
 
-            document.getElementById('loading-tip').textContent = `💡 نکته: ${loadingTips[Math.floor(Math.random() * loadingTips.length)]}`;
-        }, 200);
-
+        // Add focus effects
+        document.querySelectorAll('.form-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
     </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'992ac025025bb8c0',t:'MTc2MTE1NDUyMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
