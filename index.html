@@ -3,936 +3,723 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ثبت‌نام</title>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>بازی چیستان - حالت رکوردی</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Custom Styles - Existing */
         body {
             font-family: 'Vazirmatn', sans-serif;
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
+            background-color: #121212;
+            color: #E0E0E0;
+            overscroll-behavior: none;
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10+ and Edge */
+            user-select: none; /* Standard syntax */
         }
-
-        /* Sign-up page styles */
-        .signup-page {
-            background-image: url('https://cdn.imgurl.ir/uploads/s6214_InShot__.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .gold-gradient-text {
+            background: linear-gradient(90deg, #FFD700, #F0C040, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
         }
-
-        .signup-page::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-        }
-
-        .signup-container {
-            position: relative;
-            z-index: 2;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 20px;
-            padding: 40px 30px;
-            width: 90%;
-            max-width: 400px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .signup-title {
-            text-align: center;
-            color: #FFD700;
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 30px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 15px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 215, 0, 0.4);
+        .btn-golden {
+            background: linear-gradient(145deg, #c39d1a, #e6c229, #c39d1a);
+            color: #121212;
+            font-weight: bold;
             border-radius: 12px;
-            color: white;
-            font-size: 16px;
-            font-family: 'Vazirmatn', sans-serif;
+            padding: 12px 24px;
+            text-align: center;
             transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+            border: 1px solid #FFD700;
         }
-
-        .form-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #FFD700;
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-        }
-
-        .signup-button {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            border: none;
-            border-radius: 15px;
-            color: #000;
-            font-size: 18px;
-            font-weight: 600;
-            font-family: 'Vazirmatn', sans-serif;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
-        }
-
-        .signup-button:hover {
+        .btn-golden:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(255, 215, 0, 0.6);
-            background: linear-gradient(135deg, #FFA500, #FFD700);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
         }
-
-        .signup-button:active {
-            transform: translateY(0);
+        .btn-golden:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 10px rgba(255, 215, 0, 0.2);
         }
-
-        /* Game menu page styles */
-        .game-menu {
-            display: none;
-            background-image: url('https://cdn.imgurl.ir/uploads/w253923_InShot__.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            flex-direction: column;
+        .btn-golden.disabled {
+            background: linear-gradient(145deg, #5c5c5c, #7a7a7a, #5c5c5c);
+            color: #aaa;
+            cursor: not-allowed;
+            box-shadow: none;
+            border-color: #666;
         }
-
-        .game-menu::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
+        .btn-golden.disabled:hover { transform: none; box-shadow: none; }
+        .card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 16px;
         }
-
-        .game-header {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 25px;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .user-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
+        .split-circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(to right, #121212 50%, #FFD700 50%);
             border: 2px solid #FFD700;
-            background-image: url('https://cdn.imgurl.ir/uploads/f32084_IMG_20250827_144709_907.jpg');
-            background-size: cover;
-            background-position: center;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
-
-        .user-name {
-            color: white;
-            font-size: 18px;
-            font-weight: 500;
+        .screen {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            animation: fadeIn 0.5s ease-in-out;
         }
-
-        .game-stats {
-            display: flex;
-            gap: 20px;
-            align-items: center;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
         }
-
-        .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 8px 12px;
-            border-radius: 20px;
+        #falling-letters-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.25; /* --- CHANGED: Opacity adjusted for new background --- */
+        }
+        .btn-option {
+            background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 215, 0, 0.3);
-        }
-
-        .stat-icon {
-            width: 20px;
-            height: 20px;
-            background: #FFD700;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-        }
-
-        .stat-value {
-            color: white;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .game-content {
-            position: relative;
-            z-index: 2;
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-        }
-
-        .start-game-button {
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            border: none;
-            border-radius: 20px;
-            padding: 20px 60px;
-            color: #000;
-            font-size: 24px;
-            font-weight: 600;
-            font-family: 'Vazirmatn', sans-serif;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
-        }
-
-        .start-game-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6);
-        }
-
-        /* Avatar selection page styles */
-        .avatar-page {
-            display: none;
-            background-image: url('https://cdn.imgurl.ir/uploads/s6214_InShot__.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            flex-direction: column;
-        }
-
-        .avatar-page::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-        }
-
-        .avatar-header {
-            position: relative;
-            z-index: 2;
-            padding: 20px 25px;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            text-align: center;
-        }
-
-        .avatar-title {
-            color: #FFD700;
-            font-size: 24px;
-            font-weight: 600;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .avatar-content {
-            position: relative;
-            z-index: 2;
-            flex: 1;
-            padding: 50px 20px;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding-top: 80px;
-        }
-
-        .avatar-grid {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            max-width: 800px;
-            width: 100%;
-            flex-wrap: nowrap;
-        }
-
-        .avatar-card {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 15px;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .avatar-card:hover {
-            transform: translateY(-5px);
-            border-color: #FFD700;
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
-        }
-
-        .avatar-card.active {
-            border-color: #FFD700;
-            background: rgba(255, 215, 0, 0.1);
-        }
-
-        .avatar-image {
-            width: 80px;
-            height: 80px;
+            color: #E0E0E0;
+            padding: 12px;
             border-radius: 10px;
-            background-size: cover;
-            background-position: center;
-            margin: 0 auto 15px;
-            border: 2px solid rgba(255, 215, 0, 0.5);
-        }
-
-        .avatar-status {
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            color: #000;
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             width: 100%;
         }
-
-        .avatar-status:hover {
-            background: linear-gradient(135deg, #FFA500, #FFD700);
-        }
-
-        .avatar-status.active-status {
-            background: linear-gradient(135deg, #4CAF50, #45a049);
-            color: white;
-        }
-
-        .back-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-family: 'Vazirmatn', sans-serif;
-            z-index: 3;
-        }
-
-        .back-button:hover {
-            background: rgba(255, 215, 0, 0.2);
-        }
-
-        /* Scenario selection panel styles */
-        .scenario-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 100;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .scenario-panel {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(255, 215, 0, 0.4);
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        .scenario-title {
-            color: #FFD700;
-            font-size: 24px;
-            font-weight: 600;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .close-panel {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: rgba(255, 0, 0, 0.7);
-            border: none;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .close-panel:hover {
-            background: rgba(255, 0, 0, 0.9);
-        }
-
-        .scenario-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-width: 500px;
-            width: 100%;
-        }
-
-        .scenario-card {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .scenario-card:hover {
-            transform: translateY(-5px);
+        .btn-option:hover:not(:disabled) {
+            background-color: rgba(255, 215, 0, 0.2);
             border-color: #FFD700;
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
         }
-
-        .scenario-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-            display: block;
+        .btn-option:disabled { cursor: not-allowed; }
+        .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .timer-flash { animation: pulse 1s infinite; }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 1; }
         }
-
-        .scenario-name {
-            color: #FFD700;
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .scenario-description {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        /* Search page styles */
-        .search-page {
-            display: none;
-            background-image: url('https://cdn.imgurl.ir/uploads/s6214_InShot__.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            flex-direction: column;
-        }
-
-        .search-page::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-        }
-
-        .search-header {
-            position: relative;
-            z-index: 2;
-            padding: 20px 25px;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
+        #creators-content {
+            transform: translateY(-100vh);
             text-align: center;
+            white-space: nowrap;
+            animation: creditRoll 20s linear forwards;
+            animation-play-state: paused;
+            will-change: transform;
+        }
+        #creators-screen.active #creators-content { animation-play-state: running; }
+        @keyframes creditRoll {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+        .credit-item { margin-bottom: 24px; padding: 8px 0; color: #E0E0E0; }
+        .credit-role { font-size: 1.5rem; font-weight: 700; text-shadow: 0 0 5px rgba(255, 215, 0, 0.4); margin-bottom: 4px; }
+        .credit-name { font-size: 2.25rem; font-weight: 900; line-height: 1.2; }
+
+        /* Custom Styles - NEW (Motion Graphic Panel) */
+        .soon-modal-panel {
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+        }
+        .soon-modal.active .soon-modal-panel {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        .soon-modal {
+            transition: background-color 0.5s ease;
+        }
+        .soon-text {
+            animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) both;
+            display: inline-block;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
         }
 
-        .search-title {
-            color: #FFD700;
-            font-size: 24px;
-            font-weight: 600;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            margin-bottom: 10px;
-        }
-
-        .selected-scenario {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 16px;
-        }
-
-        .search-content {
-            position: relative;
-            z-index: 2;
-            flex: 1;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .search-animation {
-            width: 120px;
-            height: 120px;
-            border: 4px solid rgba(255, 215, 0, 0.3);
-            border-top: 4px solid #FFD700;
-            border-radius: 50%;
-            animation: spin 2s linear infinite;
-            margin-bottom: 30px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .search-text {
-            color: white;
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .search-status {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .cancel-search-button {
-            background: rgba(255, 0, 0, 0.7);
-            border: 1px solid rgba(255, 0, 0, 0.5);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .cancel-search-button:hover {
-            background: rgba(255, 0, 0, 0.9);
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .avatar-grid {
-                flex-wrap: wrap;
-                gap: 15px;
-                justify-content: center;
-            }
-
-            .avatar-image {
-                width: 60px;
-                height: 60px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .signup-container {
-                padding: 30px 20px;
-                margin: 20px;
-            }
-            
-            .signup-title {
-                font-size: 24px;
-            }
-            
-            .form-input {
-                padding: 12px 16px;
-                font-size: 14px;
-            }
-            
-            .signup-button {
-                padding: 15px;
-                font-size: 16px;
-            }
-
-            .game-header {
-                padding: 15px 20px;
-            }
-
-            .game-stats {
-                gap: 10px;
-            }
-
-            .stat-item {
-                padding: 6px 10px;
-            }
-
-            .start-game-button {
-                padding: 18px 40px;
-                font-size: 20px;
-            }
-
-            .user-avatar {
-                width: 40px;
-                height: 40px;
-            }
-
-            .user-name {
-                font-size: 16px;
-            }
-
-            .avatar-title {
-                font-size: 20px;
-            }
+        /* --- ADDED: Style for new main menu background --- */
+        #main-menu-screen {
+             background-image: url('https://s6.uupload.ir/files/inshot_۲۰۲۵۱۰۲۳_۱۳۴۸۰۱۷۷۰_f1t.jpg');
+             background-size: cover;
+             background-position: center;
+             background-repeat: no-repeat;
         }
     </style>
 </head>
-<body>
-    <!-- Sign-up Page -->
-    <div class="signup-page" id="signupPage">
-        <div class="signup-container">
-            <h1 class="signup-title">ثبت‌نام</h1>
-            <form id="signupForm">
-                <div class="form-group">
-                    <input type="text" class="form-input" id="usernameInput" placeholder="نام کاربری" required>
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-input" placeholder="رمز عبور" required>
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-input" placeholder="تکرار رمز عبور" required>
-                </div>
-                <button type="submit" class="signup-button">ثبت‌نام</button>
-            </form>
-        </div>
-    </div>
+<body class="overflow-hidden">
 
-    <!-- Game Menu Page -->
-    <div class="game-menu" id="gameMenu">
-        <div class="game-header">
-            <div class="user-profile">
-                <div class="user-avatar" id="currentAvatar" onclick="openAvatarSelection()"></div>
-                <div class="user-name" id="displayUsername">کاربر جدید</div>
-            </div>
-            <div class="game-stats">
-                <div class="stat-item">
-                    <div class="stat-icon">🪙</div>
-                    <div class="stat-value">1,250</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon">💎</div>
-                    <div class="stat-value">45</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon">🏆</div>
-                    <div class="stat-value">12</div>
-                </div>
+<!-- --- ADDED: Splash Screen --- -->
+<div id="splash-screen" class="screen" style="display: flex; justify-content: center; align-items: center; background-color: #121212;">
+    <img src="https://s6.uupload.ir/files/inshot_۲۰۲۵۱۰۲۳_۱۳۵۷۴۷۹۸۰_gswc.jpg" alt="Loading..." style="max-width: 100%; max-height: 100%; object-fit: contain;">
+</div>
+
+<!-- Main Menu Screen -->
+<div id="main-menu-screen" class="screen p-6 flex flex-col h-screen">
+    <canvas id="falling-letters-canvas"></canvas>
+    <header class="flex justify-between items-center mb-16">
+        <div class="flex items-center space-x-4 space-x-reverse">
+            <div class="split-circle"></div>
+            <div>
+                <p id="menu-username" class="font-bold text-lg text-white"></p>
+                <p id="menu-highscore" class="text-sm gold-gradient-text font-bold">🚀 بالاترین رکورد: 0</p>
             </div>
         </div>
+        <button id="settings-btn" class="text-3xl">⚙️</button>
+    </header>
 
-        <div class="game-content">
-            <button class="start-game-button" onclick="startGame()">شروع بازی</button>
+    <main class="flex-grow flex flex-col justify-center items-center space-y-4">
+        <button id="start-game-btn" class="w-full max-w-[280px] btn-golden text-xl py-3">شروع بازی</button>
+        <button class="w-full max-w-[280px] btn-golden disabled text-xl py-3">
+            بازی آنلاین <span class="text-xs">(به زودی)</span>
+        </button>
+    </main>
+
+    <!-- FOOTER - EDITED -->
+    <footer class="w-full max-w-sm mx-auto pb-2 px-2">
+        <div class="bg-black/30 backdrop-blur-sm border border-yellow-400/20 rounded-2xl grid grid-cols-3 gap-2 text-center p-2">
+            <button id="nav-ways-btn" class="flex flex-col items-center justify-center text-gray-400 p-2 rounded-lg hover:bg-yellow-400/10 transition-colors text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 10l-2 1m0 0l-2-1m2 1v10m-6 3h12a2 2 0 002-2V8a2 2 0 00-2-2H6a2 2 0 00-2 2v7a2 2 0 002 2z"/>
+                </svg>
+                <span>راه ها</span>
+            </button>
+            <button id="nav-challenges-btn" class="flex flex-col items-center justify-center text-gray-400 p-2 rounded-lg hover:bg-yellow-400/10 transition-colors text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.539 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.539-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+                <span>چالش‌ها</span>
+            </button>
+            <button id="nav-history-btn" class="flex flex-col items-center justify-center text-gray-400 p-2 rounded-lg hover:bg-yellow-400/10 transition-colors text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>تاریخچه</span>
+            </button>
         </div>
+    </footer>
+</div>
 
-
-    </div>
-
-    <!-- Avatar Selection Page -->
-    <div class="avatar-page" id="avatarPage">
-        <button class="back-button" onclick="backToMenu()">← بازگشت</button>
+<!-- Game Mode Selection Modal - Existing -->
+<div id="mode-selection-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
+    <div class="card p-8 rounded-lg w-11/12 max-w-md text-center space-y-6">
+        <h2 class="text-3xl font-bold gold-gradient-text mb-6">انتخاب حالت بازی</h2>
         
-        <div class="avatar-header">
-            <h1 class="avatar-title">انتخاب آواتار</h1>
-        </div>
+        <button onclick="selectGameMode('old')" class="w-full btn-golden text-xl py-4 flex flex-col items-center">
+            <span class="text-2xl font-black">2 Old (کلاسیک)</span>
+            <span class="text-sm font-normal mt-1 text-gray-900">چند گزینه‌ای، بدون محدودیت زمانی</span>
+        </button>
 
-        <div class="avatar-content">
-            <div class="avatar-grid">
-                <div class="avatar-card active" data-avatar="1">
-                    <div class="avatar-image" style="background-image: url('https://cdn.imgurl.ir/uploads/f32084_IMG_20250827_144709_907.jpg');"></div>
-                    <button class="avatar-status active-status">آواتار فعال</button>
-                </div>
-                
-                <div class="avatar-card" data-avatar="2">
-                    <div class="avatar-image" style="background-image: url('https://cdn.imgurl.ir/uploads/k49298_IMG_20250827_160949_096.jpg');"></div>
-                    <button class="avatar-status">استفاده</button>
-                </div>
-                
-                <div class="avatar-card" data-avatar="3">
-                    <div class="avatar-image" style="background-image: url('https://cdn.imgurl.ir/uploads/m87957_IMG_20250827_164921_059.jpg');"></div>
-                    <button class="avatar-status">استفاده</button>
-                </div>
-                
-                <div class="avatar-card" data-avatar="4">
-                    <div class="avatar-image" style="background-image: url('https://cdn.imgurl.ir/uploads/a519305_IMG_20250827_164946_814.jpg');"></div>
-                    <button class="avatar-status">استفاده</button>
-                </div>
+        <button onclick="selectGameMode('flash')" class="w-full btn-golden text-xl py-4 flex flex-col items-center">
+            <span class="text-2xl font-black">2.5 Flash</span>
+            <span class="text-sm font-normal mt-1 text-gray-900">سوالات سخت، تایپ پاسخ، زمان محدود</span>
+        </button>
+        
+        <button id="close-mode-selection-btn" class="mt-4 w-full p-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-colors">بازگشت</button>
+    </div>
+</div>
+
+<!-- Settings Modal - Existing -->
+<div id="settings-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
+    <div class="card p-8 rounded-lg w-11/12 max-w-md text-center space-y-4">
+        <h2 class="text-2xl font-bold gold-gradient-text mb-6">تنظیمات</h2>
+        <button id="creators-btn" class="w-full p-3 bg-gray-700 rounded-lg hover:bg-yellow-400/20 transition-colors">سازندگان</button>
+        <button id="close-settings-btn" class="mt-6 w-full btn-golden">بستن</button>
+    </div>
+</div>
+
+<!-- NEW: Coming Soon Modal (Animated Panel) -->
+<div id="soon-modal" class="soon-modal hidden fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
+    <div id="soon-modal-panel" class="soon-modal-panel card p-8 rounded-2xl w-11/12 max-w-md text-center space-y-6">
+        <h2 class="text-6xl font-black gold-gradient-text soon-text">
+            ✨ به زودی ✨
+        </h2>
+        <p class="text-xl text-gray-300">
+            این بخش هیجان‌انگیز در حال توسعه است و به زودی اضافه خواهد شد!
+        </p>
+        <div class="mt-8">
+            <button id="close-soon-modal-btn" class="w-full btn-golden text-xl py-3">فهمیدم</button>
+        </div>
+    </div>
+</div>
+
+<!-- Creators Screen (Credit Roll) - Existing -->
+<div id="creators-screen" class="screen fixed inset-0 bg-black/95 flex flex-col items-center z-50">
+    <header class="relative w-full text-center py-6 bg-black/50">
+        <h1 class="text-3xl font-black gold-gradient-text">اعتبارات سازندگان</h1>
+        <button id="back-from-creators-btn" class="absolute top-1/2 -translate-y-1/2 right-4 text-3xl text-white">➡️</button>
+    </header>
+
+    <div class="flex-grow w-full overflow-hidden relative">
+        <div id="creators-content" class="absolute w-full top-0">
+            <div class="credit-item">
+                <p class="credit-role gold-gradient-text">برنامه نویس ارشد و طراح</p>
+                <p class="credit-name">علی بابایی</p>
+            </div>
+            <div class="credit-item mt-20">
+                <p class="credit-role gold-gradient-text">برنامه نویس سرور و برنامه نویس دوم</p>
+                <p class="credit-name">سید ابولفضل سجادی</p>
+            </div>
+            <div class="credit-item mt-20 text-4xl font-bold">
+                <p class="gold-gradient-text">اسکورت گیم</p>
+                <p class="text-gray-400 text-xl mt-4">تقدیم می‌کند</p>
+            </div>
+            <div style="height: 50vh;"></div> 
+        </div>
+    </div>
+</div>
+
+<!-- Gameplay Screen - Existing -->
+<div id="gameplay-screen" class="screen p-6 flex flex-col h-screen">
+    <header class="flex items-center justify-between mb-8">
+        <div class="flex items-center space-x-2 space-x-reverse">
+            <p class="text-red-400 text-3xl">❤️</p>
+            <p id="lives-count" class="text-2xl font-bold text-white">3</p>
+        </div>
+        <div id="timer-display" class="hidden text-center card px-4 py-2 rounded-lg bg-red-900/50 border-red-500/50">
+            <p class="text-lg font-bold">زمان:</p>
+            <p id="timer-count" class="text-3xl font-black text-red-400">15</p>
+        </div>
+        <div class="text-center">
+            <p class="text-2xl font-bold gold-gradient-text">امتیاز: <span id="game-score">0</span></p>
+        </div>
+    </header>
+    
+    <main class="flex-grow flex flex-col justify-center items-center text-center">
+        <div class="w-full max-w-lg card p-8">
+            <p id="riddle-question" class="text-xl md:text-2xl mb-8 min-h-[100px] flex items-center justify-center"></p>
+            
+            <div id="options-container" class="grid grid-cols-2 gap-4"></div>
+
+            <div id="input-container" class="hidden flex flex-col gap-4 w-full">
+                <input type="text" id="flash-answer-input" placeholder="پاسخ را اینجا تایپ کنید..." 
+                        class="w-full p-4 bg-gray-800 border border-yellow-400/50 rounded-lg text-white text-center focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-colors text-lg"
+                        style="caret-color: #FFD700;">
+                <button id="flash-submit-btn" class="w-full btn-golden text-xl py-3">ثبت پاسخ</button>
             </div>
         </div>
-    </div>
+    </main>
+</div>
 
-    <!-- Scenario Selection Panel -->
-    <div class="scenario-overlay" id="scenarioOverlay">
-        <div class="scenario-panel">
-            <button class="close-panel" onclick="closeScenarioPanel()">×</button>
-            <h1 class="scenario-title">انتخاب سناریو</h1>
-            
-            <div class="scenario-grid">
-                <div class="scenario-card" onclick="selectScenario('آتیش بازی')">
-                    <div class="scenario-icon">🎆</div>
-                    <div class="scenario-name">آتیش بازی</div>
-                    <div class="scenario-description">در این سناریو شما باید با مهارت و دقت آتیش بازی کنید</div>
-                </div>
-                
-                <div class="scenario-card" onclick="selectScenario('کارت برنده')">
-                    <div class="scenario-icon">🃏</div>
-                    <div class="scenario-name">کارت برنده</div>
-                    <div class="scenario-description">کارت‌های شما را انتخاب کنید و برنده شوید</div>
-                </div>
-                
-                <div class="scenario-card" onclick="selectScenario('اکسیر سیاه')">
-                    <div class="scenario-icon">🧪</div>
-                    <div class="scenario-name">اکسیر سیاه</div>
-                    <div class="scenario-description">اکسیر جادویی را پیدا کنید و قدرت آن را کشف کنید</div>
-                </div>
-            </div>
+<!-- Game Over Screen - Existing -->
+<div id="game-over-screen" class="screen p-8 flex flex-col justify-center items-center text-center h-screen">
+    <div class="card p-8 rounded-lg w-11/12 max-w-md space-y-6">
+        <h2 class="text-4xl font-black text-red-400">بازی تمام شد!</h2>
+        <div>
+            <p class="text-xl">امتیاز شما: <span id="final-score" class="text-yellow-400 font-bold"></span></p>
+            <p class="text-lg mt-2">بالاترین رکورد: <span id="final-highscore" class="text-gray-300 font-bold"></span></p>
+        </div>
+        <div class="flex space-x-4 space-x-reverse">
+            <button id="play-again-btn" class="w-full btn-golden">بازی مجدد</button>
+            <button id="back-to-menu-gameover-btn" class="w-full p-3 bg-gray-700 rounded-lg">منوی اصلی</button>
         </div>
     </div>
+</div>
 
-    <!-- Search Page -->
-    <div class="search-page" id="searchPage">
-        <div class="search-header">
-            <h1 class="search-title">جستجوی کاربران</h1>
-            <div class="selected-scenario" id="selectedScenarioText">سناریو: آتیش بازی</div>
-        </div>
 
-        <div class="search-content">
-            <div class="search-animation"></div>
-            <div class="search-text">در حال جستجوی کاربران آنلاین...</div>
-            <div class="search-status" id="searchStatus">تعداد کاربران یافت شده: 0</div>
-            <button class="cancel-search-button" onclick="cancelSearch()">لغو جستجو</button>
-        </div>
-    </div>
+<script>
+    // --- DOM Elements ---
+    const screens = {
+        mainMenu: document.getElementById('main-menu-screen'),
+        gameplay: document.getElementById('gameplay-screen'),
+        gameOver: document.getElementById('game-over-screen'),
+        creators: document.getElementById('creators-screen'),
+        // --- ADDED: Splash Screen element ---
+        splash: document.getElementById('splash-screen'),
+    };
+    const settingsModal = document.getElementById('settings-modal');
+    const modeSelectionModal = document.getElementById('mode-selection-modal');
+    const soonModal = document.getElementById('soon-modal');
+    const soonModalPanel = document.getElementById('soon-modal-panel');
+    const timerDisplay = document.getElementById('timer-display');
+    const timerCount = document.getElementById('timer-count');
+    const inputContainer = document.getElementById('input-container');
+    const optionsContainer = document.getElementById('options-container');
 
-    <script>
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const inputs = this.querySelectorAll('.form-input');
-            const username = inputs[0].value.trim();
-            const password = inputs[1].value;
-            const confirmPassword = inputs[2].value;
-            
-            // Basic validation
-            if (!username) {
-                alert('لطفاً نام کاربری را وارد کنید');
-                inputs[0].focus();
-                return;
+    // --- Game State & Data ---
+    const FLASH_TIME_LIMIT = 15;
+    const STARTING_LIVES = 3;
+    const STORAGE_KEY = 'chistanRecordGameState';
+    
+    let gameState = {
+        username: 'هوشیار',
+        highScore: 0,
+        score: 0,
+        lives: STARTING_LIVES,
+        currentMode: 'old',
+        usedRiddleIndices: [],
+    };
+
+    let gameTimer;
+
+    // --- Riddles (unchanged) ---
+    const allRiddles = [
+        { q: 'آن چیست که پر دارد ولی پرواز نمی‌کند؟', a: 'بالش', options: ['پرنده', 'بالش', 'هواپیما', 'بادبادک'] },
+        { q: 'آن چیست که هرچه از آن بردارند بزرگتر می‌شود؟', a: 'گودال', options: ['کیسه', 'کوه', 'گودال', 'درخت'] },
+        { q: 'آن چیست که یک چشم دارد ولی نمی‌بیند؟', a: 'سوزن', options: ['سوزن', 'سیکلوپ', 'دوربین', 'هیولا'] },
+        { q: 'آن چیست که گردن دارد اما سر ندارد؟', a: 'کوزه', options: ['پیراهن', 'بطری', 'کوزه', 'شیشه'] },
+        { q: 'آن چیست که روز را آغاز و شب را تمام می‌کند؟', a: 'ر', options: ['آفتاب', 'ماه', 'ر', 'ش'] },
+        { q: 'آن چیست که همه جا هست ولی دیده نمی‌شود؟', a: 'هوا', options: ['صدا', 'هوا', 'فکر', 'عشق'] },
+        { q: 'آن چیست که زبان ندارد اما سخن می‌گوید؟', a: 'کتاب', options: ['رادیو', 'قلم', 'کتاب', 'نامه'] },
+        { q: 'آن چیست که پا ندارد ولی سفر می‌کند؟', a: 'نامه', options: ['ابر', 'دود', 'رودخانه', 'نامه'] },
+        { q: 'آن چیست که همیشه در حال آمدن است ولی هرگز نمی‌رسد؟', a: 'فردا', options: ['قطار', 'فردا', 'مرگ', 'خواب'] },
+        { q: 'آن چیست که در زمستان می‌ایستد و در تابستان می‌نشیند؟', a: 'برف', options: ['آدم برفی', 'کوه', 'یخ', 'برف'] },
+        { q: 'آن چیست که در روز پر است و در شب خالی؟', a: 'کفش', options: ['مدرسه', 'معده', 'خیابان', 'کفش'] },
+        { q: 'آن چیست که سفید است اما برف نیست، ریشه دارد اما درخت نیست؟', a: 'دندان', options: ['پیاز', 'دندان', 'تربچه', 'مو'] },
+        { q: 'آن چیست که اگر نامش را بگویی می‌شکند؟', a: 'سکوت', options: ['شیشه', 'سکوت', 'بغض', 'قول'] },
+        { q: 'آن چیست که می‌رود و برنمی‌گردد؟', a: 'عمر', options: ['زمان', 'جوانی', 'عمر', 'فرصت'] },
+        { q: 'آن چیست که پر از سوراخ است ولی آب را نگه می‌دارد؟', a: 'اسفنج', options: ['ابر', 'اسفنج', 'تور', 'آبکش'] },
+        { q: 'آن چیست که سر ندارد اما کلاه دارد؟', a: 'قارچ', options: ['میخ', 'بطری', 'خودکار', 'قارچ'] },
+        { q: 'آن چیست که هر چه بیشتر می‌شوییم کثیف‌تر می‌شود؟', a: 'آب', options: ['حوله', 'دستمال', 'آب', 'صابون'] },
+        { q: 'آن چیست که از میان آب می‌گذرد ولی خیس نمی‌شود؟', a: 'نور', options: ['صدا', 'سایه', 'نور', 'ماهی'] },
+        { q: 'آن چیست که اگر غذا به او بدهی رشد می‌کند و اگر آب بدهی می‌میرد؟', a: 'آتش', options: ['گیاه', 'آتش', 'کوره', 'حیوان'] },
+        { q: 'آن چیست که در قرن یک بار، در دقیقه دو بار و در ساعت هیچ بار نمی‌آید؟', a: 'ق', options: ['نقطه', 'حرف', 'ق', 'عدد'] },
+    ];
+    
+    const hardRiddles = [
+        { q: 'آن چیست که وقتی ایستاده است می‌خوابد و وقتی راه می‌رود بیدار است؟', a: 'قطار', options: [] },
+        { q: 'من هیچ بدنی ندارم اما می‌توانم راه بروم. من دهانی ندارم اما می‌توانم حرف بزنم. من کیستم؟', a: 'پژواک', options: [] },
+        { q: 'آن چیست که اگر آن را داشته باشی می‌خواهی به اشتراک بگذاری، و اگر به اشتراک بگذاری دیگر آن را نداری؟', a: 'راز', options: [] },
+        { q: 'چه چیزی همیشه جلوتر از شماست اما هرگز نمی‌توانید آن را بگیرید؟', a: 'آینده', options: [] },
+        { q: 'آن چیست که بدون کلید باز می‌شود؟', a: 'موز', options: [] },
+        { q: 'چهارپا دارم اما نمی‌توانم بدوم، پشت دارم اما کمر ندارم. من کیستم؟', a: 'میز', options: [] },
+        { q: 'چه چیزی در یک دایره همیشه بزرگتر می‌شود و در یک مربع همیشه کوچک‌تر؟', a: 'نقطه', options: [] },
+        { q: 'سقف من آبی است، کف من سبزی است، و با آب هم پر شده‌ام. من کیستم؟', a: 'استخر', options: [] },
+        { q: 'آن چیست که مال شماست اما دیگران بیشتر از شما از آن استفاده می‌کنند؟', a: 'اسم', options: [] },
+        { q: 'چه چیزی بالا می‌رود اما هرگز پایین نمی‌آید؟', a: 'سن', options: [] },
+        { q: 'چهار حرف است، هرچه بیشتر می‌خورم گرسنه‌تر می‌شوم.', a: 'آتش', options: [] },
+        { q: 'من همیشه خیس هستم، مهم نیست چقدر آفتابی باشد.', a: 'زبان', options: [] },
+        { q: 'آن چیست که هرگز سؤال نمی‌پرسد، اما همیشه نیاز به پاسخ دارد؟', a: 'تلفن', options: [] },
+        { q: 'دوستت دارم، می‌ایستم، از آن متنفرم، می‌دوم. من کیستم؟', a: 'زمان', options: [] },
+        { q: 'آن چیست که همیشه در جای خود است، اما مدام در حرکت است؟', a: 'جاده', options: [] },
+        { q: 'چه چیزی می‌تواند از یک پنجره شیشه‌ای عبور کند بدون اینکه آن را بشکند؟', a: 'نور', options: [] },
+        { q: 'من ریشه در زمین دارم، قدی به بلندای درخت، اما بالا نمی‌روم.', a: 'سایه', options: [] },
+        { q: 'سه چشم دارم و فقط یک پا. من کیستم؟', a: 'چراغ‌راهنمایی', options: [] },
+        { q: 'من همیشه به گذشته نگاه می‌کنم، اما نمی‌توانم جلو را ببینم.', a: 'آینه', options: [] },
+        { q: 'با یک انگشت به تو اشاره می‌کنم، اما راه را به هیچ کس نشان نمی‌دهم.', a: 'خورشید', options: [] },
+        { q: 'چند بار می‌توانید عدد ۱ را از ۲۵ کم کنید؟', a: 'یکبار', options: [] },
+        { q: 'آن چیست که باید بشکنی تا از آن استفاده کنی؟', a: 'تخم‌مرغ', options: [] },
+        { q: 'آن چیست که هم می‌تواند بسته باشد و هم باز، و همیشه نزدیک توست؟', a: 'دست', options: [] },
+        { q: 'چه چیزی را نمی‌توانید بخورید اما برای خوردن لازم است؟', a: 'قاشق', options: [] },
+        { q: 'هر چه بیشتر از من ببرید، بزرگتر می‌شوم.', a: 'چاله', options: [] },
+        { q: 'یک خانه سبزم که داخلش یک خانه سفید است و درون آن یک خانه قرمز و پر از بچه‌های سیاه است.', a: 'هندوانه', options: [] },
+        { q: 'آن چیست که دهان دارد اما صحبت نمی‌کند، بستر دارد اما نمی‌خوابد؟', a: 'رودخانه', options: [] },
+        { q: 'چه چیزی با داشتن وزن بسیار کم می‌تواند یک کشتی بزرگ را در اقیانوس متوقف کند؟', a: 'لنگر', options: [] },
+        { q: 'من را می‌سازند، نگهداری می‌کنند، تغییر می‌دهند، و دور می‌اندازند، اما هیچ‌گاه خورده نمی‌شوم.', a: 'پول', options: [] },
+    ];
+    
+    // --- Helper Functions (unchanged) ---
+    function normalizeAnswer(text) {
+        if (typeof text !== 'string') return '';
+        return text.trim().replace(/ی/g, 'ي').replace(/ک/g, 'ك').toLowerCase().replace(/\s/g, ''); 
+    }
+
+    // --- Persistence (unchanged) ---
+    function saveGameState() {
+        try {
+            const stateToSave = { highScore: gameState.highScore };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
+        } catch (e) {
+            console.error("Failed to save game state:", e);
+        }
+    }
+
+    function loadGameState() {
+        try {
+            const savedState = localStorage.getItem(STORAGE_KEY);
+            if (savedState) {
+                const loadedState = JSON.parse(savedState);
+                gameState.highScore = loadedState.highScore || 0;
             }
-            
-            if (password.length < 6) {
-                alert('رمز عبور باید حداقل ۶ کاراکتر باشد');
-                inputs[1].focus();
-                return;
+        } catch (e) {
+            console.error("Failed to load game state:", e);
+        }
+    }
+
+    // --- Navigation (unchanged) ---
+    function showScreen(screenName) {
+        if (screens.creators.classList.contains('active')) {
+            screens.creators.classList.remove('active');
+        }
+        
+        Object.values(screens).forEach(screen => screen.style.display = 'none');
+        
+        const currentScreen = screens[screenName];
+        if (currentScreen) {
+            currentScreen.style.display = 'flex';
+        }
+
+        if (screenName === 'creators') {
+            initCreatorsScreen();
+        }
+    }
+
+    // --- Coming Soon Modal Logic (unchanged) ---
+    function showSoonModal() {
+        soonModal.classList.remove('hidden');
+        soonModal.classList.remove('opacity-0');
+        soonModalPanel.classList.remove('active');
+        
+        setTimeout(() => {
+            soonModal.classList.add('active');
+            soonModalPanel.classList.add('active');
+        }, 10);
+    }
+
+    function hideSoonModal() {
+        soonModalPanel.classList.remove('active');
+        soonModal.classList.remove('active');
+
+        setTimeout(() => {
+            soonModal.classList.add('hidden');
+        }, 500); 
+    }
+    
+    // --- UI Update (unchanged) ---
+    function updateUI() {
+        document.getElementById('menu-username').textContent = gameState.username;
+        document.getElementById('menu-highscore').textContent = `🚀 بالاترین رکورد: ${gameState.highScore}`;
+        document.getElementById('game-score').textContent = gameState.score;
+        document.getElementById('lives-count').textContent = gameState.lives;
+    }
+    
+    // --- Timer Logic (unchanged) ---
+    function startTimer() {
+        if (gameState.currentMode !== 'flash') return;
+        let timeRemaining = FLASH_TIME_LIMIT;
+        timerCount.textContent = timeRemaining;
+        timerDisplay.classList.remove('hidden');
+        timerDisplay.classList.remove('timer-flash');
+
+        clearInterval(gameTimer);
+        gameTimer = setInterval(() => {
+            timeRemaining--;
+            timerCount.textContent = timeRemaining;
+            if (timeRemaining <= 5) {
+                timerDisplay.classList.add('timer-flash');
+            } else {
+                timerDisplay.classList.remove('timer-flash');
             }
-            
-            if (password !== confirmPassword) {
-                alert('رمز عبور و تکرار آن یکسان نیستند');
-                inputs[2].focus();
-                return;
+            if (timeRemaining <= 0) {
+                clearInterval(gameTimer);
+                checkAnswer(null);
             }
-            
-            // Success animation
-            const button = this.querySelector('.signup-button');
-            button.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
-            button.textContent = 'در حال ثبت‌نام...';
-            
-            setTimeout(() => {
-                button.textContent = '✓ ثبت‌نام موفق';
-                setTimeout(() => {
-                    // Navigate to game menu
-                    showGameMenu(username);
-                }, 1500);
-            }, 1500);
+        }, 1000);
+    }
+
+    function stopTimer() {
+        clearInterval(gameTimer);
+        timerDisplay.classList.add('hidden');
+        timerDisplay.classList.remove('timer-flash');
+    }
+
+    // --- Game Logic (unchanged) ---
+    function selectGameMode(mode) {
+        gameState.currentMode = mode;
+        modeSelectionModal.classList.add('hidden');
+        startGame();
+    }
+
+    function startGame() {
+        gameState.score = 0;
+        gameState.lives = STARTING_LIVES;
+        gameState.usedRiddleIndices = [];
+        updateUI();
+        showScreen('gameplay');
+        loadNextRiddle();
+    }
+
+    function loadNextRiddle() {
+        const riddleSource = gameState.currentMode === 'flash' ? hardRiddles : allRiddles;
+        if (gameState.usedRiddleIndices.length === riddleSource.length) {
+            gameState.usedRiddleIndices = [];
+        }
+        let riddleIndex;
+        do {
+            riddleIndex = Math.floor(Math.random() * riddleSource.length);
+        } while (gameState.usedRiddleIndices.includes(riddleIndex));
+        gameState.usedRiddleIndices.push(riddleIndex);
+        const riddle = riddleSource[riddleIndex];
+        document.getElementById('riddle-question').textContent = riddle.q;
+        
+        if (gameState.currentMode === 'flash') {
+            optionsContainer.classList.add('hidden');
+            inputContainer.classList.remove('hidden');
+            document.getElementById('flash-answer-input').value = '';
+            document.getElementById('flash-answer-input').focus();
+            startTimer();
+        } else {
+            inputContainer.classList.add('hidden');
+            optionsContainer.classList.remove('hidden');
+            optionsContainer.innerHTML = '';
+            riddle.options.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.className = 'btn-option';
+                button.onclick = () => checkAnswer(option, riddle.a, button);
+                optionsContainer.appendChild(button);
+            });
+        }
+    }
+
+    function checkAnswer(selectedAnswer, correctAnswer, btnElement = null) {
+        stopTimer();
+        let isCorrect = false;
+        if (gameState.currentMode === 'flash') {
+            const flashInput = document.getElementById('flash-answer-input').value;
+            const riddle = hardRiddles[gameState.usedRiddleIndices[gameState.usedRiddleIndices.length - 1]];
+            correctAnswer = riddle.a;
+            isCorrect = normalizeAnswer(flashInput) === normalizeAnswer(correctAnswer);
+        } else {
+            isCorrect = normalizeAnswer(selectedAnswer) === normalizeAnswer(correctAnswer);
+        }
+        optionsContainer.querySelectorAll('button').forEach(btn => btn.disabled = true);
+        if (isCorrect) {
+            gameState.score += 10;
+            if (btnElement) {
+               btnElement.style.backgroundColor = '#2E7D32';
+               btnElement.style.borderColor = '#4CAF50';
+            }
+        } else {
+            gameState.lives--;
+            if (btnElement) {
+                btnElement.style.backgroundColor = '#C62828';
+                btnElement.style.borderColor = '#F44336';
+            }
+        }
+        updateUI();
+        if (gameState.lives <= 0) {
+            setTimeout(endGame, 1000);
+        } else {
+            setTimeout(loadNextRiddle, 1000);
+        }
+    }
+
+    function endGame() {
+        stopTimer();
+        if (gameState.score > gameState.highScore) {
+            gameState.highScore = gameState.score;
+            saveGameState();
+        }
+        document.getElementById('final-score').textContent = gameState.score;
+        document.getElementById('final-highscore').textContent = gameState.highScore;
+        showScreen('gameOver');
+    }
+
+    // --- Creators Screen Logic (unchanged) ---
+    function initCreatorsScreen() {
+        const content = document.getElementById('creators-content');
+        screens.creators.classList.add('active');
+        const newContent = content.cloneNode(true);
+        content.parentNode.replaceChild(newContent, content);
+        newContent.style.animation = 'none';
+        setTimeout(() => { 
+            newContent.style.animation = ''; 
+            screens.creators.classList.add('active');
+        }, 10);
+    }
+
+    // --- Event Listeners (unchanged) ---
+    function setupEventListeners() {
+        document.getElementById('start-game-btn').addEventListener('click', () => {
+            modeSelectionModal.classList.remove('hidden');
         });
-
-        function showGameMenu(username) {
-            document.getElementById('signupPage').style.display = 'none';
-            document.getElementById('gameMenu').style.display = 'flex';
-            document.getElementById('displayUsername').textContent = username;
-        }
-
-        function startGame() {
-            document.getElementById('scenarioOverlay').style.display = 'flex';
-        }
-
-        function openAvatarSelection() {
-            document.getElementById('gameMenu').style.display = 'none';
-            document.getElementById('avatarPage').style.display = 'flex';
-        }
-
-        function backToMenu() {
-            document.getElementById('avatarPage').style.display = 'none';
-            document.getElementById('gameMenu').style.display = 'flex';
-        }
-
-        // Avatar selection functionality
-        const avatarUrls = {
-            1: 'https://cdn.imgurl.ir/uploads/f32084_IMG_20250827_144709_907.jpg',
-            2: 'https://cdn.imgurl.ir/uploads/k49298_IMG_20250827_160949_096.jpg',
-            3: 'https://cdn.imgurl.ir/uploads/m87957_IMG_20250827_164921_059.jpg',
-            4: 'https://cdn.imgurl.ir/uploads/a519305_IMG_20250827_164946_814.jpg'
-        };
-
-        let currentActiveAvatar = 1;
-
-        document.querySelectorAll('.avatar-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const avatarId = parseInt(this.dataset.avatar);
-                const statusButton = this.querySelector('.avatar-status');
-                
-                if (!statusButton.classList.contains('active-status')) {
-                    // Remove active status from all avatars
-                    document.querySelectorAll('.avatar-card').forEach(c => {
-                        c.classList.remove('active');
-                        const btn = c.querySelector('.avatar-status');
-                        btn.classList.remove('active-status');
-                        btn.textContent = 'استفاده';
-                    });
-                    
-                    // Set new active avatar
-                    this.classList.add('active');
-                    statusButton.classList.add('active-status');
-                    statusButton.textContent = 'آواتار فعال';
-                    
-                    // Update profile avatar
-                    currentActiveAvatar = avatarId;
-                    document.getElementById('currentAvatar').style.backgroundImage = `url('${avatarUrls[avatarId]}')`;
-                    
-                    // Show success message
-                    setTimeout(() => {
-                        alert('آواتار با موفقیت تغییر کرد! ✨');
-                    }, 300);
+        document.getElementById('settings-btn').addEventListener('click', () => {
+            settingsModal.classList.remove('hidden');
+        });
+        document.getElementById('nav-ways-btn').addEventListener('click', showSoonModal);
+        document.getElementById('nav-challenges-btn').addEventListener('click', showSoonModal);
+        document.getElementById('nav-history-btn').addEventListener('click', showSoonModal);
+        document.getElementById('close-soon-modal-btn').addEventListener('click', hideSoonModal);
+        document.getElementById('close-mode-selection-btn').addEventListener('click', () => {
+            modeSelectionModal.classList.add('hidden');
+        });
+        document.getElementById('close-settings-btn').addEventListener('click', () => {
+            settingsModal.classList.add('hidden');
+        });
+        document.getElementById('creators-btn').addEventListener('click', () => {
+            settingsModal.classList.add('hidden');
+            showScreen('creators');
+        });
+        document.getElementById('back-from-creators-btn').addEventListener('click', () => {
+            showScreen('mainMenu');
+        });
+        document.getElementById('flash-submit-btn').addEventListener('click', () => checkAnswer());
+        document.getElementById('flash-answer-input').addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                checkAnswer();
+            }
+        });
+        document.getElementById('play-again-btn').addEventListener('click', startGame);
+        document.getElementById('back-to-menu-gameover-btn').addEventListener('click', () => showScreen('mainMenu'));
+    }
+    
+    // --- Falling Letters Animation (unchanged) ---
+    function startFallingLetters() {
+        const canvas = document.getElementById('falling-letters-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const letters = 'ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی';
+        const fontSize = 18;
+        const columns = canvas.width / fontSize;
+        const drops = Array.from({ length: columns }).fill(1);
+        function draw() {
+            ctx.fillStyle = 'rgba(18, 18, 18, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#FFD700';
+            ctx.font = `${fontSize}px Vazirmatn`;
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
                 }
-            });
-        });
-
-        function closeScenarioPanel() {
-            document.getElementById('scenarioOverlay').style.display = 'none';
-        }
-
-        function selectScenario(scenarioName) {
-            document.getElementById('scenarioOverlay').style.display = 'none';
-            document.getElementById('gameMenu').style.display = 'none';
-            document.getElementById('searchPage').style.display = 'flex';
-            document.getElementById('selectedScenarioText').textContent = `سناریو: ${scenarioName}`;
-            
-            // Start search simulation
-            startUserSearch();
-        }
-
-        function startUserSearch() {
-            let userCount = 0;
-            const searchStatus = document.getElementById('searchStatus');
-            
-            const searchInterval = setInterval(() => {
-                userCount += Math.floor(Math.random() * 3) + 1;
-                searchStatus.textContent = `تعداد کاربران یافت شده: ${userCount}`;
-                
-                if (userCount >= 10) {
-                    clearInterval(searchInterval);
-                    setTimeout(() => {
-                        alert(`بازی پیدا شد! ${userCount} کاربر آنلاین یافت شد 🎮`);
-                        // Here you can add logic to start the actual game
-                    }, 1000);
-                }
-            }, 1500);
-            
-            // Store interval ID for cancellation
-            window.currentSearchInterval = searchInterval;
-        }
-
-        function cancelSearch() {
-            if (window.currentSearchInterval) {
-                clearInterval(window.currentSearchInterval);
+                drops[i]++;
             }
-            document.getElementById('searchPage').style.display = 'none';
-            document.getElementById('gameMenu').style.display = 'flex';
+            if (document.getElementById('main-menu-screen').style.display === 'flex') {
+                requestAnimationFrame(draw);
+            }
         }
+        function onResize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', onResize);
+        requestAnimationFrame(draw);
+    }
 
-        // Add focus effects
-        document.querySelectorAll('.form-input').forEach(input => {
-            input.addEventListener('focus', function() {
-                this.parentElement.style.transform = 'scale(1.02)';
-            });
-            
-            input.addEventListener('blur', function() {
-                this.parentElement.style.transform = 'scale(1)';
-            });
-        });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'992ac025025bb8c0',t:'MTc2MTE1NDUyMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    // --- Initialization ---
+    // --- CHANGED: Added logic for splash screen ---
+    window.onload = function() {
+        // All screens are hidden by default via the 'screen' class
+        
+        loadGameState();
+        updateUI();
+        setupEventListeners();
+
+        // Show the splash screen first
+        screens.splash.style.display = 'flex';
+
+        // After 3 seconds, hide splash screen and show the main menu
+        setTimeout(() => {
+            screens.splash.style.display = 'none'; // Hide splash
+            showScreen('mainMenu'); // Show main menu
+            startFallingLetters(); // Start the animation now
+        }, 3000); // 3-second delay
+    }
+
+</script>
+</body>
 </html>
