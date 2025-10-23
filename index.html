@@ -80,15 +80,6 @@
             from { opacity: 0; transform: scale(0.98); }
             to { opacity: 1; transform: scale(1); }
         }
-        #falling-letters-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.25; /* --- CHANGED: Opacity adjusted for new background --- */
-        }
         .btn-option {
             background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 215, 0, 0.3);
@@ -152,25 +143,51 @@
             100% { transform: scale(1); }
         }
 
-        /* --- ADDED: Style for new main menu background --- */
-        #main-menu-screen {
-             background-image: url('https://s6.uupload.ir/files/inshot_۲۰۲۵۱۰۲۳_۱۳۴۸۰۱۷۷۰_f1t.jpg');
-             background-size: cover;
-             background-position: center;
-             background-repeat: no-repeat;
+        /* --- NEW: Splash Screen Styles --- */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out;
         }
+        #splash-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        #splash-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* --- NEW: Main Menu Background Style --- */
+        #main-menu-screen {
+            background-image: url('https://s6.uupload.ir/files/inshot_۲۰۲۵۱۰۲۳_۱۳۴۸۰۱۷۷۰_f1t.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
     </style>
 </head>
 <body class="overflow-hidden">
 
-<!-- --- ADDED: Splash Screen --- -->
-<div id="splash-screen" class="screen" style="display: flex; justify-content: center; align-items: center; background-color: #121212;">
-    <img src="https://s6.uupload.ir/files/inshot_۲۰۲۵۱۰۲۳_۱۳۵۷۴۷۹۸۰_gswc.jpg" alt="Loading..." style="max-width: 100%; max-height: 100%; object-fit: contain;">
+<!-- NEW: Splash Screen -->
+<div id="splash-screen">
+    <img src="https://s6.uupload.ir/files/inshot_۲۰۲۵۱۰۲۳_۱۳۵۷۴۷۹۸۰_gswc.jpg" alt="Loading Game...">
 </div>
+
 
 <!-- Main Menu Screen -->
 <div id="main-menu-screen" class="screen p-6 flex flex-col h-screen">
-    <canvas id="falling-letters-canvas"></canvas>
+    <!-- The canvas for falling letters has been removed -->
     <header class="flex justify-between items-center mb-16">
         <div class="flex items-center space-x-4 space-x-reverse">
             <div class="split-circle"></div>
@@ -192,16 +209,20 @@
     <!-- FOOTER - EDITED -->
     <footer class="w-full max-w-sm mx-auto pb-2 px-2">
         <div class="bg-black/30 backdrop-blur-sm border border-yellow-400/20 rounded-2xl grid grid-cols-3 gap-2 text-center p-2">
+            <!-- NEW: راه ها (Ways/Paths) -->
             <button id="nav-ways-btn" class="flex flex-col items-center justify-center text-gray-400 p-2 rounded-lg hover:bg-yellow-400/10 transition-colors text-sm">
+                <!-- Road/Path Icon -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M14 10l-2 1m0 0l-2-1m2 1v10m-6 3h12a2 2 0 002-2V8a2 2 0 00-2-2H6a2 2 0 00-2 2v7a2 2 0 002 2z"/>
                 </svg>
                 <span>راه ها</span>
             </button>
+            <!-- Existing: چالش‌ها (Challenges) -->
             <button id="nav-challenges-btn" class="flex flex-col items-center justify-center text-gray-400 p-2 rounded-lg hover:bg-yellow-400/10 transition-colors text-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.539 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.539-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
                 <span>چالش‌ها</span>
             </button>
+            <!-- Existing: تاریخچه (History) -->
             <button id="nav-history-btn" class="flex flex-col items-center justify-center text-gray-400 p-2 rounded-lg hover:bg-yellow-400/10 transition-colors text-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 <span>تاریخچه</span>
@@ -214,17 +235,14 @@
 <div id="mode-selection-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
     <div class="card p-8 rounded-lg w-11/12 max-w-md text-center space-y-6">
         <h2 class="text-3xl font-bold gold-gradient-text mb-6">انتخاب حالت بازی</h2>
-        
         <button onclick="selectGameMode('old')" class="w-full btn-golden text-xl py-4 flex flex-col items-center">
             <span class="text-2xl font-black">2 Old (کلاسیک)</span>
             <span class="text-sm font-normal mt-1 text-gray-900">چند گزینه‌ای، بدون محدودیت زمانی</span>
         </button>
-
         <button onclick="selectGameMode('flash')" class="w-full btn-golden text-xl py-4 flex flex-col items-center">
             <span class="text-2xl font-black">2.5 Flash</span>
             <span class="text-sm font-normal mt-1 text-gray-900">سوالات سخت، تایپ پاسخ، زمان محدود</span>
         </button>
-        
         <button id="close-mode-selection-btn" class="mt-4 w-full p-3 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-colors">بازگشت</button>
     </div>
 </div>
@@ -259,7 +277,6 @@
         <h1 class="text-3xl font-black gold-gradient-text">اعتبارات سازندگان</h1>
         <button id="back-from-creators-btn" class="absolute top-1/2 -translate-y-1/2 right-4 text-3xl text-white">➡️</button>
     </header>
-
     <div class="flex-grow w-full overflow-hidden relative">
         <div id="creators-content" class="absolute w-full top-0">
             <div class="credit-item">
@@ -294,13 +311,16 @@
             <p class="text-2xl font-bold gold-gradient-text">امتیاز: <span id="game-score">0</span></p>
         </div>
     </header>
-    
     <main class="flex-grow flex flex-col justify-center items-center text-center">
         <div class="w-full max-w-lg card p-8">
             <p id="riddle-question" class="text-xl md:text-2xl mb-8 min-h-[100px] flex items-center justify-center"></p>
             
-            <div id="options-container" class="grid grid-cols-2 gap-4"></div>
+            <!-- Options Container (For 2 Old Mode) -->
+            <div id="options-container" class="grid grid-cols-2 gap-4">
+                <!-- Option buttons will be generated here -->
+            </div>
 
+            <!-- Input Container (For 2.5 Flash Mode) -->
             <div id="input-container" class="hidden flex flex-col gap-4 w-full">
                 <input type="text" id="flash-answer-input" placeholder="پاسخ را اینجا تایپ کنید..." 
                         class="w-full p-4 bg-gray-800 border border-yellow-400/50 rounded-lg text-white text-center focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-colors text-lg"
@@ -326,7 +346,6 @@
     </div>
 </div>
 
-
 <script>
     // --- DOM Elements ---
     const screens = {
@@ -334,9 +353,8 @@
         gameplay: document.getElementById('gameplay-screen'),
         gameOver: document.getElementById('game-over-screen'),
         creators: document.getElementById('creators-screen'),
-        // --- ADDED: Splash Screen element ---
-        splash: document.getElementById('splash-screen'),
     };
+    const splashScreen = document.getElementById('splash-screen'); // NEW
     const settingsModal = document.getElementById('settings-modal');
     const modeSelectionModal = document.getElementById('mode-selection-modal');
     const soonModal = document.getElementById('soon-modal');
@@ -347,7 +365,7 @@
     const optionsContainer = document.getElementById('options-container');
 
     // --- Game State & Data ---
-    const FLASH_TIME_LIMIT = 15;
+    const FLASH_TIME_LIMIT = 15; // seconds
     const STARTING_LIVES = 3;
     const STORAGE_KEY = 'chistanRecordGameState';
     
@@ -362,7 +380,7 @@
 
     let gameTimer;
 
-    // --- Riddles (unchanged) ---
+    // --- Riddles ---
     const allRiddles = [
         { q: 'آن چیست که پر دارد ولی پرواز نمی‌کند؟', a: 'بالش', options: ['پرنده', 'بالش', 'هواپیما', 'بادبادک'] },
         { q: 'آن چیست که هرچه از آن بردارند بزرگتر می‌شود؟', a: 'گودال', options: ['کیسه', 'کوه', 'گودال', 'درخت'] },
@@ -418,13 +436,13 @@
         { q: 'من را می‌سازند، نگهداری می‌کنند، تغییر می‌دهند، و دور می‌اندازند، اما هیچ‌گاه خورده نمی‌شوم.', a: 'پول', options: [] },
     ];
     
-    // --- Helper Functions (unchanged) ---
+    // --- Helper Functions ---
     function normalizeAnswer(text) {
         if (typeof text !== 'string') return '';
         return text.trim().replace(/ی/g, 'ي').replace(/ک/g, 'ك').toLowerCase().replace(/\s/g, ''); 
     }
 
-    // --- Persistence (unchanged) ---
+    // --- Persistence ---
     function saveGameState() {
         try {
             const stateToSave = { highScore: gameState.highScore };
@@ -446,7 +464,7 @@
         }
     }
 
-    // --- Navigation (unchanged) ---
+    // --- Navigation ---
     function showScreen(screenName) {
         if (screens.creators.classList.contains('active')) {
             screens.creators.classList.remove('active');
@@ -464,7 +482,7 @@
         }
     }
 
-    // --- Coming Soon Modal Logic (unchanged) ---
+    // --- NEW: Coming Soon Modal Logic ---
     function showSoonModal() {
         soonModal.classList.remove('hidden');
         soonModal.classList.remove('opacity-0');
@@ -485,7 +503,7 @@
         }, 500); 
     }
     
-    // --- UI Update (unchanged) ---
+    // --- UI Update ---
     function updateUI() {
         document.getElementById('menu-username').textContent = gameState.username;
         document.getElementById('menu-highscore').textContent = `🚀 بالاترین رکورد: ${gameState.highScore}`;
@@ -493,9 +511,10 @@
         document.getElementById('lives-count').textContent = gameState.lives;
     }
     
-    // --- Timer Logic (unchanged) ---
+    // --- Timer Logic ---
     function startTimer() {
         if (gameState.currentMode !== 'flash') return;
+
         let timeRemaining = FLASH_TIME_LIMIT;
         timerCount.textContent = timeRemaining;
         timerDisplay.classList.remove('hidden');
@@ -505,14 +524,16 @@
         gameTimer = setInterval(() => {
             timeRemaining--;
             timerCount.textContent = timeRemaining;
+
             if (timeRemaining <= 5) {
                 timerDisplay.classList.add('timer-flash');
             } else {
                 timerDisplay.classList.remove('timer-flash');
             }
+
             if (timeRemaining <= 0) {
                 clearInterval(gameTimer);
-                checkAnswer(null);
+                checkAnswer(null); // Time's up
             }
         }, 1000);
     }
@@ -523,7 +544,7 @@
         timerDisplay.classList.remove('timer-flash');
     }
 
-    // --- Game Logic (unchanged) ---
+    // --- Game Logic ---
     function selectGameMode(mode) {
         gameState.currentMode = mode;
         modeSelectionModal.classList.add('hidden');
@@ -541,15 +562,19 @@
 
     function loadNextRiddle() {
         const riddleSource = gameState.currentMode === 'flash' ? hardRiddles : allRiddles;
+
         if (gameState.usedRiddleIndices.length === riddleSource.length) {
             gameState.usedRiddleIndices = [];
         }
+
         let riddleIndex;
         do {
             riddleIndex = Math.floor(Math.random() * riddleSource.length);
         } while (gameState.usedRiddleIndices.includes(riddleIndex));
+        
         gameState.usedRiddleIndices.push(riddleIndex);
         const riddle = riddleSource[riddleIndex];
+
         document.getElementById('riddle-question').textContent = riddle.q;
         
         if (gameState.currentMode === 'flash') {
@@ -575,6 +600,7 @@
     function checkAnswer(selectedAnswer, correctAnswer, btnElement = null) {
         stopTimer();
         let isCorrect = false;
+        
         if (gameState.currentMode === 'flash') {
             const flashInput = document.getElementById('flash-answer-input').value;
             const riddle = hardRiddles[gameState.usedRiddleIndices[gameState.usedRiddleIndices.length - 1]];
@@ -583,21 +609,25 @@
         } else {
             isCorrect = normalizeAnswer(selectedAnswer) === normalizeAnswer(correctAnswer);
         }
+
         optionsContainer.querySelectorAll('button').forEach(btn => btn.disabled = true);
+
         if (isCorrect) {
             gameState.score += 10;
             if (btnElement) {
-               btnElement.style.backgroundColor = '#2E7D32';
+               btnElement.style.backgroundColor = '#2E7D32'; // Green
                btnElement.style.borderColor = '#4CAF50';
             }
         } else {
             gameState.lives--;
             if (btnElement) {
-                btnElement.style.backgroundColor = '#C62828';
+                btnElement.style.backgroundColor = '#C62828'; // Red
                 btnElement.style.borderColor = '#F44336';
             }
         }
+
         updateUI();
+
         if (gameState.lives <= 0) {
             setTimeout(endGame, 1000);
         } else {
@@ -616,7 +646,7 @@
         showScreen('gameOver');
     }
 
-    // --- Creators Screen Logic (unchanged) ---
+    // --- Creators Screen Logic ---
     function initCreatorsScreen() {
         const content = document.getElementById('creators-content');
         screens.creators.classList.add('active');
@@ -629,7 +659,7 @@
         }, 10);
     }
 
-    // --- Event Listeners (unchanged) ---
+    // --- Event Listeners ---
     function setupEventListeners() {
         document.getElementById('start-game-btn').addEventListener('click', () => {
             modeSelectionModal.classList.remove('hidden');
@@ -637,13 +667,17 @@
         document.getElementById('settings-btn').addEventListener('click', () => {
             settingsModal.classList.remove('hidden');
         });
+        
         document.getElementById('nav-ways-btn').addEventListener('click', showSoonModal);
         document.getElementById('nav-challenges-btn').addEventListener('click', showSoonModal);
         document.getElementById('nav-history-btn').addEventListener('click', showSoonModal);
+        
         document.getElementById('close-soon-modal-btn').addEventListener('click', hideSoonModal);
+        
         document.getElementById('close-mode-selection-btn').addEventListener('click', () => {
             modeSelectionModal.classList.add('hidden');
         });
+
         document.getElementById('close-settings-btn').addEventListener('click', () => {
             settingsModal.classList.add('hidden');
         });
@@ -651,75 +685,40 @@
             settingsModal.classList.add('hidden');
             showScreen('creators');
         });
+
         document.getElementById('back-from-creators-btn').addEventListener('click', () => {
             showScreen('mainMenu');
         });
+
         document.getElementById('flash-submit-btn').addEventListener('click', () => checkAnswer());
         document.getElementById('flash-answer-input').addEventListener('keyup', (event) => {
             if (event.key === 'Enter') {
                 checkAnswer();
             }
         });
+        
         document.getElementById('play-again-btn').addEventListener('click', startGame);
         document.getElementById('back-to-menu-gameover-btn').addEventListener('click', () => showScreen('mainMenu'));
     }
-    
-    // --- Falling Letters Animation (unchanged) ---
-    function startFallingLetters() {
-        const canvas = document.getElementById('falling-letters-canvas');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        const letters = 'ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی';
-        const fontSize = 18;
-        const columns = canvas.width / fontSize;
-        const drops = Array.from({ length: columns }).fill(1);
-        function draw() {
-            ctx.fillStyle = 'rgba(18, 18, 18, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#FFD700';
-            ctx.font = `${fontSize}px Vazirmatn`;
-            for (let i = 0; i < drops.length; i++) {
-                const text = letters[Math.floor(Math.random() * letters.length)];
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-            if (document.getElementById('main-menu-screen').style.display === 'flex') {
-                requestAnimationFrame(draw);
-            }
-        }
-        function onResize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', onResize);
-        requestAnimationFrame(draw);
-    }
 
     // --- Initialization ---
-    // --- CHANGED: Added logic for splash screen ---
     window.onload = function() {
-        // All screens are hidden by default via the 'screen' class
-        
         loadGameState();
         updateUI();
         setupEventListeners();
 
-        // Show the splash screen first
-        screens.splash.style.display = 'flex';
-
-        // After 3 seconds, hide splash screen and show the main menu
+        // --- NEW: Splash Screen Logic ---
         setTimeout(() => {
-            screens.splash.style.display = 'none'; // Hide splash
-            showScreen('mainMenu'); // Show main menu
-            startFallingLetters(); // Start the animation now
-        }, 3000); // 3-second delay
+            // Add 'hidden' class to start the fade-out animation
+            splashScreen.classList.add('hidden');
+            
+            // After the animation is done (500ms), show the main menu
+            setTimeout(() => {
+                showScreen('mainMenu');
+            }, 500);
+        }, 3000); // Show splash screen for 3 seconds (3000 milliseconds)
     }
-
 </script>
+
 </body>
 </html>
