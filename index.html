@@ -1,83 +1,51 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head><title>
-	سیستم ناظم نت
-</title>
-    <script src="https://nazemonweb.ir/js/jquery-1.7.1.min.js" type="text/javascript"></script>
-    <script src="https://nazemonweb.ir/js/general.js" type="text/javascript"></script>
-    <link href="https://nazemonweb.ir/css/style.css?t=&lt;%= DateTime.Now.Ticks %>" rel="stylesheet" type="text/css" /><link href="https://nazemonweb.ir/css/iecss.css" rel="stylesheet" type="text/css" /><link href="https://nazemonweb.ir/images/favicon.ico" rel="shortcut icon" />
-    
-    <script type="text/javascript">
-        function show(id) {
-            document.getElementById(id).style.visibility = "visible";
-        }
-        function hide(id) {
-            document.getElementById(id).style.visibility = "hidden";
-        }
-    </script>
-    <style type="text/css">
-        @font-face {
-          font-family: 'BYekan';
-          src: url('~/fonts/BYekan.eot?#') format('eot'),  /* IE6–8 */
-               url('fonts/BYekan.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-               url('fonts/BYekan.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
-        }
-        .BYekan
-        {
-            font-family: BYekan, Tahoma, Helvetica, sans-serif;
-            color: #FFFFFF;font-size:20px;text-align:center;
-        }
-    </style>
-    
-    <script type="text/javascript">
-        function checkTextAreaMaxLength(textBox, e, length) {
+<head><base href="/home/" /><script src="/Menu/JS/Menu_js?v=yRxhsMt5JJFmWT8TIVhUvtso_s73rG2HOU1Y5px0kjk1"></script>
+<link href="/Style/Portal_css?v=UcdHPP-o1z1b98V7mmy2XpptEmPxpXYp-Q-a_l1Wy7Y1" rel="stylesheet"/>
+<script src="/Script/Jquery/Jquery_js?v=egtY1nA5M-9kfZb-Ws1o_H0N5_6iW-oFHvyC0phfRys1"></script>
+<script src="/Script/Jquery/ui/Jqueryui_js?v=96ItJ_3SnPlvEAbHTOcGOEkokWcSvP9bE0W3MEAPkmM1"></script>
+<script src="/Script/Webparts_js?v=78itUFU2biP-vEBXL_u4VtKR0eKR43x3FVmMiGWXv9s1" defer="defer"></script>
+<script src="/Script/flowplayer/player_js?v=LJuvA5ezBZVulW32SLCtkmFA9AX2S11e2LbPc8vwOLY1" defer="defer"></script>
 
-            var mLen = textBox["MaxLength"];
-            if (null == mLen)
-                mLen = length;
+<!--<link rel="icon" href="/Images/favicon.ico" type="image/x-icon" /><link rel="shortcut icon" href="/Images/favicon.ico" type="image/x-icon" /> -->
+    <title>
+	وزارت اطلاعات
+</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="Description" content="--" />
+<!--HeaderTags-->
+<link rel="icon" type="image/png" sizes="" href="/Images/favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="/Images/favicon.ico" />
+<!--End HeaderTags-->
+<script type='text/javascript'>
+</script>
 
-            var maxLength = parseInt(mLen);
-            if (!checkSpecialKeys(e)) {
-                if (textBox.value.length > maxLength - 1) {
-                    if (window.event)//IE
-                    {
-                        e.returnValue = false;
-                        return false;
-                    }
-                    else//Firefox
-                        e.preventDefault();
-                }
-            }
-        }
+<style type='text/css'>
+ /*CaptchaControl*/
 
-        function checkSpecialKeys(e) {
-            if (e.keyCode != 8 && e.keyCode != 46 && e.keyCode != 35 && e.keyCode != 36 && e.keyCode != 37 && e.keyCode != 38 && e.keyCode != 39 && e.keyCode != 40)
-                return false;
-            else
-                return true;
-        }
-
-    </script>
-<meta name="keywords" content="مدرسه,کتاب,معلم,هوشمند,تدریس,هوشمندسازی,نرم افزار,دانش آموز," /></head>
-<body>
-    <form method="post" action="./" id="form1">
+    .RefreshStyle
+    {
+        background: url(../Images/Refresh.gif) no-repeat;
+        border: 0px;
+    }
+    .InputTextBox
+    {
+        font-size: 8pt;
+    }
+</style><script src="/Controls/AntiForgery/ClickQuench_js?v=gM0bmJnu6pvsNokHX2My2AURNixgZBb2UMUsFGVYKZY1" defer="defer"></script>
+<script src="/Menu/JS/LinkMenu_js?v=fWE1MYQ1zYjr8IXzCx4596L34Z_K11b7YsiD4sLaY1"></script>
+<meta name="keywords" content="//" /></head>
+<body id="PageBody" dir="rtl">
+    <form method="post" action="http://www.vaja.ir/314010" id="Form1">
 <div class="aspNetHidden">
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
 <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
-<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEwMjAxNjQxNzYPZBYCZg9kFgICAw9kFgoCAQ8PZBYCHgdvbmVycm9yBS90aGlzLnNyYz0naHR0cHM6Ly9uYXplbW9ud2ViLmlyL2xvZ28vbG9nby5wbmcnO2QCAw8PFgIeBFRleHQFOtmG2LPYrtmHINmG2YXYp9uM2LTbjCDZiNio2LPYp9uM2Kog2YXYr9in2LHYsyDZh9mI2LTZhdmG2K9kZAIFDw8WAh8BBSPYqNiz2KrZhyDZhtix2YUg2KfZgdiy2KfYsSDZhtin2LjZhWRkAgkPFgIeCWlubmVyaHRtbAUs2KfZhdix2YjYsiDbjNqp2LTZhtio2Ycg27HbtiDYotiw2LEg27HbtNuw27RkAgsPZBYMAgEPFgIfAgWXAdin24zYpyDZhduM2K/Yp9mG24zYryDYr9ix2KzZhyDYrdix2KfYsdiqINmF2LHaqdiyINiy2YXbjNmGINio2YcgNTUzMCDYr9ix2KzZhyDZhduM2LHYs9ivINmIINiq2YXYp9mFINmF2YjYp9ivINmF2YjYrNmI2K8g2K/YsSDYotmGINqv2K/Yp9iu2KrZhyDYp9mG2K9kAgcPPCsACQBkAggPPCsAEQIBEBYAFgAWAAwUKwAAZAIJDxYCHwIFL9iv2LnYp9iMINmH2YXYp9mGICjZhtmI2LnbjCkg2LnYqNin2K/YqiDYp9iz2KouZAIKDxYCHwIFCtio2YfYsdin2YVkAhAPZBYCZg9kFg4CAQ8QZA8WHmYCAQICAgMCBAIFAgYCBwIIAgkCCgILAgwCDQIOAg8CEAIRAhICEwIUAhUCFgIXAhgCGQIaAhsCHAIdFh4QBQjYp9ix2KfaqQUI2KfYsdin2qlnEAUM2KfYsdiv2KjbjNmEBQzYp9ix2K/YqNuM2YRnEAUM2KfYsdmI2YXbjNmHBQzYp9ix2YjZhduM2YdnEAUK2KfZhNio2LHYsgUK2KfZhNio2LHYsmcQBQzYp9i12YHZh9in2YYFDNin2LXZgdmH2KfZhmcQBQrYp9mH2YjYp9iyBQrYp9mH2YjYp9iyZxAFCtin24zZhNin2YUFCtin24zZhNin2YVnEAUM2KjYrNmG2YjYsdivBQzYqNis2YbZiNix2K9nEAUR2KjZhtiv2LEg2LnYqNin2LMFEdio2YbYr9ixINi52KjYp9izZxAFCtio2YjYtNmH2LEFCtio2YjYtNmH2LFnEAUM2KjbjNix2KzZhtivBQzYqNuM2LHYrNmG2K9nEAUK2KrYqNix24zYsgUK2KrYqNix24zYsmcQBQrYqtmH2LHYp9mGBQrYqtmH2LHYp9mGZxAFD9iu2LHZhSDYotio2KfYrwUP2K7YsdmFINii2KjYp9ivZxAFBtix2LTYqgUG2LHYtNiqZxAFDNiy2KfZh9iv2KfZhgUM2LLYp9mH2K/Yp9mGZxAFCtiy2YbYrNin2YYFCtiy2YbYrNin2YZnEAUI2LPYp9ix24wFCNiz2KfYsduMZxAFCtiz2YXZhtin2YYFCtiz2YXZhtin2YZnEAUK2LPZhtmG2K/YrAUK2LPZhtmG2K/YrGcQBQzYtNmH2LHaqdix2K8FDNi02YfYsdqp2LHYr2cQBQrYtNuM2LHYp9iyBQrYtNuM2LHYp9iyZxAFCtmC2LLZiNuM2YYFCtmC2LLZiNuM2YZnEAUE2YLZhQUE2YLZhWcQBQraqdix2YXYp9mGBQraqdix2YXYp9mGZxAFENqp2LHZhdin2YbYtNin2YcFENqp2LHZhdin2YbYtNin2YdnEAUK2q/Ysdqv2KfZhgUK2q/Ysdqv2KfZhmcQBQjZhdi02YfYrwUI2YXYtNmH2K9nEAUK2YfZhdiv2KfZhgUK2YfZhdiv2KfZhmcQBQrbjNin2LPZiNisBQrbjNin2LPZiNisZxYBAgxkAgMPDxYCHwEFBTA1OjI5ZGQCBQ8PFgIfAQUFMDc6MDBkZAIHDw8WAh8BBQUxMTo1NWRkAgkPDxYCHwEFBTE2OjUwZGQCCw8PFgIfAQUFMTc6MDlkZAINDw8WAh8BBQUyMzoxMGRkGAEFFGN0bDAwJGNvbnRlbnQkZ3ZOZXdzD2dkWapJCL65t8Pke4d4gxcA/ZxTWWPRxn7NpkMATlxhev0=" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="SkZTreHtHJS9NzUc5cxmsk6DQzj9Ffd71F4lCb/pAyxNWHSiDGZhK0+ANK947JpnQXxGKSOS5lH6dQy0UgQuArAJpB1z/Z1io0r6qWpOTso=" />
 </div>
 
 <script type="text/javascript">
 //<![CDATA[
-var theForm = document.forms['form1'];
-if (!theForm) {
-    theForm = document.form1;
-}
+var theForm = document.forms['Form1'];
 function __doPostBack(eventTarget, eventArgument) {
     if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
         theForm.__EVENTTARGET.value = eventTarget;
@@ -89,372 +57,1033 @@ function __doPostBack(eventTarget, eventArgument) {
 </script>
 
 
-<script src="/WebResource.axd?d=2YJorVK1WC8UMzgcs7-WIJfa1bTU-hEXhD-FWknx2JduE_arHCG-UXnLQIxEvfdHnYLqrUxmCJuoporm7XkC8EiKz1GF80h8bGDN9x90xLU1&amp;t=638901667900000000" type="text/javascript"></script>
-
-
-<script src="/ScriptResource.axd?d=XqIpVz5TBTqtP6jktUp9RTyLmWJEfB2Fn-mLb8ct56IvCih2VFlhEwCwiDa_KWNISeE3be_kAeFcRljDcOzeLLaJIwZfjHTkYuK8vAaCPC42Qa2hqTPWNZDu_VNAh6-80&amp;t=f2cd5c5" type="text/javascript"></script>
-<script src="/ScriptResource.axd?d=25oNfNsaiNmjnCZ4e4HS69EaGUbgIg0M6ur-lKLESU-HcqiOkCdmIyxOoVlW2UGhAiCg10s1U19C0aYV6PbxQ5KEXc1qDlwJQJQ0C0lrK8bJxFHVcmFkNIJFfvy4RE6vb-tu71YbbVJMARucYgOCJw2&amp;t=f2cd5c5" type="text/javascript"></script>
-<div class="aspNetHidden">
-
-	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
-	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdACUz0zNTPGdQhlbsQIQz+4o9/UnfcMVNgbQtD10APOc9fhzis88eVlGwk++7k37NrPx3H+38R8DY8gCV9wziUbjifIEtjyRsA9gUK0XuAxkJwNx7M+AJcDCHvTW5dKyi5bNUPyV2+rwagUf4fzWTO8pwQl4Y44kG0zgRzaIxhhz1uFzCUJoUdP8QMvCzz6b/3qEtcLdxEWzscrwH2WkUvbrMDli2D7lEK3m2vFyi0HmLQ7VTRFxWbznEoimF1HqkTZXZ8Wx0mopk7EGRJi0LuseHv/np2M5wW8fw09TzmbwKSU1UzOlglGE8xaAUKsl1JtuWDY8aWZH6zVcM75Qds6JhnjTWEUbT78N4gkPEuAyV9+qU1Kc1Iw6TrWAJPDaL9oLguvvxwsXuasr/3XZEGVLi1hf44Nm1nkXSdtXr+V0S8hW4XgRiBd+37VT1feiuB7V5MdrhLEuQXReANWoK437MJva+suIHp3ZUG1ZJb10qEc+R60gh9KzSSQBkaRyjki3hzC/ZTpSFBeWKv7cNPmLnxSqxMBNXB/XpUEaCXfJvjLOSI7V+AFtretbc+eE0emf+iA3mplfvRrTRPXfIJX2Yf+qfLGj8wq3wYHgCVoEOIDVeYQCWl6QSSfXdO0H27ax/XlkvRkar5a3yKqOLzJCfmzwGOE8uuVA6OLnL9Tb/1FCC3yz+cf6DwT9WRPRkU8dD+bBXOHo+YCO8MF5ezacJj5X1Sz1Tc/XcmDaj881Wgzeww5Oy8jlqlbgVikOG5S+u3rPfXiBMb7zVQgy8KKrKJYfXgYNIZbUej/4R4gB8V1UY6yycrvmGXQyVJG5zqVc=" />
-</div>
-        <div id="main_container">
-            <div class="top_bar"><a href="agent/Default.aspx?userID=agent" target="_blank"></a></div>
-            <div id="header" align="right" dir="rtl">
-                <div id="logo">
-                    <img id="imgLogo" asp-append-version="true" onerror="this.src=&#39;https://nazemonweb.ir/logo/logo.png&#39;;" src="" style="height:150px;width:150px;" />
-	            </div>
-                <div class="oferte_content">
-                    <div class="oferta">
-           		        <div class="oferta_content" dir="rtl">
-                            <div class="oferta_details">
-                                <p class="BYekan"><span id="lblOffice">نسخه نمایشی وبسایت مدارس هوشمند</span></p>
-                                <hr />
-                                <p class="BYekan"><span id="lblSchool">بسته نرم افزار ناظم</span></p>
-                            </div>
-                        </div>  
-                    </div>
-                    <div class="top_divider"><img src="https://nazemonweb.ir/images/header_divider.png" alt="" title="" width="1" height="164" /></div>
-                </div>
-            </div>
-            <div id="menu_tab">
-                <div class="left_menu_corner"></div>
-                    <ul class="menu">
-                        <li><a id="lbBack" class="nav1" href="javascript:__doPostBack(&#39;ctl00$lbBack&#39;,&#39;&#39;)">خانه</a></li>
-                        <li class="divider"></li>
-                        <li><a id="contact" href="admin/Default.aspx?userID=admin" class="nav2" onmouseover="show('contactMe')" onmouseout="hide('contactMe')">تماس با پشتیبانی</a></li>
-                        <li class="divider"></li>
-                        <li><a href="RegCode.aspx" style="color:red;font-size:2em" class="nav2 BYekan">پیش ثبت نام</a></li>
-                        <li class="divider"></li>
-                        <li><a href="About.aspx" class="nav3" target="_blank">درباره</a></li>
-                        <li class="divider"></li>
-                        <li class="currencies"><div id="showDate" align="right">امروز یکشنبه ۱۶ آذر ۱۴۰۴</div></li>
-                    </ul>
-                 <div class="right_menu_corner"></div>
-            </div><!-- end of menu tab -->
-
-            <div id="contactMe" align="center">
-                <div class="shopping_cart" dir="rtl">
-                    <br />
-                    <div dir="ltr">
-                        <h3>ali.tolouei@gmail.com</h3>
-                    </div>
-                </div>
-            </div>
-
-            <div id="main_content">
-                
-    <script type="text/javascript">
+<script language='javascript'>	function GoPage_WebPart_9b774683_f193_4c6b_ac7a_87437ccb183d_PagerObject(index){__doPostBack('WebPart_9b774683_f193_4c6b_ac7a_87437ccb183d$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_e84f7e0b_7157_41c8_b6f8_675404fb5274_PagerObject(index){__doPostBack('WebPart_e84f7e0b_7157_41c8_b6f8_675404fb5274$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_feebe310_36a0_491b_9dcb_8d4e330d710e_PagerObject(index){__doPostBack('WebPart_feebe310_36a0_491b_9dcb_8d4e330d710e$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_f63058a3_277e_44b1_b296_e3dea4f9528d_PagerObject(index){__doPostBack('WebPart_f63058a3_277e_44b1_b296_e3dea4f9528d$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_f2497efd_48d5_495a_af00_97e2d72009eb_PagerObject(index){__doPostBack('WebPart_f2497efd_48d5_495a_af00_97e2d72009eb$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_f56b7f69_0f07_4169_8dbb_855cde4cb55b_PagerObject(index){__doPostBack('WebPart_f56b7f69_0f07_4169_8dbb_855cde4cb55b$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_a6873fad_4f59_47f9_88a6_c6f4436dbe5f_PagerObject(index){__doPostBack('WebPart_a6873fad_4f59_47f9_88a6_c6f4436dbe5f$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_caf9520d_596d_44eb_a84c_b74f9c92dfe2_PagerObject(index){__doPostBack('WebPart_caf9520d_596d_44eb_a84c_b74f9c92dfe2$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_a880c2ba_36d9_4f58_a20d_a97417ea3d50_PagerObject(index){__doPostBack('WebPart_a880c2ba_36d9_4f58_a20d_a97417ea3d50$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_5a9b11d3_e9c5_49ac_9b5f_202014cd2123_PagerObject(index){__doPostBack('WebPart_5a9b11d3_e9c5_49ac_9b5f_202014cd2123$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_e769013e_cdbb_4ee1_bbaf_7903e7f55af0_PagerObject(index){__doPostBack('WebPart_e769013e_cdbb_4ee1_bbaf_7903e7f55af0$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_83536e8c_5c8c_4da6_80ce_1959dfb2133f_PagerObject(index){__doPostBack('WebPart_83536e8c_5c8c_4da6_80ce_1959dfb2133f$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_393312a1_e884_477b_b1d7_3b55842172d6_PagerObject(index){__doPostBack('WebPart_393312a1_e884_477b_b1d7_3b55842172d6$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_d1ee853c_cba9_49a2_9aa6_64614062642c_PagerObject(index){__doPostBack('WebPart_d1ee853c_cba9_49a2_9aa6_64614062642c$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_9c15eade_e94b_4c82_a93c_b9088f535421_PagerObject(index){__doPostBack('WebPart_9c15eade_e94b_4c82_a93c_b9088f535421$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_342fa5f8_149f_4b8b_bf09_139ea82003c6_PagerObject(index){__doPostBack('WebPart_342fa5f8_149f_4b8b_bf09_139ea82003c6$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_f51018f9_e03b_402f_b6f5_9e31a427bcfb_PagerObject(index){__doPostBack('WebPart_f51018f9_e03b_402f_b6f5_9e31a427bcfb$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_a4102034_4f55_4a47_9999_349a45e538e5_PagerObject(index){__doPostBack('WebPart_a4102034_4f55_4a47_9999_349a45e538e5$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_7c0f7a0b_8198_4ff9_8ae8_498681636c5c_PagerObject(index){__doPostBack('WebPart_7c0f7a0b_8198_4ff9_8ae8_498681636c5c$PagerObject',index)}</script><script language='javascript'>	function GoPage_WebPart_85ecb3c0_3201_4e29_9f60_3829f78ae5e4_PagerObject(index){__doPostBack('WebPart_85ecb3c0_3201_4e29_9f60_3829f78ae5e4$PagerObject',index)}</script><style type='text/css'></style>
+<script src="/Script/ScriptResourceBundle.js" type="text/javascript"></script>
+        <script type="text/javascript">
 //<![CDATA[
-Sys.WebForms.PageRequestManager._initialize('ctl00$content$ScriptManager1', 'form1', ['tctl00$content$UpdatePanel1','content_UpdatePanel1'], [], [], 90, 'ctl00');
+Sys.WebForms.PageRequestManager._initialize('AntiForgery$SCM', 'Form1', ['tAntiForgery$ReqestIdCheckerUpdatePanel',''], [], [], 90, '');
 //]]>
 </script>
 
-    <div class="left_content" dir="rtl">
-        <div  class="title_box" >آیا میدانید که...</div>  
-        <div class="border_box" style="overflow:hidden;">
-            <img src="images/bozorgan.png" alt=""/>
-            <div id="content_infoText" style="padding: 5px; text-align:justify; color: #FF00FF; ">ایا میدانید درجه حرارت مرکز زمین به 5530 درجه میرسد و تمام مواد موجود در آن گداخته اند</div>
-        </div>
-        <div class="title_box">لینکهای مدرسه</div>  
-        <div class="border_box" dir="rtl">
-            
-        </div>
-        <div class="title_box">لینکهای مفید</div>
-        <ul class="left_menu">
-            <li class="odd"><a href="http://www.time.ir" target="_blank">تاریخ و ساعت رسمی ایران</a></li>
-            <li class="even"><a href="http://www.roshd.ir/Default.aspx?tabid=543&SSOReturnPage=Check&Rand=0" target="_blank">دانلود کتابهای درسی</a></li>
-            <li class="odd"><a href="http://icnl.nlai.ir" target="_blank">کتابخانه ملی کودکان و نوجوانان</a></li>
-            <li class="even"><a href="http://www.parsquran.com/" target="_blank">یک وب سایت قرآنی بسیار عالی</a></li>
-            <li class="odd"><a href="http://dabirnahavand.lxb.ir" target="_blank">سایتی برای دانش آموزان</a></li>
-            <li class="even"><a href="http://www.koodakaneh.com/" target="_blank">وب سایت کودکان</a></li>
-            <li class="odd"><a href="http://www.koodakcity.com/" target="_blank">شهر کودکان</a></li>
-            <li class="even"><a href="http://www.rahmandoost.org/" target="_blank">وبسایت مصطفی رحماندوست</a></li>
-            <li class="odd"><a href="http://www.valeh.ir/" target="_blank">موسسه آموزشی فرهنگی واله</a></li>
-            <li class="even"><a href="http://www.meraat.ir/" target="_blank">مرکز نوآوریهای آموزشی مرآت</a></li>
-            <li class="odd"><a href="http://www.gozine2.ir/" target="_blank">گزینه دو</a></li>
-        </ul> 
-
-        <div class="title_box">راهنمای کدهای پیامک</div>  
-        <div class="border_box">
-            <div class="product_title"><a id="content_lbSmsCodes" href="javascript:__doPostBack(&#39;ctl00$content$lbSmsCodes&#39;,&#39;&#39;)">دانلود</a></div>
-            <div class="product_img"><a id="content_LinkButton2" href="javascript:__doPostBack(&#39;ctl00$content$LinkButton2&#39;,&#39;&#39;)"><img src="images/laptop.png" alt="" title="" border="0" /></a></div>
-        </div>
-        <div class="title_box">آیین نامه انضباطی</div>  
-        <div class="border_box">
-            <div class="product_title"><a id="content_lbAeinname" href="javascript:__doPostBack(&#39;ctl00$content$lbAeinname&#39;,&#39;&#39;)">دانلود</a></div>
-            <div class="product_img"><a id="content_LinkButton1" href="javascript:__doPostBack(&#39;ctl00$content$LinkButton1&#39;,&#39;&#39;)"><img src="images/law.png" alt="" title="" border="0" /></a></div>
-        </div>
-    </div>  
-    <!--end of left_content-->
-
-    <div class="center_content">
-        <div class="center_title_bar">امکانات</div>
-        <div class="prod_box">
-        	<div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                <div class="product_title"><a href='/contents/album.aspx' target="_blank">آلبوم عکس</a></div>
-                <div class="product_img"><a href='/contents/album.aspx' target="_blank"><img src="images/album.png" alt="" title="" border="0" /></a></div>                        
-            </div>
-            <div class="bottom_prod_box"></div>             
-        </div>
-        <div class="prod_box">
-            <div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                <div class="product_title"><a href='/contents/awards.aspx' target="_blank">جوایز مدرسه</a></div>
-                <div class="product_img"><a href='/contents/awards.aspx' target="_blank"><img src="images/gift.png" alt="" title="" border="0" /></a></div>                        
-            </div>
-            <div class="bottom_prod_box"></div> 
-        </div>
-        <div class="prod_box">
-            <div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                <div class="product_title"><a href='/contents/honors.aspx' target="_blank">افتخارات مدرسه</a></div>
-                <div class="product_img"><a href='/contents/honors.aspx' target="_blank"><img src="images/honor.png" alt="" title="" border="0" /></a></div>                        
-            </div>
-            <div class="bottom_prod_box"></div> 
-        </div>
-        <div class="prod_box">
-            <div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                <div class="product_title"><a href='/contents/tops.aspx' target="_blank">برترینهای مدرسه</a></div>
-                <div class="product_img"><a href='/contents/tops.aspx' target="_blank"><img src="images/tops.png" alt="" title="" border="0" /></a></div>                        
-            </div>
-            <div class="bottom_prod_box"></div> 
-        </div>
-        <div class="prod_box">
-            <div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                <div class="product_title"><a href='/contents/plans.aspx' target="_blank">برنامه های مدرسه</a></div>
-                <div class="product_img"><a href='/contents/plans.aspx' target="_blank"><img src="images/plan.png" alt="" title="" border="0" /></a></div>                        
-            </div>
-            <div class="bottom_prod_box"></div> 
-        </div>
-        <div class="prod_box">
-            <div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                <div class="product_title"><a href='/contents/sampleQuestions.aspx' target="_blank">نمونه سئوال</a></div>
-                <div class="product_img"><a href='/contents/sampleQuestions.aspx' target="_blank"><img src="images/question.png" alt="" title="" border="0" /></a></div>                        
-            </div>
-            <div class="bottom_prod_box"></div> 
-        </div>
-        <div class="prod_box">
-            <div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                <div class="product_title"><a href='/contents/clips.aspx' target="_blank">فیلم و انیمیشن آموزشی</a></div>
-                <div class="product_img"><a href='/contents/clips.aspx' target="_blank"><img src="images/movie.png" alt="" title="" border="0" /></a></div>                        
-            </div>
-            <div class="bottom_prod_box"></div> 
-        </div>
-        <div class="prod_box">
-            <div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                <div class="product_title"><a href='/contents/articles.aspx' target="_blank">مقالات علمی</a></div>
-                <div class="product_img"><a href='/contents/articles.aspx' target="_blank"><img src="images/article.png" alt="" title="" border="0" /></a></div>                        
-            </div>
-            <div class="bottom_prod_box"></div> 
-        </div>
-        <div class="prod_box">
-            <div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                <div class="product_title"><a href='/contents/magazines.aspx' target="_blank">گروه بندی دانش آموزان</a></div>
-                <div class="product_img"><a href='/contents/magazines.aspx' target="_blank"><img src="images/magezine.png" alt="" title="" border="0" /></a></div>                        
-            </div>
-            <div class="bottom_prod_box"></div> 
-        </div>
-        <div class="prod_box">
-            <div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                <div class="product_title"><a href='/contents/miscellaneous.aspx' target="_blank">فایلهای متفرقه</a></div>
-                <div class="product_img"><a href='/contents/miscellaneous.aspx' target="_blank"><img src="images/etc.png" alt="" title="" border="0" /></a></div>                        
-            </div>
-            <div class="bottom_prod_box"></div> 
-        </div>
-        <div class="center_title_bar">دانش آموزان متولد امروز *** تولدتان مبارک ***</div>
-        <div class="center_content" align="center">
-            
-        </div>
-        <div class="center_title_bar">اخبار و پیامهای مدرسه</div>
-        <div class="center_content">
-            <div>
-
-</div>
-        </div>
-    </div>
-    <!--end of center_content-->
-
-    <div class="right_content" dir="rtl">
-        <div  class="title_box" >سخن بزرگان</div>  
-        <div class="border_box" style="overflow:hidden;">
-            <img src="images/bozorgan.png" alt=""/>
-            <div id="content_quotationText" style="padding: 5px; text-align:justify; color: #FF00FF; ">دعا، همان (نوعی) عبادت است.</div>
-            <div id="content_quotationTitle" style="float:left;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;background-color:#99CCFF; padding:3px; margin-left: 2px; margin-bottom: 2px;">بهرام</div>
-        </div>
-
-        <div class="title_box">منوی ورود</div>
-        <ul class="left_menu">
-            <li class="odd"><a href="school/yearSelection.aspx?userID=school">ورود مدرسه</a></li>
-            <li class="even"><a href="employee/schoolSelection.aspx?userID=employee">ورود کارمند</a></li>
-            <li class="odd"><a href="student/schoolSelection.aspx?userID=iranianStudent">ورود دانش آموز ایرانی</a></li>
-            <li class="even"><a href="student/schoolSelection.aspx?userID=foreignStudent">ورود دانش آموز تبعه خارجی</a></li>
-        </ul>      
-
-        <div class="title_box">منوی ثبت نام</div>
-        <ul class="left_menu">
-            <li class="odd"><a href="student/pictureUpload.aspx?userID=iranianNewStudent">ثبت نام دانش آموز ایرانی</a></li>
-            <li class="even"><a href="student/pictureUpload.aspx?userID=foreignNewStudent">ثبت نام دانش آموز تبعه خارجی</a></li>
-        </ul>  
-
-        <div class="title_box">منوی اطلاعات</div>
-        <ul class="left_menu">
-            
-            <li class="even"><a href="contents/councilMembers.aspx" target="_blank">اعضای شورای دانش آموزی</a></li>
-            <li class="odd"><a href="contents/representatives.aspx" target="_blank">نمایندگان کلاسها</a></li>
-            <li class="even"><a href="contents/communityMembers.aspx" target="_blank">اعضای انجمن اولیاء و مربیان</a></li>
-        </ul> 
-
-        <div class="title_box">آمار وبسایت</div>  
-        <div class="border_box">
-                <div dir="rtl" align="right">
-                <div style=" float:left;margin-left:5px;"><img id="content_Image1" src="images/gnome.png" /></div>
-                <table>
-                    <tr>
-                        <td>
-                            افراد آنلاین:
-                        </td>
-                        <td >
-                            <span id="content_lblOnlineUsers"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            بازدید امروز:
-                        </td>
-                        <td >
-                            <span id="content_lblTodayVisit"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            بازدید دیروز:
-                        </td>
-                        <td >
-                            <span id="content_lblYesterdayVisit"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            بازدید کل:
-                        </td>
-                        <td>
-                            <span id="content_lblTotalVisit"></span>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div> 
-        <div class="title_box">اوقات شرعی</div>  
-        <div class="border_box" >
-            <div id="content_UpdatePanel1">
+<div id="AntiForgery_ReqestIdCheckerUpdatePanel">
 	
-                    <table>
-                        <tr>
-                            <td colspan="2">
-                                <img src="images/azan.png" alt=""/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center" valign="middle" colspan="2">
-                                <select name="ctl00$content$ddlCity" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$content$ddlCity\&#39;,\&#39;\&#39;)&#39;, 0)" id="content_ddlCity" class="persianTextBox" style="width:100%;">
-		<option value="اراک">اراک</option>
-		<option value="اردبیل">اردبیل</option>
-		<option value="ارومیه">ارومیه</option>
-		<option value="البرز">البرز</option>
-		<option value="اصفهان">اصفهان</option>
-		<option value="اهواز">اهواز</option>
-		<option value="ایلام">ایلام</option>
-		<option value="بجنورد">بجنورد</option>
-		<option value="بندر عباس">بندر عباس</option>
-		<option value="بوشهر">بوشهر</option>
-		<option value="بیرجند">بیرجند</option>
-		<option value="تبریز">تبریز</option>
-		<option selected="selected" value="تهران">تهران</option>
-		<option value="خرم آباد">خرم آباد</option>
-		<option value="رشت">رشت</option>
-		<option value="زاهدان">زاهدان</option>
-		<option value="زنجان">زنجان</option>
-		<option value="ساری">ساری</option>
-		<option value="سمنان">سمنان</option>
-		<option value="سنندج">سنندج</option>
-		<option value="شهرکرد">شهرکرد</option>
-		<option value="شیراز">شیراز</option>
-		<option value="قزوین">قزوین</option>
-		<option value="قم">قم</option>
-		<option value="کرمان">کرمان</option>
-		<option value="کرمانشاه">کرمانشاه</option>
-		<option value="گرگان">گرگان</option>
-		<option value="مشهد">مشهد</option>
-		<option value="همدان">همدان</option>
-		<option value="یاسوج">یاسوج</option>
-
-	</select> 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="leftcol">
-                                اذان صبح:
-                                <span id="content_lblSobh">05:29</span>
-                            </td>
-                            <td class="leftcol">
-                                طلوع:
-                                <span id="content_lblTolo">07:00</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="leftcol">
-                                اذان ظهر:
-                                <span id="content_lblZohr">11:55</span>
-                            </td>
-                            <td class="leftcol">
-                                غروب:
-                                <span id="content_lblGhorub">16:50</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="leftcol">
-                                اذان مغرب:
-                                <span id="content_lblMaghreb">17:09</span>
-                            </td>
-                            <td class="leftcol">
-                                نیمه شب:
-                                <span id="content_lblNime">23:10</span>
-                            </td>
-                        </tr>
-                    </table>
-                
+        
+    
 </div>
-        </div>
-        <div class="banner_adds">
-            <a href='/contents/softwares.aspx' target="_blank">
-                <img src="images/bann1.jpg" alt="" title="" border="0" />
-            </a>
-         </div> 
-    </div> 
-    <!--end of right_content-->
 
-            </div>
+        
+        <span id="NotificationData"></span>
+        <div id="ViewPanel">
+	
+        <div>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="/Theme/vaja-99/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/Theme/vaja-99/css/animate.min.css" rel="stylesheet" />
+<link href="/Theme/vaja-99/css/slick.css" rel="stylesheet" />
+<link href="/Theme/vaja-99/css/style.css" rel="stylesheet" />
+<link href="/Theme/vaja-99/bootstrap/js/bootstrap.min.js" rel="preload" />
+<link href="/Theme/vaja-99/js/wow.min.js" rel="preload" />
+<link href="/Theme/vaja-99/js/slick.min.js" rel="preload" />
+<link href="/Theme/vaja-99/js/custom.js" rel="preload" /><script integrity='sha384-rxMAq6yo8VJpdeSUNMkNyCE7eKQjZvP53S75YI+agMznoCesQ2mmYW5NL3015+sE' src="/Theme/vaja-99/bootstrap/js/bootstrap.min.js"></script><script src="/Theme/vaja-99/js/wow.min.js"  integrity='sha384-5Pyoo9wwsiUH6ELcF06fEiiZjoVFTpyVorWepaHMP8YS1cjmGPLWvv5kHUkJRr1F'></script><script src="/Theme/vaja-99/js/slick.min.js" integrity='sha384-YGnnOBKslPJVs35GG0TtAZ4uO7BHpHlqJhs0XK3k6cuVb6EBtl+8xcvIIOKV5wB+'></script><script src="/Theme/vaja-99/js/custom.js" integrity='sha384-TvCm3oqYYYcKtERBl9I5LZ+jqRnMjUQATE23/7+zIqS8ZFsEKb3zkpjOX+ctWB86'></script>
+<div class="home mainwrapper wrap" id="wrap">
+<header id="header">
+<div class="container">
+<div class="h-top row">
+<div class="col-3 col-lg-2 col-md-3 col-xl-3 right"><div class=" SiPo-GENERALTEXT"> <div id='WebPart_9b774683_f193_4c6b_ac7a_87437ccb183d' style='width:100%'><a><img class="logo" src="/Theme/vaja-99/img/logo.png" /> <img class="logo-text" src="/Theme/vaja-99/img/logo-txt.png" /> </a>
 
-            <div id="footer" class="footer">
-                <div class="center_footer" dir="rtl">
-                    
-                    <p><p><span id="lblCopyRight">کلیه حقوق مادی و معنوی این سامانه متعلق به شرکت نرم افزاری داکا می باشد</span></p></p>
-                    <p><span id="lblEmail"></span></p>
-                    <p><span id="lblPhone"></span></p>
-                    <p><span id="lblAddress"></span></p><br />
-                </div> 
-           </div>            
+
+
+
+</div></div></div>
+
+<div class="center col-1 col-lg-7 col-md-4 col-xl-6"><div class=" SiPo-GENERALTEXT"> <div id='WebPart_e84f7e0b_7157_41c8_b6f8_675404fb5274' style='width:100%'><img src="/theme/vaja-99/img/h-t.png" />
+
+
+
+
+</div></div></div>
+
+<div class="col-8 col-lg-3 col-md-5 col-xl-3 left left"><div class=" SiPo-GENERALTEXT"> <div id='WebPart_feebe310_36a0_491b_9dcb_8d4e330d710e' style='width:100%'><img src="/Theme/vaja-99/img/flag.png" /><span class="shoar">سال سرمایه گذاری برای تولید</span>
+
+
+
+
+</div></div></div>
+</div>
+
+<div class="h-bottom row">
+<nav class="col-8 col-sm-9 menu-pw"><span><div class=" SiPo-WEBSITE"> <div id='WebPart_f63058a3_277e_44b1_b296_e3dea4f9528d' style='width:100%'><style></style><a class="homelink" href="/314010"><span class="d-none">خانه</span></a>
+
+
+
+
+
+</div></div></span>
+
+<div class="mainmenu" id="mainmenu">
+<div class="d-lg-block d-none"><div class=" SiPo-Menu"> <div id='WebPart_8815521d_870d_40cd_aa00_0cee3a1d814b' style='width:100%'><span id="WebPart_8815521d_870d_40cd_aa00_0cee3a1d814b_lblError" class="ErrorBar"></span>
+<div class="Menu">
+
+<span id="WebPart_8815521d_870d_40cd_aa00_0cee3a1d814b_lblMenu" style="width:100%;z-index:1000;">
+<style type="text/css" id="ssmenus">
+.imclear{clear:left;height:0px;visibility:hidden;font-size:1px;line-height:0px;}.imcm ul,.imcm li,.imcm div,.imcm span{text-align:left;vertical-align:top left;/*cursor:hand;cursor:pointer;*/padding:0px;margin:0;list-style:none;}.imcm ul{zoom:1}.imsc{position:relative;}.imsubc{position:absolute;visibility:hidden;}.imcm li{list-style:none;font-size:1px;}.imcm ul ul li{width:100%;float:none !important;}.imcm a{display:block;zoom:1;position:relative;}.imcm ul .imsc,.imcm ul .imsubc {z-index:16777268;}.imcm ul ul .imsc,.imcm ul ul .imsubc{z-index:16777269;}.imcm ul ul ul .imsc,.imcm ul ul .imsubc{z-index:16777268;}.imde ul li:hover .imsubc{visibility:visible;}.imde ul ul li:hover  .imsubc{visibility:visible;}.imde ul ul ul li:hover  .imsubc{visibility:visible;}.imde li:hover ul  .imsubc{visibility:hidden;}.imde li:hover ul ul .imsubc{visibility:hidden;}.imde li:hover ul ul ul  .imsubc{visibility:hidden;}.imea{position:relative;height:0px;float:left;text-align:left;}.imea div{position:relative;font-size:1px;line-height:0px;};
+</style>
+
+<script type="text/javascript" language="javascript">
+function imenus_data0(){this.menu_showhide_delay = 150;this.show_subs_onclick = false;this.hide_focus_box = false;this.menu_dir = "rtl";this.subs_ie_transition_show = "";this.subs_items_count = 20;}
+</script>
+
+<style type="text/css" id="ssimenus0">
+#imenus0 li { float: right; }#imenus0 .imeam div { background-position: left top; background-image: url("../Images/arrow_down.gif"); background-repeat: no-repeat; }#imenus0 .imeamj div { background-position: left top; background-image: url("../Images/arrow_down.gif"); background-repeat: no-repeat; }#imenus0 li:hover .imeam div { background-position: left top; background-image: url("../Images/arrow_down.gif"); background-repeat: no-repeat; }#imenus0 li a.iactive .imeamj div { background-position: left top; background-image: url("../Images/arrow_down.gif"); background-repeat: no-repeat; }#imenus0 ul .imeas div { background-position: left top; background-image: url("../Images/arrow_sub.gif"); background-repeat: no-repeat; }#imenus0 ul .imeasj div { background-position: left top; background-image: url("../Images/arrow_sub.gif"); background-repeat: no-repeat; }#imenus0 ul li:hover .imeas div { background-position: left top; background-image: url("../Images/arrow_sub.gif"); background-repeat: no-repeat; }#imenus0 li a.iactive .imeasj div { background-position: left top; background-image: url("../Images/arrow_sub.gif"); background-repeat: no-repeat; }#imouter0 { margin: 0px; padding: 0px; border: 1px rgb(106, 106, 106); }#imenus0 li ul { margin: 4px 0px 0px; padding: 5px; border: 1px solid rgb(204, 204, 204); background-color: rgb(239, 239, 239); }#imenus0 li a { padding: 2px 8px; border: 1px solid rgb(221, 221, 221); text-align: right; font-family: tahoma; font-size: 12px; font-weight: normal; text-decoration: underline; }#imenus0 li:hover > a { text-decoration: underline; background-color: rgb(239, 239, 239); }#imenus0 li a.ihover { text-decoration: underline; background-color: rgb(239, 239, 239); }.imde #imenus0 a:hover { text-decoration: underline; background-color: rgb(239, 239, 239); }#imenus0 li a.iactive { }#imenus0 .imbuttons { }#imenus0 ul a { padding: 2px 5px; border: 1px rgb(0, 0, 0); text-align: right; font-size: 11px; font-weight: normal; text-decoration: none; }#imenus0 ul li:hover > a { text-decoration: underline; }#imenus0 ul li a.ihover { text-decoration: underline; }#imenus0 ul li a.iactive { }
+</style>
+<div dir="ltr" style=""><div class="imcm imde" id="imouter0"><ul class="cdd0_main_menu" menuitemsstaticclass="cdd0_main_items" menuitemshoverclass="cdd0_main_items_rollover" subitemsstaticclass="cdd0_sub_items" subitemshoverclass="cdd0_sub_items_rollover" id="imenus0"><li style="width: 145px;"><a dir="rtl" class="cdd0_main_items" staticclass="cdd0_main_items" hoverclass="cdd0_main_items_rollover" href="http://www.vaja.ir/page/3087359636445210" style="" target="">ارسال گزارشات مردمی</a></li><li style="width: 145px;"><a class="cdd0_main_items" dir="rtl" href="javascript:void(0);" target="" staticclass="cdd0_main_items" hoverclass="cdd0_main_items_rollover"><div class="imea imeam"><div></div></div>اطلاع رسانی</a><div class="imsc"><div class="imsubc" style="left: 0px; top: -4px; width: 145px;"><ul class="cdd0_sub_menu"><li><a class="cdd0_sub_items" dir="rtl" href="/news/314010/314106/%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1-%D9%88-%D8%A8%D8%A7%D8%B2%D8%AA%D8%A7%D8%A8-%D9%87%D8%A7" target="" staticclass="cdd0_sub_items" hoverclass="cdd0_sub_items_rollover" style="">اخبار</a></li><li><a class="cdd0_sub_items" dir="rtl" href="/news/314010/314107/%D9%88%D8%B2%DB%8C%D8%B1-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA" target="" staticclass="cdd0_sub_items" hoverclass="cdd0_sub_items_rollover" style="">وزیر اطلاعات</a></li><li><a class="cdd0_sub_items" dir="rtl" href="/news/314010/314108/%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%DB%8C%D9%87-%D9%87%D8%A7-%D9%88-%D8%A8%DB%8C%D8%A7%D9%86%DB%8C%D9%87-%D9%87%D8%A7" target="" staticclass="cdd0_sub_items" hoverclass="cdd0_sub_items_rollover" style="">اطلاعیه ها و بیانیه ها</a></li><li><a class="cdd0_sub_items" dir="rtl" href="/news/314010/314109/%D8%AC%D8%A7%D9%85%D8%B9%D9%87-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA%DB%8C" target="" staticclass="cdd0_sub_items" hoverclass="cdd0_sub_items_rollover" style="">جامعه اطلاعاتی</a></li></ul></div></div></li><li style="width: 145px;"><a class="cdd0_main_items" dir="rtl" href="javascript:void(0);" target="" staticclass="cdd0_main_items" hoverclass="cdd0_main_items_rollover"><div class="imea imeam"><div></div></div>دانش اطلاعاتی</a><div class="imsc"><div class="imsubc" style="left: 0px; top: -4px; width: 145px;"><ul class="cdd0_sub_menu"><li><a class="cdd0_sub_items" dir="rtl" href="/news/314010/314112/%D8%A2%DA%AF%D8%A7%D9%87-%D8%B3%D8%A7%D8%B2%DB%8C-%D9%88-%D9%87%D8%B4%D8%AF%D8%A7%D8%B1%D9%87%D8%A7" target="" staticclass="cdd0_sub_items" hoverclass="cdd0_sub_items_rollover" style="">آگاه سازی و هشدارها</a></li><li><a class="cdd0_sub_items" dir="rtl" href="/news/314010/314113/%D8%B9%D9%84%D9%85%DB%8C-%D9%88-%D9%BE%DA%98%D9%88%D9%87%D8%B4%DB%8C" target="" staticclass="cdd0_sub_items" hoverclass="cdd0_sub_items_rollover" style="">علمی و پژوهشی</a></li></ul></div></div></li><li style="width: 145px;"><a class="cdd0_main_items" dir="rtl" href="/news/314274/314313/%DA%A9%D9%84%D8%A7%D9%85-%D9%88%D9%84%D8%A7%DB%8C%D8%AA" target="" staticclass="cdd0_main_items" hoverclass="cdd0_main_items_rollover" style="">کلام ولایت</a></li><li style="width: 145px;"><a class="cdd0_main_items" dir="rtl" href="javascript:void(0);" target="" staticclass="cdd0_main_items" hoverclass="cdd0_main_items_rollover"><div class="imea imeam"><div></div></div>چند رسانه ای</a><div class="imsc"><div class="imsubc" style="left: 0px; top: -4px; width: 145px;"><ul class="cdd0_sub_menu"><li><a class="cdd0_sub_items" dir="rtl" href="/album/314202/314232/%DA%AF%D8%A7%D9%84%D8%B1%DB%8C-%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1" target="" staticclass="cdd0_sub_items" hoverclass="cdd0_sub_items_rollover">آلبوم تصاویر</a></li><li><a class="cdd0_sub_items" dir="rtl" href="/videoondemand/314010/314116/%DA%86%D9%86%D8%AF-%D8%B1%D8%B3%D8%A7%D9%86%D9%87-%D8%A7%DB%8C2" target="" staticclass="cdd0_sub_items" hoverclass="cdd0_sub_items_rollover" style=""><div class="imea imeam"><div></div></div>ویدئو</a><div class="imsc"><div class="imsubc" style="width: 145px; top: -15px; left: -135px;"><ul class="cdd0_sub_menu" style=""><li style=""><a dir="rtl" class="cdd0_sub_items" staticclass="cdd0_sub_items" hoverclass="cdd0_sub_items_rollover" href="/videoondemand/437061/437077/%D9%BE%D8%AE%D8%B4-%D8%BA%D9%8A%D8%B1%D8%B2%D9%86%D8%AF%D9%87-%D9%88%DB%8C%D8%AF%D8%A6%D9%881" target="" style="">کلیپ</a></li><li><a dir="rtl" class="cdd0_sub_items" staticclass="cdd0_sub_items" hoverclass="cdd0_sub_items_rollover" href="/videoondemand/437061/437080/%D9%81%DB%8C%D9%84%D9%85-%DA%A9%D9%88%D8%AA%D8%A7%D9%871" target="" style="">فیلم کوتاه</a></li><li><a dir="rtl" class="cdd0_sub_items" staticclass="cdd0_sub_items" hoverclass="cdd0_sub_items_rollover" href="/videoondemand/437061/437082/%D9%85%D8%B3%D8%AA%D9%86%D8%AF1" target="" style="">مستند</a></li><li><a dir="rtl" class="cdd0_sub_items" staticclass="cdd0_sub_items" hoverclass="cdd0_sub_items_rollover" href="/videoondemand/437061/437081/%D8%B3%D9%88%D8%A7%D8%AF-%D8%A7%D9%85%D9%86%DB%8C%D8%AA%DB%8C" target="" style="">سواد امنیتی</a></li><li><a dir="rtl" class="cdd0_sub_items" staticclass="cdd0_sub_items" hoverclass="cdd0_sub_items_rollover" href="/videoondemand/437061/437083/%D9%88%D8%B2%DB%8C%D8%B1-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA" target="" style="">وزیر اطلاعات</a></li><li><a dir="rtl" class="cdd0_sub_items" staticclass="cdd0_sub_items" hoverclass="cdd0_sub_items_rollover" href="/videoondemand/437061/437135/%D9%86%D9%85%D8%A7%D9%87%D9%86%DA%AF1" target="" style="">نماهنگ</a></li></ul></div></div></li></ul></div></div></li><li style="width: 145px;"><a class="cdd0_main_items" dir="rtl" href="javascript:void(0);" target="" staticclass="cdd0_main_items" hoverclass="cdd0_main_items_rollover" style=""><div class="imea imeam"><div></div></div>درباره ما</a><div class="imsc"><div class="imsubc" style="left: 5px; top: -4px; width: 140px;"><ul class="cdd0_sub_menu"><li><a class="cdd0_sub_items" dir="rtl" href="/page/940740055874766" target="" staticclass="cdd0_sub_items" hoverclass="cdd0_sub_items_rollover" style="">تاریخچه وزارت</a></li></ul></div></div></li></ul></div></div></span>
+<span id="WebPart_8815521d_870d_40cd_aa00_0cee3a1d814b_lblScript"></span>
+</div></div></div></div>
+<span class="d-block d-lg-none menu-btn-icon"> <span class="line"></span> </span></div>
+</nav>
+
+<div class="col-2 date"><div class=" SiPo-DATETIMEDIGITALSERVER"> <div id='WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e' style='width:100%'>
+<div class="DateDigitalServer" align="center">
+	<span id="WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e_lblDate" class="DateCaption">یکشنبه 16 آذر 1404</span>
+	&nbsp;
+	<span id="WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e_lblTime" class="TimeCaption">08:54:15</span>
+    <input type="hidden" name="WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e$lblHours" id="WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e_lblHours" />
+    <input type="hidden" name="WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e$lblMinutes" id="WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e_lblMinutes" />
+    <input type="hidden" name="WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e$lblSeconds" id="WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e_lblSeconds" />
+</div>
+<script language="javascript" type="text/javascript">
+
+	var objDate_WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e = new Date();
+	var serverDateTime_WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e = objDate_WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e.toDateString() + " " + document.getElementById("WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e_lblTime").innerHTML;
+    objDate_WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e = new Date(serverDateTime_WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e);
+	window.setInterval(RefreshTimer_WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e,1000);
+
+	function RefreshTimer_WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e()
+	{
+	    var clientSeconds = objDate_WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e.getSeconds();
+	    var lblTime = document.getElementById("WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e_lblTime");
+	    clientSeconds += 1;
+	    objDate_WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e.setSeconds(clientSeconds);
+	    if(lblTime != null)
+	        lblTime.innerHTML = objDate_WebPart_718f324f_0a09_43a1_9c00_8f8c10430a1e.toTimeString().slice(0,8);
+	}
+</script>
+</div></div></div>
+
+<div class="col-2 col-sm-1 search-pw"><div class=" SiPo-SEARCH"> <div id='WebPart_3c38e5d5_33fd_4c31_89ae_4c71c013a95b' style='width:100%'><div id="WebPart_3c38e5d5_33fd_4c31_89ae_4c71c013a95b_pnlSearch" align="center" class="Search-ph">
+			
+    
+    
+    <div class="SearchWrapper">
+        <div class="SearchInputWrapper">
+            
+            
+            <input name="WebPart_3c38e5d5_33fd_4c31_89ae_4c71c013a95b$txtSearch" type="text" id="WebPart_3c38e5d5_33fd_4c31_89ae_4c71c013a95b_txtSearch" class="SearchText" tabindex="0" size="7" onkeydown="_DoSearch(event);" />
+            
         </div>
-    </form>
+        
+        <div class="SearchButton">
+            <a href="javascript:void(0);" id='SearchLink_3c38e5d5_33fd_4c31_89ae_4c71c013a95b' onclick="StartSearch_3c38e5d5_33fd_4c31_89ae_4c71c013a95b(this)" title="Search">
+                <img src="/images/spacer.gif" class="SearchButtonSize" /></a>
+        </div>
+        
+        
+    </div>
+
+		</div>
+
+<script language="javascript" type="text/javascript">
+    function StartSearch_3c38e5d5_33fd_4c31_89ae_4c71c013a95b(obj) {
+        var categoryID = "090702a3-e7b9-4773-83b5-3506484d55d6";
+        var layoutID = "3c38e5d5-33fd-4c31-89ae-4c71c013a95b";
+        var searchText = document.getElementById('WebPart_3c38e5d5_33fd_4c31_89ae_4c71c013a95b_txtSearch').value;
+        obj.href = '../Home/ShowPage.aspx?Object=Search&CategoryID=' + categoryID + '&LayoutID=' + layoutID + '&SearchText=' + encodeURIComponent(searchText);
+
+    }
+    //Author: SS Date Modified: 23-02-1392 Task ID:637 Description: Handle Enter Event Correctly in Search
+    function _DoSearch_3c38e5d5_33fd_4c31_89ae_4c71c013a95b(ev) {
+        var e = ev || event;
+        var code = e.keyCode || e.which;
+        if (code == 13) {
+            e.preventDefault ? e.preventDefault() : e.returnValue = false; // IE8 and less
+            document.getElementById("SearchLink_3c38e5d5_33fd_4c31_89ae_4c71c013a95b").click();
+            return false;
+        }
+    }
+    //END (Author: SS Date Modified: 23-02-1392 Action:Change Task ID:637)
+
+    //MKK/930518/886/multiple search module
+    $("#WebPart_3c38e5d5_33fd_4c31_89ae_4c71c013a95b_txtSearch").attr("onkeydown", "_DoSearch_3c38e5d5_33fd_4c31_89ae_4c71c013a95b(event);");
+</script>
+</div></div></div>
+</div>
+
+<div class="marquee" style="display:none"></div>
+</div>
+</header>
+
+<section id="slider">
+<div class="bg">
+<div class="container slider-container"><div class=" SiPo-NEWS"> <div id='WebPart_f2497efd_48d5_495a_af00_97e2d72009eb' style='width:100%'><style>
+        .carousel-item img{max-height:400px}
+        .carousel.slide{border:7px solid #fff;background:#fff}
+        .slide-text p{animation-delay:.7s;font-size:.9rem;font-weight:700;color:#d1c888;margin-top:5px}
+        .slide-text h2{animation-delay:1s;font-size:1.2rem}
+        .slide-text{animation-delay:.4s;font-family:yekan;position:absolute;right:0;background-color:rgba(0,128,148,.8);bottom:0;color:#fff;max-width:calc(65% - 90px);min-height:85px}
+        .slide-text:after{content:"";display:inline-block;border-bottom:85px solid rgba(0,128,148,.8);border-left:80px solid transparent;position:absolute;bottom:0;left:-80px}
+        .slide-text p{width:calc(100% + 50px)}
+        .slide-text h2{width:calc(100% + 60px);position:relative;z-index:10}
+        .carousel-indicators{bottom:-40px}
+        .carousel-indicators li{width:13px;background-color:#d1c888;margin:2px;opacity:1;height:13px;border-radius:50%;border:0;bottom:0}
+        .carousel-indicators li.active{background:#0d86aa}
+        .carousel-indicators{bottom:-50px}
+        .carousel-indicators li{width:13px;background-color:#d1c888;margin:2px;opacity:1;height:13px;border-radius:50%;border:0;bottom:0}
+        .carousel-indicators li.active{background:#0d86aa}
+        .carousel-control .left,.carousel-control .right{border:solid #a1bfc4;border-width:0 6px 6px 0;display:inline-block;padding:5px;position:absolute;bottom:-35px}
+        .carousel-control .right{transform:rotate(-45deg);-webkit-transform:rotate(-45deg);right:0}
+        .carousel-control .left{transform:rotate(135deg);-webkit-transform:rotate(135deg);left:0}
+        .carousel.slide .line{position:absolute;height:40px;bottom:-47px;left:-36%;background:#008094;width:calc(100% - 32%);max-width:inherit}
+        .carousel.slide .line:before{content:"";display:inline-block;border-bottom:47px solid transparent;border-left:45px solid #008094;position:absolute;bottom:-7px;right:-40px;position:absolute}
+        .carousel.slide .line:after{content:"";display:inline-block;bottom:40px;width:575px;height:900px;left:75%;background:rgba(0,128,148,.8);transform:skew(-46deg);position:absolute;z-index:-1}
+        .slide-text h2,.slide-text p{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;width:100%!important}
+        @media only screen and (min-width:768px){
+            .carousel-control{display:none}
+        }
+        @media only screen and (min-width:1600px){
+            .carousel.slide .line{ left: -68%; width: 100%; }
+        }
+        @media only screen and (max-width:1400px){
+            .carousel.slide .line:after{width:500px;height:600px}
+        }
+        @media only screen and (max-width:1199px){
+            .carousel.slide .line{ left: -38%; }
+        }
+        @media only screen and (max-width:992px){
+            .carousel.slide .line:after{width:300px;height:400px;left:50%}
+            .slide-text h2{font-size:1.1rem}
+            .slide-text p{font-size:1rem}
+        }
+        @media only screen and (max-width:768px){
+            .slide-text{max-width:60%}
+            .carousel.slide .line{width:calc(100% - 66.333%);left:-80px}
+            .slide-text h2{font-size:1rem}
+            .slide-text p{font-size:.8rem}
+            .carousel.slide .line:after{width:300px;height:230px;left:15%}
+        }
+        @media only screen and (max-width:576px){
+            .slide-text{min-height:85px}
+            .slide-text:after{border-bottom:85px solid rgba(0,128,148,.8);border-left:80px solid transparent;bottom:0;left:-80px}
+            .slide-text h2{font-size:.9rem}
+            .slide-text p{font-size:.7rem}
+            .carousel.slide .line:after{width:174px;height:150px;left:25px}
+            .carousel.slide .line{width:calc(100% - 71.333%);left:-80px}
+            .slide-text h2,.slide-text p{width:100%}
+        }
+        @media only screen and (max-width:481px){
+            .carousel.slide .line:after{left:30px}
+            .carousel.slide .line{left:-70px}
+        }
+        @media only screen and (max-width:400px){
+            .carousel.slide .line:after{width:125px;height:143px;left:35px}
+            .carousel.slide .line{left:-85px}
+        }
+    </style>
+<div class="carousel slide  " data-ride="carousel" data-interval="4000" id="touch-slider">
+  <ol class="carousel-indicators">
+    <li data-target="#touch-slider" data-slide-to="0" class="active"></li>
+    <li data-target="#touch-slider" data-slide-to="1"></li>
+    <li data-target="#touch-slider" data-slide-to="2"></li>
+    <li data-target="#touch-slider" data-slide-to="3"></li>
+    <li data-target="#touch-slider" data-slide-to="4"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active"><a href="/news/314010/314104/437603/%D9%85%D9%84%D9%91%D8%AA-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86-%D8%AF%D8%B1-%D8%AC%D9%86%DA%AF-%D8%AF%D9%88%D8%A7%D8%B2%D8%AF%D9%87%E2%80%8C%D8%B1%D9%88%D8%B2%D9%87%D8%8C-%D9%87%D9%85-%D8%A2%D9%85%D8%B1%DB%8C%DA%A9%D8%A7-%D8%B1%D8%A7-%D8%B4%DA%A9%D8%B3%D8%AA-%D8%AF%D8%A7%D8%AF%D8%8C-%D9%87%D9%85-%D8%B5%D9%87%DB%8C%D9%88%D9%86%DB%8C%D8%B3%D8%AA%E2%80%8C%D9%87%D8%A7-%D8%B1%D8%A7-%D8%B4%DA%A9%D8%B3%D8%AA-%D8%AF%D8%A7%D8%AF"><img class="img-fluid" width="1300" height="600" src="/newspicture/437603/1300/600" alt=" ملّت ایران در جنگ دوازده‌روزه، هم آمریکا را شکست داد، هم صهیونیست‌ها را شکست داد."><div class="slide-text  text-right col-9 col-md-8 col-xl-7" data-animation="animated slideInUp">
+          <p data-animation="animated fadeInUp">امام خامنه ای:</p>
+          <h2 data-animation="animated fadeInUp"> ملّت ایران در جنگ دوازده‌روزه، هم آمریکا را شکست داد، هم صهیونیست‌ها را شکست داد.</h2>
+        </div></a></div>
+    <div class="carousel-item"><a href="/news/314010/314104/437588/%D8%A7%DB%8C%D8%A7%D9%85-%D8%B4%D9%87%D8%A7%D8%AF%D8%AA-%D8%A8%D8%A7%D9%86%D9%88%DB%8C-%D8%AF%D9%88-%D8%B9%D8%A7%D9%84%D9%85-%D8%AD%D8%B6%D8%B1%D8%AA-%D9%81%D8%A7%D8%B7%D9%85%D9%87(%D8%B3)-%D8%AA%D8%B3%D9%84%DB%8C%D8%AA-%D8%A8%D8%A7%D8%AF"><img class="img-fluid" width="1300" height="600" src="/newspicture/437588/1300/600" alt=" ایام شهادت بانوی دو عالم حضرت فاطمه(س) تسلیت باد"><div class="slide-text  text-right col-9 col-md-8 col-xl-7" data-animation="animated slideInUp">
+          <p data-animation="animated fadeInUp">مادر شهیدان</p>
+          <h2 data-animation="animated fadeInUp"> ایام شهادت بانوی دو عالم حضرت فاطمه(س) تسلیت باد</h2>
+        </div></a></div>
+    <div class="carousel-item"><a href="/news/314010/314104/437586/%D8%B2%D8%A7%D9%86%D9%88-%D8%B2%D8%AF%D9%86-%D9%88%D8%A7%D9%84%D8%B1%DB%8C%D9%86-%D8%A7%D9%85%D9%BE%D8%B1%D8%A7%D8%AA%D9%88%D8%B1-%D8%B1%D9%88%D9%85-%D8%AF%D8%B1-%D9%85%D9%82%D8%A7%D8%A8%D9%84-%D8%B4%D8%A7%D9%BE%D9%88%D8%B1-%D8%A7%D9%88%D9%84-%D8%B3%D8%A7%D8%B3%D8%A7%D9%86%DB%8C"><img class="img-fluid" width="1300" height="600" src="/newspicture/437586/1300/600" alt="زانو زدن والرین امپراتور روم در مقابل شاپور اول ساسانی"><div class="slide-text  text-right col-9 col-md-8 col-xl-7" data-animation="animated slideInUp">
+          <p data-animation="animated fadeInUp">عبرت های تاریخی</p>
+          <h2 data-animation="animated fadeInUp">زانو زدن والرین امپراتور روم در مقابل شاپور اول ساسانی</h2>
+        </div></a></div>
+    <div class="carousel-item"><a href="/news/314010/314104/437584/%D8%A7%D8%AE%D8%AA%D9%84%D8%A7%D9%81-%D8%AC%D9%85%D9%87%D9%88%D8%B1%DB%8C-%D8%A7%D8%B3%D9%84%D8%A7%D9%85%DB%8C-%D9%88-%D8%A2%D9%85%D8%B1%DB%8C%DA%A9%D8%A7%D8%8C-%D8%A7%D8%AE%D8%AA%D9%84%D8%A7%D9%81%DB%8C-%D8%B0%D8%A7%D8%AA%DB%8C-%D8%A7%D8%B3%D8%AA"><img class="img-fluid" width="1300" height="600" src="/newspicture/437584/1300/600" alt="اختلاف جمهوری اسلامی و آمریکا، اختلافی ذاتی است."><div class="slide-text  text-right col-9 col-md-8 col-xl-7" data-animation="animated slideInUp">
+          <p data-animation="animated fadeInUp">امام خامنه ای در دیدار هزاران نفر از دانش آموزان:</p>
+          <h2 data-animation="animated fadeInUp">اختلاف جمهوری اسلامی و آمریکا، اختلافی ذاتی است.</h2>
+        </div></a></div>
+    <div class="carousel-item"><a href="/news/314010/314104/437581/%D8%AF%D8%B3%D8%AA%DA%AF%DB%8C%D8%B1%DB%8C-%D9%88-%D8%A7%D8%AC%D8%B1%D8%A7%DB%8C-%D8%AD%DA%A9%D9%85-%D8%AC%D8%A7%D8%B3%D9%88%D8%B3-%D8%A7%D9%86%DA%AF%D9%84%D8%B3%D8%AA%D8%A7%D9%86-%D8%AE%D8%A8%DB%8C%D8%AB-%C2%AB%D8%A7%D9%85%DB%8C%D8%B1%D8%B1%D8%B6%D8%A7-%D8%AC%D9%84%DB%8C%D9%84%DB%8C%D8%A7%D9%86%C2%BB"><img class="img-fluid" width="1300" height="600" src="/newspicture/437581/1300/600" alt="دستگیری و اجرای حکم جاسوس انگلستان خبیث «امیررضا جلیلیان»"><div class="slide-text  text-right col-9 col-md-8 col-xl-7" data-animation="animated slideInUp">
+          <p data-animation="animated fadeInUp">بیانیه وزارت اطلاعات</p>
+          <h2 data-animation="animated fadeInUp">دستگیری و اجرای حکم جاسوس انگلستان خبیث «امیررضا جلیلیان»</h2>
+        </div></a></div>
+  </div>
+  <div class="line col-3 col-md-4 col-xl-5"></div><a class="left carousel-control" href="#touch-slider" rol="button" data-slide="prev"><span class="left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#touch-slider" role="button" data-slide="next"><span class="right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div><script type="text/javascript">
+      $(document).ready(function () {
+          function CharacterCode() {
+              if (window.matchMedia("(min-width: 1200px)").matches) {
+                  Character(".slide-text p ", "70");
+                  Character(".slide-text h2 ", "70");
+              }
+              if (window.matchMedia("(max-width:578px)").matches) {
+                  Character(".slide-text p ", "40");
+                  Character(".slide-text h2 ", "40");
+              }
+          }
+          CharacterCode();
+          $(window).resize(function () {
+              CharacterCode()
+          });
+
+          (function ($) {
+            function doAnimations(elems) {
+                var animEndEv = "webkitAnimationEnd animationend";
+                elems.each(function () {
+                  var $this = $(this),
+                  $animationType = $this.data("animation");
+                  $this.addClass($animationType).one(animEndEv, function () {
+                      $this.removeClass($animationType);
+                  });
+                });
+            }
+            var $myCarousel = $("#touch-slider"),$firstAnimatingElems = $myCarousel.find("[data-animation ^= 'animated']");
+            $myCarousel.carousel();
+            doAnimations($firstAnimatingElems);
+            $myCarousel.on("slide.bs.carousel", function (e) {
+                var $animatingElems = $(e.relatedTarget).find("[data-animation ^= 'animated']");
+                doAnimations($animatingElems);
+            });
+        })(jQuery);
+      })
+    </script>
+
+
+
+
+</div></div></div>
+</div>
+</section>
+
+<section class="info">
+<div class="container">
+<div class="col-12"></div>
+
+<div class="row">
+<div class="box col-6 col-lg-3"><div class=" SiPo-NEWS"><div class="box-wrapper effect fadeInUp"><span class="category d-none"> اطلاع رسانی </span><h3 class="box-title">اخبار و بازتاب ها<a Class="More" href="/news/314010/314106/%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1" style="">بيشتر</a></h3><div class="box-content"><div id='WebPart_f56b7f69_0f07_4169_8dbb_855cde4cb55b' style='width:100%'><style xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+    .vertical{padding:15px 0}
+    .vertical .caption{margin-top:20px;min-height:140px}
+    .vertical .date span{color:#7f7e7e;margin-left:3px}
+    .vertical .caption p{margin:0}
+    .vertical .caption p.headline{color:#9c3502;font-size:.8em}
+    .vertical .caption p.title{color:#000;text-align:justify}
+    .box-content .More{display:none}
+    .vertical:hover p.headline{color:#008094}
+    .vertical:hover p.title{color:#004381}
+    @media only screen and (min-width: 1200px) {
+    .vertical .item{min-height:340px}
+    }
+    @media only screen and (max-width: 992px) {
+    .vertical .caption{min-height:80px}
+    }
+    @media only screen and (max-width: 768px) {
+    .vertical .caption{min-height:165px}
+    }
+    @media only screen and (max-width: 576px) {
+    .vertical .date span{font-size:.8em}
+    .vertical .caption{min-height:125px}
+    .vertical .item{min-height:inherit}
+    }
+    @media only screen and (max-width:400px) {
+    .vertical .caption{min-height:135px}
+    .vertical .caption p.title{text-align:right!important;font-size:0.8rem}
+    }
+    </style>
+<div class="owl-carousel vertical" xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+  <div class="item col-12"><a href="/news/314010/314106/437571/%D9%BE%DB%8C%D8%A7%D9%85-%D8%B1%D9%87%D8%A8%D8%B1-%D9%85%D8%B9%D8%B8%D9%85-%D8%A7%D9%86%D9%82%D9%84%D8%A7%D8%A8-%D8%A8%D9%87-%D9%81%D8%B1%D8%B4%D8%AA%D9%87-%D8%AD%D8%B3%D9%86%E2%80%8C%D8%B2%D8%A7%D8%AF%D9%87"><div class="item-img"><img loading="lazy" src="/newspicture/437571/275/170/fix" alt=" پیام رهبر معظم انقلاب به فرشته حسن‌زاده"></div>
+      <div class="caption text-right">
+        <p class="headline">کلام ولایت</p>
+        <p class="title text-justify"> پیام رهبر معظم انقلاب به فرشته حسن‌زاده</p>
+      </div></a></div>
+  <div class="item col-12"><a href="/news/314010/314106/437568/%D8%AA%D9%82%D8%B1%DB%8C%D8%B8-%D8%B1%D9%87%D8%A8%D8%B1-%D8%A7%D9%86%D9%82%D9%84%D8%A7%D8%A8-%D8%A8%D8%B1-%DA%A9%D8%AA%D8%A7%D8%A8-%C2%AB%D9%87%D9%85%D8%B3%D9%81%D8%B1-%D8%A2%D8%AA%D8%B4-%D9%88-%D8%A8%D8%B1%D9%81%C2%BB"><div class="item-img"><img loading="lazy" src="/newspicture/437568/275/170/fix" alt=" تقریظ رهبر انقلاب بر کتاب «همسفر آتش و برف»"></div>
+      <div class="caption text-right">
+        <p class="headline">کلام ولایت</p>
+        <p class="title text-justify"> تقریظ رهبر انقلاب بر کتاب «همسفر آتش و برف»</p>
+      </div></a></div>
+  <div class="item col-12"><a href="/news/314010/314106/437565/%D8%AA%D9%82%D8%B1%DB%8C%D8%B8-%D8%B1%D9%87%D8%A8%D8%B1-%D8%A7%D9%86%D9%82%D9%84%D8%A7%D8%A8-%D8%A8%D8%B1-%DA%A9%D8%AA%D8%A7%D8%A8-%C2%AB%D8%AA%D8%A8-%D9%86%D8%A7%D8%AA%D9%85%D8%A7%D9%85%C2%BB"><div class="item-img"><img loading="lazy" src="/newspicture/437565/275/170/fix" alt="تقریظ رهبر انقلاب بر کتاب «تب ناتمام»"></div>
+      <div class="caption text-right">
+        <p class="headline">کلام ولایت</p>
+        <p class="title text-justify">تقریظ رهبر انقلاب بر کتاب «تب ناتمام»</p>
+      </div></a></div>
+  <div class="item col-12"><a href="/news/314010/314106/437561/%D8%AA%D9%82%D8%B1%DB%8C%D8%B8-%D8%B1%D9%87%D8%A8%D8%B1-%D8%A7%D9%86%D9%82%D9%84%D8%A7%D8%A8-%D8%A8%D8%B1-%DA%A9%D8%AA%D8%A7%D8%A8-%C2%AB%D8%AE%D8%A7%D9%86%D9%88%D9%85-%D9%85%D8%A7%D9%87%C2%BB"><div class="item-img"><img loading="lazy" src="/newspicture/437561/275/170/fix" alt="تقریظ رهبر انقلاب بر کتاب «خانوم ماه»"></div>
+      <div class="caption text-right">
+        <p class="headline">کلام ولایت</p>
+        <p class="title text-justify">تقریظ رهبر انقلاب بر کتاب «خانوم ماه»</p>
+      </div></a></div>
+  <div class="item col-12"><a href="/news/314010/314106/437559/%D8%AF%D8%B3%D8%AA%DA%AF%DB%8C%D8%B1%DB%8C-%D9%88-%D8%A7%D9%86%D9%87%D8%AF%D8%A7%D9%85-%D8%AA%DB%8C%D9%85-%D8%AA%D8%B1%D9%88%D8%B1%DB%8C%D8%B3%D8%AA%DB%8C-%D8%AF%D8%B1-%D8%B3%DB%8C%D8%B3%D8%AA%D8%A7%D9%86-%D9%88-%D8%A8%D9%84%D9%88%DA%86%D8%B3%D8%AA%D8%A7%D9%86"><div class="item-img"><img loading="lazy" src="/newspicture/437559/275/170/fix" alt="دستگیری و انهدام تیم تروریستی در سیستان و بلوچستان"></div>
+      <div class="caption text-right">
+        <p class="headline">اطلاعیه وزارت اطلاعات</p>
+        <p class="title text-justify">دستگیری و انهدام تیم تروریستی در سیستان و بلوچستان</p>
+      </div></a></div>
+</div><script xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+      $(document).ready(function() {
+      Character(".owl-carousel.vertical p.headline ", "60");
+      Character(".owl-carousel.vertical p.title ", "60");
+      });
+    </script>
+
+
+
+
+</div><a Class="More" href="/news/314010/314106/%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1" style="">بيشتر</a></div></div></div></div>
+
+<div class="box col-6 col-lg-3"><div class=" SiPo-NEWS"><div class="box-wrapper effect fadeInUp"><span class="category d-none"> اطلاع رسانی </span><h3 class="box-title">وزیر اطلاعات<a Class="More" href="/news/314010/314107/%D9%BE%DB%8C%D8%A7%D9%85-%D9%88-%D8%B3%D8%AE%D9%86%D8%B1%D8%A7%D9%86%DB%8C-%D9%88%D8%B2%DB%8C%D8%B1" style="">بيشتر</a></h3><div class="box-content"><div id='WebPart_a6873fad_4f59_47f9_88a6_c6f4436dbe5f' style='width:100%'><style xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+      .vertical{padding:15px 0}
+      .vertical .caption{margin-top:20px;min-height:140px}
+      .vertical .date span{color:#7f7e7e;margin-left:3px}
+      .vertical .caption p{margin:0}
+      .vertical .caption p.headline{color:#9c3502;font-size:.8em}
+      .vertical .caption p.title{color:#000;text-align:justify}
+      .box-content .More{display:none}
+      .vertical:hover p.headline{color:#008094}
+      .vertical:hover p.title{color:#004381}
+      @media only screen and (min-width: 1200px) {
+      .vertical .item{min-height:340px}
+      }
+      @media only screen and (max-width: 992px) {
+      .vertical .caption{min-height:80px}
+      }
+      @media only screen and (max-width: 576px) {
+      .vertical .date span{font-size:.8em}
+      .vertical .caption{min-height:125px}
+      .vertical .item{min-height:inherit}
+      }
+      @media only screen and (max-width:400px) {
+      .vertical .caption{min-height:200px}
+      }
+
+
+    </style>
+<div class="owl-carousel vertical" xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+  <div class="item col-12"><a href="/news/314010/314107/437579/%D8%B1%DA%98%DB%8C%D9%85-%D8%B5%D9%87%DB%8C%D9%88%D9%86%DB%8C%D8%B3%D8%AA%DB%8C-%D8%A8%D8%A7-%DB%8C%DA%A9-%D8%A7%D9%BE%DB%8C%D8%AF%D9%85%DB%8C-%D9%86%D9%81%D9%88%D8%B0-%D9%88-%D8%AC%D8%A7%D8%B3%D9%88%D8%B3%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86-%D9%85%D9%88%D8%A7%D8%AC%D9%87-%D8%A7%D8%B3%D8%AA"><div class="item-img"><img loading="lazy" src="/newspicture/437579/275/170/fix" alt=" رژیم صهیونیستی با یک اپیدمی نفوذ و جاسوسی برای ایران مواجه است"></div>
+      <div class="caption text-right">
+        <p class="headline"> وزیر اطلاعات در یاسوج:</p>
+        <p class="title text-justify"> رژیم صهیونیستی با یک اپیدمی نفوذ و جاسوسی برای ایران مواجه است</p>
+      </div></a></div>
+  <div class="item col-12"><a href="/news/314010/314107/437577/%D8%A8%DB%8C%D8%B4-%D8%A7%D8%B2-50-%D8%B3%D8%B1%D9%88%DB%8C%D8%B3-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA%DB%8C-%D8%AF%D8%B1-%D8%AC%D9%86%DA%AF-12-%D8%B1%D9%88%D8%B2%D9%87-%D8%B9%D9%84%DB%8C%D9%87-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86-%D8%B4%D8%B1%DA%A9%D8%AA-%D8%AF%D8%A7%D8%B4%D8%AA%D9%86%D8%AF"><div class="item-img"><img loading="lazy" src="/newspicture/437577/275/170/fix" alt="بیش از 50 سرویس اطلاعاتی در جنگ 12 روزه علیه ایران شرکت داشتند"></div>
+      <div class="caption text-right">
+        <p class="headline">وزیر اطلاعات:</p>
+        <p class="title text-justify">بیش از 50 سرویس اطلاعاتی در جنگ 12 روزه علیه ایران شرکت داشتند</p>
+      </div></a></div>
+</div><script xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+  $(document).ready(function() {
+     
+   Character(".owl-carousel.vertical p.headline ", "60");
+   Character(".owl-carousel.vertical p.title ", "60");
+     
+  });
+ 
+
+</script>
+
+
+
+
+</div><a Class="More" href="/news/314010/314107/%D9%BE%DB%8C%D8%A7%D9%85-%D9%88-%D8%B3%D8%AE%D9%86%D8%B1%D8%A7%D9%86%DB%8C-%D9%88%D8%B2%DB%8C%D8%B1" style="">بيشتر</a></div></div></div></div>
+
+<div class="box col-6 col-lg-3"><div class=" SiPo-NEWS"><div class="box-wrapper effect fadeInUp"><span class="category d-none"> اطلاع رسانی </span><h3 class="box-title">اطلاعیه ها و بیانیه ها<a Class="More" href="/news/314010/314108/%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%DB%8C%D9%87-%D9%87%D8%A7-%D9%88-%D8%A8%DB%8C%D8%A7%D9%86%DB%8C%D9%87-%D9%87%D8%A7" style="">بيشتر</a></h3><div class="box-content"><div id='WebPart_caf9520d_596d_44eb_a84c_b74f9c92dfe2' style='width:100%'><style xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+    .vertical{padding:15px 0}
+    .vertical .caption{margin-top:20px;min-height:140px}
+    .vertical .date span{color:#7f7e7e;margin-left:3px}
+    .vertical .caption p{margin:0}
+    .vertical .caption p.headline{color:#9c3502;font-size:.8em}
+    .vertical .caption p.title{color:#000;text-align:justify}
+    .box-content .More{display:none}
+    .vertical:hover p.headline{color:#008094}
+    .vertical:hover p.title{color:#004381}
+    @media only screen and (min-width: 1200px) {
+    .vertical .item{min-height:340px}
+    }
+    @media only screen and (max-width: 992px) {
+    .vertical .caption{min-height:80px}
+    }
+    @media only screen and (max-width: 768px) {
+    .vertical .caption{min-height:165px}
+    }
+    @media only screen and (max-width: 576px) {
+    .vertical .date span{font-size:.8em}
+    .vertical .caption{min-height:125px}
+    .vertical .item{min-height:inherit}
+    }
+    @media only screen and (max-width:400px) {
+    .vertical .caption{min-height:135px}
+    .vertical .caption p.title{text-align:right!important;font-size:0.8rem}
+    }
+    </style>
+<div class="owl-carousel vertical" xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+  <div class="item col-12"><a href="/news/314010/314108/437556/%D8%AF%D8%B3%D8%AA%DA%AF%DB%8C%D8%B1%DB%8C-%D9%88-%D8%A7%D9%86%D9%87%D8%AF%D8%A7%D9%85-%D8%AA%DB%8C%D9%85-%D8%AA%D8%B1%D9%88%D8%B1%DB%8C%D8%B3%D8%AA%DB%8C-%D8%AF%D8%B1-%D8%B3%DB%8C%D8%B3%D8%AA%D8%A7%D9%86-%D9%88-%D8%A8%D9%84%D9%88%DA%86%D8%B3%D8%AA%D8%A7%D9%86"><div class="item-img"><img loading="lazy" src="/newspicture/437556/275/170/fix" alt="دستگیری و انهدام تیم تروریستی در سیستان و بلوچستان"></div>
+      <div class="caption text-right">
+        <p class="headline">اطلاعیه وزارت اطلاعات</p>
+        <p class="title text-justify">دستگیری و انهدام تیم تروریستی در سیستان و بلوچستان</p>
+      </div></a></div>
+  <div class="item col-12"><a href="/news/314010/314108/437554/%D9%86%D8%A8%D8%B1%D8%AF-%D8%AE%D8%A7%D9%85%D9%88%D8%B4-%D8%A8%D8%A7-%D9%86%D8%A7%D8%AA%D9%88%DB%8C-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA%DB%8C-%D8%AF%D8%B1-%D8%AC%D9%86%DA%AF-%D8%AA%D8%AD%D9%85%DB%8C%D9%84%DB%8C-12-%D8%B1%D9%88%D8%B2%D9%87"><div class="item-img"><img loading="lazy" src="/newspicture/437554/275/170/fix" alt="نبرد خاموش با ناتوی اطلاعاتی در جنگ تحمیلی 12 روزه"></div>
+      <div class="caption text-right">
+        <p class="headline">بیانیه‌ی تبیینی وزارت اطلاعات</p>
+        <p class="title text-justify">نبرد خاموش با ناتوی اطلاعاتی در جنگ تحمیلی 12 روزه</p>
+      </div></a></div>
+  <div class="item col-12"><a href="/news/314010/314108/437529/%D8%A8%D8%B1%D8%AE%D9%88%D8%B1%D8%AF-%D8%A8%D8%A7-%D8%A7%D8%A8%D8%B1-%D8%B4%D8%A8%DA%A9%D9%87-%D9%82%D8%A7%DA%86%D8%A7%D9%82-%D8%B3%D9%88%D8%AE%D8%AA"><div class="item-img"><img loading="lazy" src="/newspicture/437529/275/170/fix" alt="برخورد با ابر شبکه قاچاق سوخت کشور"></div>
+      <div class="caption text-right">
+        <p class="headline">صیانت از سرمایه‌های ملی و برخورد با مفاسد کلان اقتصادی</p>
+        <p class="title text-justify">برخورد با ابر شبکه قاچاق سوخت کشور</p>
+      </div></a></div>
+  <div class="item col-12"><a href="/news/314010/314108/437499/%D8%B7%DB%8C-40-%D8%B3%D8%A7%D9%84-%DA%AF%D8%B0%D8%B4%D8%AA%D9%87-%D8%A7%D8%B2-%D8%B2%D8%A8%D8%A7%D9%86-%D9%88%D8%B2%DB%8C%D8%B1-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA"><div class="item-img"><img loading="lazy" src="/newspicture/437499/275/170/fix" alt="طی 40 سال گذشته در بیان وزیر اطلاعات"></div>
+      <div class="caption text-right">
+        <p class="headline">اینفوگرافیک برخی راهبردها، سیاست‌های اجرایی و اقدامات وزارت اطلاعات</p>
+        <p class="title text-justify">طی 40 سال گذشته در بیان وزیر اطلاعات</p>
+      </div></a></div>
+  <div class="item col-12"><a href="/news/314010/314108/437451/%D8%A8%D8%A7%D8%B2%DA%AF%D8%B1%D8%AF%D8%A7%D9%86%D8%AF%D9%86-%D9%87%D8%B2%D8%A7%D8%B1-%D9%87%DA%A9%D8%AA%D8%A7%D8%B1%DB%8C-%D8%B2%D9%85%DB%8C%D9%86-%D8%A7%D8%B2-%DA%86%D9%86%DA%AF-%D8%B2%D9%85%DB%8C%D9%86-%D8%AE%D9%88%D8%A7%D8%B1%D8%A7%D9%86-%D8%AF%D8%B1-%D8%A8%D9%86%D8%AF%D8%B1-%D8%B9%D8%A8%D8%A7%D8%B3"><div class="item-img"><img loading="lazy" src="/newspicture/437451/275/170/fix" alt="بازگرداندن هزار هکتاری زمین از چنگ زمین خواران در بندر عباس"></div>
+      <div class="caption text-right">
+        <p class="headline">بیانیه زمین خواری</p>
+        <p class="title text-justify">بازگرداندن هزار هکتاری زمین از چنگ زمین خواران در بندر عباس</p>
+      </div></a></div>
+</div><script xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+      $(document).ready(function() {
+      Character(".owl-carousel.vertical p.headline ", "60");
+      Character(".owl-carousel.vertical p.title ", "60");
+      });
+    </script>
+
+
+
+
+</div><a Class="More" href="/news/314010/314108/%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%DB%8C%D9%87-%D9%87%D8%A7-%D9%88-%D8%A8%DB%8C%D8%A7%D9%86%DB%8C%D9%87-%D9%87%D8%A7" style="">بيشتر</a></div></div></div></div>
+
+<div class="box col-6 col-lg-3"><div class=" SiPo-NEWS"><div class="box-wrapper effect fadeInUp"><span class="category d-none"> اطلاع رسانی </span><h3 class="box-title">جامعه اطلاعاتی<a Class="More" href="/news/314010/314109/%D8%A2%DA%AF%D8%A7%D9%87-%D8%B3%D8%A7%D8%B2%DB%8C-%D9%88-%D9%87%D8%B4%D8%AF%D8%A7%D8%B1%D9%87%D8%A7" style="">بيشتر</a></h3><div class="box-content"><div id='WebPart_a880c2ba_36d9_4f58_a20d_a97417ea3d50' style='width:100%'><style xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+    .vertical{padding:15px 0}
+    .vertical .caption{margin-top:20px;min-height:140px}
+    .vertical .date span{color:#7f7e7e;margin-left:3px}
+    .vertical .caption p{margin:0}
+    .vertical .caption p.headline{color:#9c3502;font-size:.8em}
+    .vertical .caption p.title{color:#000;text-align:justify}
+    .box-content .More{display:none}
+    .vertical:hover p.headline{color:#008094}
+    .vertical:hover p.title{color:#004381}
+    @media only screen and (min-width: 1200px) {
+    .vertical .item{min-height:340px}
+    }
+    @media only screen and (max-width: 992px) {
+    .vertical .caption{min-height:80px}
+    }
+    @media only screen and (max-width: 768px) {
+    .vertical .caption{min-height:165px}
+    }
+    @media only screen and (max-width: 576px) {
+    .vertical .date span{font-size:.8em}
+    .vertical .caption{min-height:125px}
+    .vertical .item{min-height:inherit}
+    }
+    @media only screen and (max-width:400px) {
+    .vertical .caption{min-height:135px}
+    .vertical .caption p.title{text-align:right!important;font-size:0.8rem}
+    }
+    </style>
+<div class="owl-carousel vertical" xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+  <div class="item col-12"><a href="/news/314010/314109/437537/%DB%8C%D8%A7%D9%85-%D8%AA%D8%A8%D8%B1%DB%8C%DA%A9-%D8%B1%D8%A6%DB%8C%D8%B3-%D8%B3%D8%A7%D8%B2%D9%85%D8%A7%D9%86-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA-%D8%B3%D9%BE%D8%A7%D9%87-%D8%A8%D9%87-%D9%88%D8%B2%DB%8C%D8%B1-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA%D8%9B"><div class="item-img"><img loading="lazy" src="/newspicture/437537/275/170/fix" alt="پیام تبریک رئیس سازمان اطلاعات سپاه به وزیر اطلاعات؛"></div>
+      <div class="caption text-right">
+        <p class="headline">یک شاهکار اطلاعاتی</p>
+        <p class="title text-justify">پیام تبریک رئیس سازمان اطلاعات سپاه به وزیر اطلاعات؛</p>
+      </div></a></div>
+  <div class="item col-12"><a href="/news/314010/314109/437343/%D8%A8%D9%87-%D9%85%D9%86%D8%A7%D8%B3%D8%A8%D8%AA-%D8%B1%D9%88%D8%B2-%D8%AD%D9%81%D8%A7%D8%B8%D8%AA-%D9%88-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA-%D9%82%D9%88%D9%87-%D9%82%D8%B6%D8%A7%D8%A6%DB%8C%D9%87"><div class="item-img"><img loading="lazy" src="/newspicture/437343/275/170/fix" alt="به مناسبت روز حفاظت و اطلاعات قوه قضائیه"></div>
+      <div class="caption text-right">
+        <p class="headline">پیام وزیر اطلاعات </p>
+        <p class="title text-justify">به مناسبت روز حفاظت و اطلاعات قوه قضائیه</p>
+      </div></a></div>
+  <div class="item col-12"><a href="/news/314010/314109/437044/%D8%A8%D9%87%E2%80%8C%D9%85%D9%86%D8%A7%D8%B3%D8%A8%D8%AA-%D8%B1%D9%88%D8%B2-%D8%A7%D8%B1%D8%AA%D8%B4-%D8%AC%D9%85%D9%87%D9%88%D8%B1%DB%8C-%D8%A7%D8%B3%D9%84%D8%A7%D9%85%DB%8C-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86"><div class="item-img"><img loading="lazy" src="/newspicture/437044/275/170/fix" alt="به‌مناسبت روز ارتش جمهوری اسلامی ایران"></div>
+      <div class="caption text-right">
+        <p class="headline">پیام تبریک وزیر اطلاعات </p>
+        <p class="title text-justify">به‌مناسبت روز ارتش جمهوری اسلامی ایران</p>
+      </div></a></div>
+  <div class="item col-12"><a href="/news/314010/314109/426930/%D8%A8%D8%B1%DA%AF%D8%B2%D8%A7%D8%B1%DB%8C-%D8%AC%D9%84%D8%B3%D9%87-%D8%B4%D9%88%D8%B1%D8%A7%DB%8C-%D9%87%D9%85%D8%A7%D9%87%D9%86%DA%AF%DB%8C-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA-%DA%A9%D8%B4%D9%88%D8%B1"><div class="item-img"><img loading="lazy" src="/newspicture/426930/275/170/fix" alt="برگزاری جلسه شورای هماهنگی اطلاعات کشور"></div>
+      <div class="caption text-right">
+        <p class="title text-justify">برگزاری جلسه شورای هماهنگی اطلاعات کشور</p>
+      </div></a></div>
+  <div class="item col-12"><a href="/news/314010/314109/426771/%D8%A8%D9%87-%D9%81%D8%B1%D9%85%D8%A7%D9%86%D8%AF%D9%87-%D9%85%D8%AD%D8%AA%D8%B1%D9%85-%D8%A7%D9%86%D8%AA%D8%B8%D8%A7%D9%85%DB%8C-%D8%AC%D9%85%D9%87%D9%88%D8%B1%DB%8C-%D8%A7%D8%B3%D9%84%D8%A7%D9%85%DB%8C-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86"><div class="item-img"><img loading="lazy" src="/newspicture/426771/275/170/fix" alt="به فرمانده محترم انتظامی جمهوری اسلامی ایران "></div>
+      <div class="caption text-right">
+        <p class="headline">پیام تبریک وزیر اطلاعات</p>
+        <p class="title text-justify">به فرمانده محترم انتظامی جمهوری اسلامی ایران </p>
+      </div></a></div>
+</div><script xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+      $(document).ready(function() {
+      Character(".owl-carousel.vertical p.headline ", "60");
+      Character(".owl-carousel.vertical p.title ", "60");
+      });
+    </script>
+
+
+
+
+</div><a Class="More" href="/news/314010/314109/%D8%A2%DA%AF%D8%A7%D9%87-%D8%B3%D8%A7%D8%B2%DB%8C-%D9%88-%D9%87%D8%B4%D8%AF%D8%A7%D8%B1%D9%87%D8%A7" style="">بيشتر</a></div></div></div></div>
+</div>
+</div>
+</section>
+
+<section class="banner"></section>
+
+<section class="infoknowledge">
+<div class="container">
+<div class="row">
+<div class="col-lg-9 order-2 order-lg-1"><div class=" SiPo-NEWS"><div class="box-wrapper effect fadeInUp"><span class="category d-none"> دانش اطلاعاتی </span><h3 class="box-title">تلفیق خبر دانش اطلاعاتی</h3><div class="box-content"><div id='WebPart_5a9b11d3_e9c5_49ac_9b5f_202014cd2123' style='width:100%'><style xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+      .slider .item{display:flex;align-items:center;background-color:#fff;margin-bottom:10px;color:#000;padding:10px;transition:all .35s;height:152px}
+      .slider .item img{max-height:130px;width:100%}
+      .slider .item p,.slider .item h4,.slider .item span{color:#000;margin:0;font-family:iransans;font-weight:normal;font-size:1em}
+      .slider .item h4{color:#129c00;margin:5px 0}
+      .slider .caption{padding:0 15px}
+      .slider .item .summary{overflow:hidden;height:58px}
+      .slider  .item-img{padding-left:0;padding-right:0}
+      .slider .item:hover{background:rgb(232,239,243)}
+      .slider .item:hover h4{color:#008094}
+      .slider .date span{margin-left:3px}
+      @media only screen and (max-width: 1400px) {
+      .slider .caption{padding:0 15px}
+      }
+      @media only screen and (max-width: 992px) {
+      .slider .item .summary{height:auto;overflow:visible}
+      }
+      @media only screen and (max-width: 576px) {
+      .slider .item .summary,.slider .item .title{white-space:pre-wrap;text-overflow:ellipsis;overflow:hidden;max-height:50px}
+      .slider .item img{display:block;max-height:inherit}
+      }
+      @media only screen and (max-width: 500px) {
+      .slider .item img{height:auto}
+      .slider .item .caption p.summary{display:none}
+      .slider .item .caption + p.summary{display:block!important;max-height:inherit;margin-top:10px}
+      .slider .item{height:180px}
+      .slider .item img{min-height:65px}
+      .slider .item .title{max-height:33px;overflow:hidden}
+      }
+      @media only screen and (max-width: 400px) {
+      .slider .item{height:170px}
+      }
+      .slider a{width:100%;margin:0}
+    </style>
+<div class=" vertical-center-3 slider effect fadeInUp" xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+  <div class="item col-12"><a class="row" href="/news/314010/314110/416368/%DA%A9%D8%AA%D8%A7%D8%A8-%D8%AD%D8%B2%D8%A8-%D8%B1%D8%B3%D8%AA%D8%A7%D8%AE%DB%8C%D8%B2"><div class="item-img col-5 col-sm-4 col-md-3 col-lg-4 col-xl-3"><img loading="lazy" class="img-fluid" src="/newspicture/416368/275/170" alt="کتاب حزب رستاخیز"></div>
+      <div class="caption text-right col-7 col-sm-8  col-md-9  col-lg-8 col-xl-9">
+        <h4 class="title">کتاب حزب رستاخیز</h4>
+        <p class="summary">جلد (اول و دوم) کتاب حزب رستاخیز به روایت اسناد ساواک</p>
+      </div>
+      <p class="summary d-none col-12 text-right">جلد (اول و دوم) کتاب حزب رستاخیز به روایت اسناد ساواک</p></a></div>
+  <div class="item col-12"><a class="row" href="/news/314010/314110/385990/%D8%A7%D9%86%D8%AA%D9%82%D8%A7%D8%AF-%D8%AA%D8%AD%D9%84%DB%8C%E2%80%8C%D9%84%DA%AF%D8%B1%D8%A7%D9%86-%D9%86%D8%B8%D8%A7%D9%85%DB%8C-%D9%88-%D8%B1%D9%88%D8%B2%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%DA%AF%D8%A7%D8%B1%D8%A7%D9%86"><div class="item-img col-5 col-sm-4 col-md-3 col-lg-4 col-xl-3"><img loading="lazy" class="img-fluid" src="/newspicture/385990/275/170" alt="انتقاد تحلیلگران نظامی و روزنامه‌نگاران"></div>
+      <div class="caption text-right col-7 col-sm-8  col-md-9  col-lg-8 col-xl-9">
+        <h4 class="title">انتقاد تحلیلگران نظامی و روزنامه‌نگاران</h4>
+        <p class="summary">از مبالغه سرویس‌های امنیتی و دامن زدن به نگرانی‌ها</p>
+      </div>
+      <p class="summary d-none col-12 text-right">از مبالغه سرویس‌های امنیتی و دامن زدن به نگرانی‌ها</p></a></div>
+  <div class="item col-12"><a class="row" href="/news/314010/314110/385978/%D8%AA%D8%AD%D9%84%DB%8C%D9%84-%D8%A8%D8%B1%D8%AE%DB%8C-%D8%B5%D8%A7%D8%AD%D8%A8-%D9%86%D8%B8%D8%B1%D8%A7%D9%86-%D8%B1%D8%B3%D8%A7%D9%86%D9%87%E2%80%8C%D8%A7%DB%8C"><div class="item-img col-5 col-sm-4 col-md-3 col-lg-4 col-xl-3"><img loading="lazy" class="img-fluid" src="/newspicture/385978/275/170" alt="تحلیل برخی صاحب نظران رسانه‌ای"></div>
+      <div class="caption text-right col-7 col-sm-8  col-md-9  col-lg-8 col-xl-9">
+        <h4 class="title">تحلیل برخی صاحب نظران رسانه‌ای</h4>
+        <p class="summary">درخصوص توسعه ناهنجاريی‌ها در رژيم صهيونيستيی</p>
+      </div>
+      <p class="summary d-none col-12 text-right">درخصوص توسعه ناهنجاريی‌ها در رژيم صهيونيستيی</p></a></div>
+  <div class="item col-12"><a class="row" href="/news/314010/314110/334809/%D9%85%D8%B1%D8%A7%D9%82%D8%A8-%D9%85%DB%8C%D9%87%D9%86%D9%85-%D9%87%D8%B3%D8%AA%D9%85-"><div class="item-img col-5 col-sm-4 col-md-3 col-lg-4 col-xl-3"><img loading="lazy" class="img-fluid" src="/newspicture/334809/275/170" alt="مراقب میهنم هستم ... "></div>
+      <div class="caption text-right col-7 col-sm-8  col-md-9  col-lg-8 col-xl-9">
+        <h4 class="title">مراقب میهنم هستم ... </h4>
+        <p class="summary">گزارش‌های امنیتی خود را با ستاد خبری 113 وزارت اطلاعات در میان بگذارید
+</p>
+      </div>
+      <p class="summary d-none col-12 text-right">گزارش‌های امنیتی خود را با ستاد خبری 113 وزارت اطلاعات در میان بگذارید
+</p></a></div>
+  <div class="item col-12"><a class="row" href="/news/314010/314110/375830/%D8%AA%D8%AD%D9%84%DB%8C%D9%84-%D8%A7%D8%B3%D8%AA%D8%A7%D8%AF-%D9%85%D8%B7%D8%A7%D9%84%D8%B9%D8%A7%D8%AA-%D8%AE%D8%A7%D9%88%D8%B1%D9%85%DB%8C%D8%A7%D9%86%D9%87-%D8%AF%D8%B1-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D9%85%D9%84%DB%8C-%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D9%84%DB%8C%D8%A7"><div class="item-img col-5 col-sm-4 col-md-3 col-lg-4 col-xl-3"><img loading="lazy" class="img-fluid" src="/newspicture/375830/275/170" alt="تحلیل استاد مطالعات خاورمیانه در دانشگاه ملی استرالیا"></div>
+      <div class="caption text-right col-7 col-sm-8  col-md-9  col-lg-8 col-xl-9">
+        <h4 class="title">تحلیل استاد مطالعات خاورمیانه در دانشگاه ملی استرالیا</h4>
+        <p class="summary">به کار بردن تکنیک دیپلماتیک ایران در دوره جدید مذاکرات </p>
+      </div>
+      <p class="summary d-none col-12 text-right">به کار بردن تکنیک دیپلماتیک ایران در دوره جدید مذاکرات </p></a></div>
+</div><script xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+        $(document).ready(function() {
+            function CharacterCode ()   {
+                if (window.matchMedia("(min-width: 1200px)").matches) {
+                    Character(".vertical-center-3.slider h4.title","70");
+                    Character(".vertical-center-3.slider p.summary","150");
+                }
+                if (window.matchMedia("(max-width: 1200px)").matches ) {
+                    Character(".vertical-center-3.slider h4.title","60");
+                    Character(".vertical-center-3.slider p.summary","100");
+                }
+                if (window.matchMedia("(max-width: 567px)").matches ) {
+                    Character(".vertical-center-3.slider h4.title","50");
+                    Character(" .vertical-center-3.slider .item .caption + p.summary","80");
+                }
+            }
+            CharacterCode ();
+            $(window).resize(function(){
+                CharacterCode ();
+            });
+        });
+      </script><script xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+        $(document).ready(function() {
+            $(".vertical-center-3.slider").slick({
+                dots: false,
+                arrows: false,
+                vertical: true,
+                infinite: true,
+                centerMode:false,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay:true,
+                responsive: [{
+                    breakpoint: 768,
+                }]
+            });
+        });
+      </script>
+
+
+
+
+</div></div></div></div></div>
+
+<div class="col-lg-3 links mx-3 mx-lg-0 order-1 order-lg-2">
+<div class="d-flex flex-column justify-content-center link-inner mx-0 mx-lg-3 position-relative"><div class=" SiPo-NEWS"><div class="pw-wrapper"><h2 class="pw-title">دانش اطلاعاتی</h2><div class="pw-content"><div id='WebPart_e769013e_cdbb_4ee1_bbaf_7903e7f55af0' style='width:100%'>
+
+
+
+
+</div></div></div></div><div class=" SiPo-NEWS"><div class="box-wrapper effect fadeInUp"><span class="category d-none"> دانش اطلاعاتی </span><h3 class="box-title">آگاه سازی و هشدارها<a Class="More" href="/news/314010/314112/%D8%B1%D8%AE%D8%AF%D8%A7%D8%AF%D9%87%D8%A7%DB%8C-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA%DB%8C-%D9%88-%D8%A7%D9%85%D9%86%DB%8C%D8%AA%DB%8C1" style="">بيشتر</a></h3><div class="box-content"><div id='WebPart_83536e8c_5c8c_4da6_80ce_1959dfb2133f' style='width:100%'>
+
+
+
+
+</div><a Class="More" href="/news/314010/314112/%D8%B1%D8%AE%D8%AF%D8%A7%D8%AF%D9%87%D8%A7%DB%8C-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA%DB%8C-%D9%88-%D8%A7%D9%85%D9%86%DB%8C%D8%AA%DB%8C1" style="">بيشتر</a></div></div></div><div class=" SiPo-NEWS"><div class="box-wrapper effect fadeInUp"><span class="category d-none"> دانش اطلاعاتی </span><h3 class="box-title">علمی و پژوهشی<a Class="More" href="/news/314010/314113/%D8%B9%D9%84%D9%85%DB%8C-%D9%88-%D9%BE%DA%98%D9%88%D9%87%D8%B4%DB%8C1" style="">بيشتر</a></h3><div class="box-content"><div id='WebPart_393312a1_e884_477b_b1d7_3b55842172d6' style='width:100%'>
+
+
+
+
+</div><a Class="More" href="/news/314010/314113/%D8%B9%D9%84%D9%85%DB%8C-%D9%88-%D9%BE%DA%98%D9%88%D9%87%D8%B4%DB%8C1" style="">بيشتر</a></div></div></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="banner"><div class=" SiPo-WEBSITE"> <div id='WebPart_d1ee853c_cba9_49a2_9aa6_64614062642c' style='width:100%'><style>  .banner .slick-dotted.slick-slider {margin-bottom:0px}
+.banner .slick-dots {bottom:10px;}
+      .banner.adv img{width:100%;max-height:100px;}
+      .banner  .slick-initialized .slick-slide {max-height:100px;height:inherit;}
+    </style>
+<div class="banner adv">
+  <div class="item"><a href="http://vaja.ir/videoondemand/314010/314116/437218/%D8%AF%D8%A7%D8%AF%DA%AF%D8%A7%D9%87-%D9%85%D9%86%D8%A7%D9%81%D9%82%DB%8C%D9%86-%D9%82%D8%B3%D9%85%D8%AA-%D8%A7%D9%88%D9%84"><img class="img-fluid " loading="lazy" width="1900" height="100" src="/websitepicture/437213"></a></div>
+  <div class="item"><a href="http://vaja.ir/videoondemand/314010/314116/437117/nhsjhk"><img class="img-fluid " loading="lazy" width="1900" height="100" src="/websitepicture/437125"></a></div>
+  <div class="item"><a href="http://vaja.ir/videoondemand/314010/314116/426949/%D8%B9%D9%85%D9%84%DB%8C%D8%A7%D8%AA-%D8%A8%D8%B2%D8%B1%DA%AF"><img class="img-fluid " loading="lazy" width="1900" height="100" src="/websitepicture/436966"></a></div>
+</div>
+           <script>
+            $(document).ready(function() {
+
+            $(".banner.adv" ).slick({
+            dots: true,rtl:true,
+            arrows: false,
+            infinite: true,
+            centerMode:false,
+            slidesToShow: 1,
+            slidesToScroll: 1,autoplay:true ,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear'
+
+            });
+
+            });
+           </script>
+         
+
+
+
+
+
+</div></div></section>
+
+<section class="media">
+<div class="container"><div class=" SiPo-VIDEOONDEMAND"><div class="pw-wrapper"><h2 class="pw-title"> </h2><div class="pw-content"><div id='WebPart_9c15eade_e94b_4c82_a93c_b9088f535421' style='width:100%'><style>
+      .archive-video{background: url(../Theme/vaja-99/img/video-bg.png) no-repeat 3px center;background-size: 100%;padding: 60px 30px;}
+      .archive-video:before {right:0;background: url(../Theme/vaja-99/img/video-bg-right.png) no-repeat right center;}
+      .archive-video:after {left:0;background: url(../Theme/vaja-99/img/video-bg-left.png) no-repeat left center;}
+      .archive-video .item-top-video a{position: relative;width: 100%;display: block;z-index:10}
+      .archive-video .item-top-video img{height: 130px;;width: 100%;transtion:all 0.35s;}
+      .archive-video .item-top-video .player-box{position: absolute;top: 0px;left: 0px;right: 0px;bottom: 0px;width: 100%;height:100%;overflow: hidden;display: none;}
+      .archive-video .item-top-video .player-box video{width: 100%;height: 100%;object-fit: cover;top:0!important}
+      .archive-video p{text-align: right;color: #fff;font-weight: normal;font-family: 'iransans';font-size: 0.8em;padding: 10px 10px;background: #018699;margin: 0;display: flex;align-items: center;height: 45px;}
+      .archive-video .item-top-video{border: 2px solid #fff;border-radius: 3px;}
+      .archive-video .item-top-video a:after{display:none;content:"";background:url(../Theme/vaja-99/img/play-button.png) no-repeat center center;background-size:64px;position:absolute;top:0;bottom:0;left:0;right:0;z-index:1}
+      .archive-video .item-top-video:hover a.link:after {display:block;}
+      .archive-video.hover img{-webkit-filter: blur(5px);filter: blur(5px);}
+      .archive-video.hover .item-top-video.hover img, .item-top-video:hover img {-webkit-filter: blur(0px);filter: blur(0px);}
+      @media only screen and (max-width: 1400px) {
+      .archive-video{background-size: cover;margin: 0 2%;width: 96% !important;background-position: center center;}
+      }
+      .archive-video .slick-slide {height:auto !important}
+      @media only screen and (max-width: 481px) {
+          .archive-video .item-top-video img{height:150px;}
+      }
+
+    </style>
+<div class="row">
+  <div class="archive-video container" id="archiveVideoSlide" style="width:100%">
+    <div class="item-video  col-12 ">
+      <div class="item-top-video"><a class="link" href="/videoondemand/314010/314116/437351/%D8%AF%D8%A7%D8%AF%DA%AF%D8%A7%D9%87-%D9%85%D9%86%D8%A7%D9%81%D9%82%DB%8C%D9%86-%D9%82%D8%B3%D9%85%D8%AA-%DA%86%D9%87%D8%A7%D8%B1%D8%AF%D9%87%D9%85"><img alt="دادگاه منافقین - قسمت چهاردهم" loading="lazy" width="222" height="130" src="/videoondemandpicture/437351/222/130"><div class="player-box"></div></a><a href="/videoondemand/314010/314116/437351/%D8%AF%D8%A7%D8%AF%DA%AF%D8%A7%D9%87-%D9%85%D9%86%D8%A7%D9%81%D9%82%DB%8C%D9%86-%D9%82%D8%B3%D9%85%D8%AA-%DA%86%D9%87%D8%A7%D8%B1%D8%AF%D9%87%D9%85"><p class="title-video-box">دادگاه منافقین - قسمت چهاردهم</p></a></div>
+    </div>
+    <div class="item-video  col-12 ">
+      <div class="item-top-video"><a class="link" href="/videoondemand/314010/314116/426650/%D8%AA%D9%88%D8%B5%DB%8C%D9%87%E2%80%8C%D9%86%D8%A7%D9%85%D9%87-%D8%A7%D8%B1%D8%A8%D8%B9%DB%8C%D9%86-%D8%AA%D9%86%D9%87%D8%A7-%D8%AF%D8%B1-%D8%B4%D8%A8"><img alt="توصیه‌نامه اربعین - تنها در شب" loading="lazy" width="222" height="130" src="/videoondemandpicture/426650/222/130"><div class="player-box"></div></a><a href="/videoondemand/314010/314116/426650/%D8%AA%D9%88%D8%B5%DB%8C%D9%87%E2%80%8C%D9%86%D8%A7%D9%85%D9%87-%D8%A7%D8%B1%D8%A8%D8%B9%DB%8C%D9%86-%D8%AA%D9%86%D9%87%D8%A7-%D8%AF%D8%B1-%D8%B4%D8%A8"><p class="title-video-box">توصیه‌نامه اربعین - تنها در شب</p></a></div>
+    </div>
+    <div class="item-video  col-12 ">
+      <div class="item-top-video"><a class="link" href="/videoondemand/314010/314116/426640/%D8%A7%D9%85%D8%A7%D9%86%D8%AA-%D9%86%D8%A7%D8%B4%D9%86%D8%A7%D8%B3"><img alt="توصیه‌نامه اربعین - امانت ناشناس" loading="lazy" width="222" height="130" src="/videoondemandpicture/426640/222/130"><div class="player-box"></div></a><a href="/videoondemand/314010/314116/426640/%D8%A7%D9%85%D8%A7%D9%86%D8%AA-%D9%86%D8%A7%D8%B4%D9%86%D8%A7%D8%B3"><p class="title-video-box">توصیه‌نامه اربعین - امانت ناشناس</p></a></div>
+    </div>
+    <div class="item-video  col-12 ">
+      <div class="item-top-video"><a class="link" href="/videoondemand/314010/314116/426661/%D8%AA%D9%88%D8%B5%DB%8C%D9%87%E2%80%8C%D9%86%D8%A7%D9%85%D9%87-%D8%A7%D8%B1%D8%A8%D8%B9%DB%8C%D9%86-%D8%AD%D8%B1%DB%8C%D9%85-%D8%AE%D8%B5%D9%88%D8%B5%DB%8C"><img alt="توصیه‌نامه اربعین - حریم خصوصی" loading="lazy" width="222" height="130" src="/videoondemandpicture/426661/222/130"><div class="player-box"></div></a><a href="/videoondemand/314010/314116/426661/%D8%AA%D9%88%D8%B5%DB%8C%D9%87%E2%80%8C%D9%86%D8%A7%D9%85%D9%87-%D8%A7%D8%B1%D8%A8%D8%B9%DB%8C%D9%86-%D8%AD%D8%B1%DB%8C%D9%85-%D8%AE%D8%B5%D9%88%D8%B5%DB%8C"><p class="title-video-box">توصیه‌نامه اربعین - حریم خصوصی</p></a></div>
+    </div>
+    <div class="item-video  col-12 ">
+      <div class="item-top-video"><a class="link" href="/videoondemand/314010/314116/426668/%D8%AA%D9%88%D8%B5%DB%8C%D9%87%E2%80%8C%D9%86%D8%A7%D9%85%D9%87-%D8%A7%D8%B1%D8%A8%D8%B9%DB%8C%D9%86-%D8%A2%D9%86%DA%86%D9%87-%D8%A8%D8%B1%D8%A7%DB%8C-%DB%8C%DA%A9-%D8%A7%D8%B1%D8%A8%D8%B9%DB%8C%D9%86-%D8%A7%D9%85%D9%86-%D8%A8%D8%A7%DB%8C%D8%AF-%D8%B1%D8%B9%D8%A7%DB%8C%D8%AA-%DA%A9%D9%86%DB%8C%D9%85"><img alt="توصیه‌نامه اربعین - اربعین امن " loading="lazy" width="222" height="130" src="/videoondemandpicture/426668/222/130"><div class="player-box"></div></a><a href="/videoondemand/314010/314116/426668/%D8%AA%D9%88%D8%B5%DB%8C%D9%87%E2%80%8C%D9%86%D8%A7%D9%85%D9%87-%D8%A7%D8%B1%D8%A8%D8%B9%DB%8C%D9%86-%D8%A2%D9%86%DA%86%D9%87-%D8%A8%D8%B1%D8%A7%DB%8C-%DB%8C%DA%A9-%D8%A7%D8%B1%D8%A8%D8%B9%DB%8C%D9%86-%D8%A7%D9%85%D9%86-%D8%A8%D8%A7%DB%8C%D8%AF-%D8%B1%D8%B9%D8%A7%DB%8C%D8%AA-%DA%A9%D9%86%DB%8C%D9%85"><p class="title-video-box">توصیه‌نامه اربعین - اربعین امن </p></a></div>
+    </div>
+    <div class="item-video  col-12 ">
+      <div class="item-top-video"><a class="link" href="/videoondemand/314010/314116/426647/%D9%85%D9%87%D8%B1-%DA%AF%D8%B0%D8%B1%D9%86%D8%A7%D9%85%D9%87"><img alt="توصیه‌نامه اربعین - مهر گذرنامه" loading="lazy" width="222" height="130" src="/videoondemandpicture/426647/222/130"><div class="player-box"></div></a><a href="/videoondemand/314010/314116/426647/%D9%85%D9%87%D8%B1-%DA%AF%D8%B0%D8%B1%D9%86%D8%A7%D9%85%D9%87"><p class="title-video-box">توصیه‌نامه اربعین - مهر گذرنامه</p></a></div>
+    </div>
+    <div class="item-video  col-12 ">
+      <div class="item-top-video"><a class="link" href="/videoondemand/314010/314116/426637/%D8%AA%D8%B5%D9%88%DB%8C%D8%B1-%D8%A8%D8%B1%D8%AF%D8%A7%D8%B1%DB%8C-%D9%85%D9%85%D9%86%D9%88%D8%B9"><img alt="توصیه‌نامه اربعین - تصویر برداری ممنوع" loading="lazy" width="222" height="130" src="/videoondemandpicture/426637/222/130"><div class="player-box"></div></a><a href="/videoondemand/314010/314116/426637/%D8%AA%D8%B5%D9%88%DB%8C%D8%B1-%D8%A8%D8%B1%D8%AF%D8%A7%D8%B1%DB%8C-%D9%85%D9%85%D9%86%D9%88%D8%B9"><p class="title-video-box">توصیه‌نامه اربعین - تصویر برداری ممنوع</p></a></div>
+    </div>
+    <div class="item-video  col-12 ">
+      <div class="item-top-video"><a class="link" href="/videoondemand/314010/314116/426634/%D8%A8%D8%AD%D8%AB-%D8%A8%DB%8C%D8%AC%D8%A7-%D9%85%D9%85%D9%86%D9%88%D8%B9"><img alt="توصیه‌نامه اربعین - بحث بیجا ممنوع" loading="lazy" width="222" height="130" src="/videoondemandpicture/426634/222/130"><div class="player-box"></div></a><a href="/videoondemand/314010/314116/426634/%D8%A8%D8%AD%D8%AB-%D8%A8%DB%8C%D8%AC%D8%A7-%D9%85%D9%85%D9%86%D9%88%D8%B9"><p class="title-video-box">توصیه‌نامه اربعین - بحث بیجا ممنوع</p></a></div>
+    </div>
+    <div class="item-video  col-12 ">
+      <div class="item-top-video"><a class="link" href="/videoondemand/314010/314116/426665/%D8%AA%D9%88%D8%B5%DB%8C%D9%87%E2%80%8C%D9%86%D8%A7%D9%85%D9%87-%D8%A7%D8%B1%D8%A8%D8%B9%DB%8C%D9%86-%D8%B3%D8%A8%DA%A9-%D8%B3%D9%81%D8%B1-%DA%A9%D9%86"><img alt="توصیه‌نامه اربعین - سبک سفر کن" loading="lazy" width="222" height="130" src="/videoondemandpicture/426665/222/130"><div class="player-box"></div></a><a href="/videoondemand/314010/314116/426665/%D8%AA%D9%88%D8%B5%DB%8C%D9%87%E2%80%8C%D9%86%D8%A7%D9%85%D9%87-%D8%A7%D8%B1%D8%A8%D8%B9%DB%8C%D9%86-%D8%B3%D8%A8%DA%A9-%D8%B3%D9%81%D8%B1-%DA%A9%D9%86"><p class="title-video-box">توصیه‌نامه اربعین - سبک سفر کن</p></a></div>
+    </div>
+    <div class="item-video  col-12 ">
+      <div class="item-top-video"><a class="link" href="/videoondemand/314010/314116/437331/%D8%B3%D8%AE%D9%86%D8%A7%D9%86-%D9%88%D8%B2%DB%8C%D8%B1-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA-%D8%AF%D8%B1-%D8%AC%D9%84%D8%B3%D9%87-%D9%87%DB%8C%D8%A6%D8%AA-%D8%AF%D9%88%D9%84%D8%AA"><img alt="سخنان وزیر اطلاعات در جلسه هیئت دولت" loading="lazy" width="222" height="130" src="/videoondemandpicture/437331/222/130"><div class="player-box"></div></a><a href="/videoondemand/314010/314116/437331/%D8%B3%D8%AE%D9%86%D8%A7%D9%86-%D9%88%D8%B2%DB%8C%D8%B1-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA-%D8%AF%D8%B1-%D8%AC%D9%84%D8%B3%D9%87-%D9%87%DB%8C%D8%A6%D8%AA-%D8%AF%D9%88%D9%84%D8%AA"><p class="title-video-box">سخنان وزیر اطلاعات در جلسه هیئت دولت</p></a></div>
+    </div>
+    <div class="item-video  col-12 ">
+      <div class="item-top-video"><a class="link" href="/videoondemand/314010/314116/437311/%D9%86%D8%A8%D8%B1%D8%AF-%D8%B3%D9%86%DA%AF%DB%8C%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%AA-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A8%D8%A7-%D8%AA%D8%B1%D9%88%D8%B1%DB%8C%D8%B3%D8%AA%E2%80%8C%D9%87%D8%A7"><img alt="نبرد سنگین وزارت اطلاعات با تروریست‌ها" loading="lazy" width="222" height="130" src="/videoondemandpicture/437311/222/130"><div class="player-box"></div></a><a href="/videoondemand/314010/314116/437311/%D9%86%D8%A8%D8%B1%D8%AF-%D8%B3%D9%86%DA%AF%DB%8C%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%AA-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A8%D8%A7-%D8%AA%D8%B1%D9%88%D8%B1%DB%8C%D8%B3%D8%AA%E2%80%8C%D9%87%D8%A7"><p class="title-video-box">نبرد سنگین وزارت اطلاعات با تروریست‌ها</p></a></div>
+    </div>
+    <div class="item-video  col-12 ">
+      <div class="item-top-video"><a class="link" href="/videoondemand/314010/314116/437282/%D8%AF%D8%A7%D8%AF%DA%AF%D8%A7%D9%87-%D9%85%D9%86%D8%A7%D9%81%D9%82%DB%8C%D9%86-%D9%82%D8%B3%D9%85%D8%AA-%D8%B3%DB%8C%D8%B2%D8%AF%D9%87%D9%85"><img alt="دادگاه منافقین - قسمت سیزدهم" loading="lazy" width="222" height="130" src="/videoondemandpicture/437282/222/130"><div class="player-box"></div></a><a href="/videoondemand/314010/314116/437282/%D8%AF%D8%A7%D8%AF%DA%AF%D8%A7%D9%87-%D9%85%D9%86%D8%A7%D9%81%D9%82%DB%8C%D9%86-%D9%82%D8%B3%D9%85%D8%AA-%D8%B3%DB%8C%D8%B2%D8%AF%D9%87%D9%85"><p class="title-video-box">دادگاه منافقین - قسمت سیزدهم</p></a></div>
+    </div>
+    <div class="item-video  col-12 ">
+      <div class="item-top-video"><a class="link" href="/videoondemand/314010/314116/437279/%D8%AF%D8%A7%D8%AF%DA%AF%D8%A7%D9%87-%D9%85%D9%86%D8%A7%D9%81%D9%82%DB%8C%D9%86-%D9%82%D8%B3%D9%85%D8%AA-%D8%AF%D9%88%D8%A7%D8%B2%D8%AF%D9%87%D9%85"><img alt="دادگاه منافقین - قسمت دوازدهم" loading="lazy" width="222" height="130" src="/videoondemandpicture/437279/222/130"><div class="player-box"></div></a><a href="/videoondemand/314010/314116/437279/%D8%AF%D8%A7%D8%AF%DA%AF%D8%A7%D9%87-%D9%85%D9%86%D8%A7%D9%81%D9%82%DB%8C%D9%86-%D9%82%D8%B3%D9%85%D8%AA-%D8%AF%D9%88%D8%A7%D8%B2%D8%AF%D9%87%D9%85"><p class="title-video-box">دادگاه منافقین - قسمت دوازدهم</p></a></div>
+    </div>
+    <div class="item-video  col-12 ">
+      <div class="item-top-video"><a class="link" href="/videoondemand/314010/314116/437275/%D8%AF%D8%A7%D8%AF%DA%AF%D8%A7%D9%87-%D9%85%D9%86%D8%A7%D9%81%D9%82%DB%8C%D9%86-%D9%82%D8%B3%D9%85%D8%AA-%DB%8C%D8%A7%D8%B2%D8%AF%D9%87%D9%85"><img alt="دادگاه منافقین - قسمت یازدهم" loading="lazy" width="222" height="130" src="/videoondemandpicture/437275/222/130"><div class="player-box"></div></a><a href="/videoondemand/314010/314116/437275/%D8%AF%D8%A7%D8%AF%DA%AF%D8%A7%D9%87-%D9%85%D9%86%D8%A7%D9%81%D9%82%DB%8C%D9%86-%D9%82%D8%B3%D9%85%D8%AA-%DB%8C%D8%A7%D8%B2%D8%AF%D9%87%D9%85"><p class="title-video-box">دادگاه منافقین - قسمت یازدهم</p></a></div>
+    </div>
+    <div class="item-video  col-12 ">
+      <div class="item-top-video"><a class="link" href="/videoondemand/314010/314116/437269/%D8%AF%D8%A7%D8%AF%DA%AF%D8%A7%D9%87-%D9%85%D9%86%D8%A7%D9%81%D9%82%DB%8C%D9%86-%D9%82%D8%B3%D9%85%D8%AA-%D8%AF%D9%87%D9%85"><img alt="دادگاه منافقین - قسمت دهم" loading="lazy" width="222" height="130" src="/videoondemandpicture/437269/222/130"><div class="player-box"></div></a><a href="/videoondemand/314010/314116/437269/%D8%AF%D8%A7%D8%AF%DA%AF%D8%A7%D9%87-%D9%85%D9%86%D8%A7%D9%81%D9%82%DB%8C%D9%86-%D9%82%D8%B3%D9%85%D8%AA-%D8%AF%D9%87%D9%85"><p class="title-video-box">دادگاه منافقین - قسمت دهم</p></a></div>
+    </div>
+  </div>
+</div>
+     <script>
+        $(document).ready(function () {
+          Character(".archive-video p ", "45");
+          $('#archiveVideoSlide').slick({
+              slidesToShow: 5, 
+              slidesToScroll: 1,
+              rtl:true,
+              autoplay:true,
+              slidesToShow:5,
+              infinite:false,
+              autoplaySpeed: 3000,
+              speed: 500,
+              responsive: [{
+                      breakpoint: 1300,
+                      settings: {
+                          slidesToShow: 4
+                    }
+                },{
+                      breakpoint: 992,
+                      settings: {
+                          slidesToShow: 3
+                    }
+                },{
+                      breakpoint: 768,
+                      settings: {
+                          slidesToShow: 2
+                    }
+                },{
+                      breakpoint: 481,
+                      settings: {
+                          slidesToShow: 1
+                    }
+            }]
+        });  
+      });
+    </script>
+    
+
+
+
+
+</div></div></div></div></div>
+</section>
+
+<section class="archive-notices">
+<div class="container"><div class="effect fadeInUp SiPo-NEWS"><div class="pw-wrapper"><h2 class="pw-title"> </h2><div class="pw-content"><div id='WebPart_342fa5f8_149f_4b8b_bf09_139ea82003c6' style='width:100%'><style xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+      .news-archive .item .news-item{background-color:#fff;margin-bottom:10px;color:#000;padding:15px;transition:all .35s;min-height:151px;padding-right:0;-webkit-box-shadow:0 4px 8px 5px #d5d5da;-moz-box-shadow:0 4px 8px 5px #d5d5da;box-shadow:0 4px 8px 5px #d5d5da}
+      .news-archive .item img{width:100%; max-height:115px;height:100%}
+      .news-archive .item p,.news-archive .item h4,.news-archive .item span{color:#000;margin:0;font-family:iransans;font-weight:normal}
+      .news-archive .item p{font-size:.9em}
+      .news-archive .item h4{color:#cc9c08;margin:3px 0;font-weight:bold;font-size:1.1em;line-height:1.8;min-height:56px}
+      .news-archive .row{margin:0}
+      .news-archive .caption{padding:0 15px 0 0}
+      .item-img{padding-left:0}
+      .news-archive .item .news-item:hover{background:rgb(232,239,243)}
+      .news-archive .item .news-item:hover h4{color:#008094}
+      .news-archive p.date span{color:#7f7e7e;margin-left:4px}
+      @media only screen and (min-width: 992px) {
+        .news-archive .item img{height:100% ;}
+      }
+      @media only screen and (max-width: 576px) {
+        .news-archive .item img{display:block; height:auto}
+      }
+      @media only screen and (max-width: 481px) {
+        .news-item .caption h4.title{display:none}
+        .news-item .caption + h4.title{display:block!important;min-height:inherit}
+        .news-archive .item img{ height:auto}
+      }
+    </style>
+<div class="news-archive effect fadeInUp row" xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+  <div class="item col-12 col-lg-6 effect fadeInUp"><a href="/news/314010/314117/437588/%D8%A7%DB%8C%D8%A7%D9%85-%D8%B4%D9%87%D8%A7%D8%AF%D8%AA-%D8%A8%D8%A7%D9%86%D9%88%DB%8C-%D8%AF%D9%88-%D8%B9%D8%A7%D9%84%D9%85-%D8%AD%D8%B6%D8%B1%D8%AA-%D9%81%D8%A7%D8%B7%D9%85%D9%87(%D8%B3)-%D8%AA%D8%B3%D9%84%DB%8C%D8%AA-%D8%A8%D8%A7%D8%AF"><div class="col-12 news-item ">
+        <div class="row">
+          <div class="item-img col-5 col-md-3 col-lg-5 col-xl-4"><img loading="lazy" class="img-fluid" src="/newspicture/437588/232/150" alt=" ایام شهادت بانوی دو عالم حضرت فاطمه(س) تسلیت باد"></div>
+          <div class="caption text-right col-7 col-md-9 col-lg-7 col-xl-8">
+            <p class="date"><span class="weekday" name="_day">يكشنبه</span><span class="day" name="_day">2</span><span class="month" name="_month">آذر</span><span class="day" name="_year">1404</span></p>
+            <p class="headline">مادر شهیدان</p>
+            <h4 class="title "> ایام شهادت بانوی دو عالم حضرت فاطمه(س) تسلیت باد</h4>
+          </div>
+          <h4 class="title d-none col-12 text-right"> ایام شهادت بانوی دو عالم حضرت فاطمه(س) تسلیت باد</h4>
+        </div>
+      </div></a></div>
+  <div class="item col-12 col-lg-6 effect fadeInUp"><a href="/news/314010/314117/437517/%D8%B3%D8%AE%D9%86%D8%B1%D8%A7%D9%86%DB%8C-%D9%86%D9%88%D8%B1%D9%88%D8%B2%DB%8C-%D8%B1%D9%87%D8%A8%D8%B1-%D8%A7%D9%86%D9%82%D9%84%D8%A7%D8%A8-%D8%AF%D8%B1-%D8%AC%D9%85%D8%B9-%D8%A7%D9%82%D8%B4%D8%A7%D8%B1-%D9%85%D8%AE%D8%AA%D9%84%D9%81-%D9%85%D8%B1%D8%AF%D9%85"><div class="col-12 news-item ">
+        <div class="row">
+          <div class="item-img col-5 col-md-3 col-lg-5 col-xl-4"><img loading="lazy" class="img-fluid" src="/newspicture/437517/232/150" alt=" در جمع اقشار مختلف مردم در سخنرانی نوروزی سال 1404"></div>
+          <div class="caption text-right col-7 col-md-9 col-lg-7 col-xl-8">
+            <p class="date"><span class="weekday" name="_day">جمعه</span><span class="day" name="_day">1</span><span class="month" name="_month">فروردين</span><span class="day" name="_year">1404</span></p>
+            <p class="headline">رهبر انقلاب اسلامی</p>
+            <h4 class="title "> در جمع اقشار مختلف مردم در سخنرانی نوروزی سال 1404</h4>
+          </div>
+          <h4 class="title d-none col-12 text-right"> در جمع اقشار مختلف مردم در سخنرانی نوروزی سال 1404</h4>
+        </div>
+      </div></a></div>
+</div><script xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+        $(document).ready(function() {
+            Character(".news-archive h4.title ", "150");
+            Character(".news-archive .headline ", "70");
+        });
+      </script>
+
+
+
+
+</div></div></div></div></div>
+</section>
+
+<footer class="archive-notices">
+<div class="ftop">
+<div class="container">
+<div class="row">
+<div class="col-6 col-md-4"><div class=" SiPo-WEBSITE"><div class="effect f-pw fadeInUp"><h2 class="f-pw-title">پیوندها</h2><div class="f-pw-content"><div id='WebPart_f51018f9_e03b_402f_b6f5_9e31a427bcfb' style='width:100%'><style xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+      .footerlinks li {list-style-type:none;color:#fff;text-align:right;color:#fff;padding:5px  0;transition:all 0.35s}
+      .footerlinks li  a {color:#fff;}
+      .footerlinks li:hover a {color:#cc9c08; }
+      .footerlinks li:hover a {padding-right:5px}
+    </style>
+<ul class="footerlinks" xmlns:control="urn:Control" xmlns:shamsi="urn:Shamsi" xmlns:Portal="urn:Portal">
+  <li class="item"><a href="http://www.leader.ir" target="_blank" rel="alternate">دفتر مقام معظم رهبری</a></li>
+  <li class="item"><a href="http://www.president.ir" target="_blank" rel="alternate">ریاست جمهوری</a></li>
+  <li class="item"><a href="http://dolat.ir" target="_blank" rel="alternate">شورای اطلاع رسانی دولت</a></li>
+  <li class="item"><a href="http://uins.ac.ir" target="_blank" rel="alternate">دانشگاه اطلاعات و امنیت ملی</a></li>
+  <li class="item"><a href="http://historydocuments.ir" target="_blank" rel="alternate">مرکز بررسی اسناد تاریخی</a></li>
+</ul>
+
+
+
+
+
+</div></div></div></div></div>
+
+<div class="col-6 col-md-4"><div class=" SiPo-CONTACT"><div class="effect f-pw fadeInUp"><h2 class="f-pw-title">ارتباط با ما</h2><div class="f-pw-content"><div id='WebPart_a4102034_4f55_4a47_9999_349a45e538e5' style='width:100%'><style xmlns:control="urn:Control">
+      .contact span {color:#fff}
+      .contact p{margin:0;padding:5px 0}
+    </style>
+<div class="contact text-right" xmlns:control="urn:Control">
+  <p><span>ستاد خبری :
+            </span><span>113</span></p>
+  <p><span>بازرسی و رسیدگی به شکایات :
+            </span><span>22844076 - 021</span></p>
+  <p><span>صندوق پستی :
+            </span><span> 3457-16765 و 1974-16765</span></p>
+</div>
+
+
+
+
+</div></div></div></div></div>
+
+<div class="col-12 col-md-4 logo text-center"><div class="effect fadeInUp SiPo-GENERALTEXT"> <div id='WebPart_7c0f7a0b_8198_4ff9_8ae8_498681636c5c' style='width:100%'><a><img class="logo" src="/Theme/vaja-99/img/logo.png" /> <img class="logo-text" src="/Theme/vaja-99/img/logo-txt.png" /> </a>
+
+
+
+
+</div></div></div>
+</div>
+</div>
+</div>
+
+<div class="fbottom">
+<div class="container"><div class=" SiPo-GENERALTEXT"> <div id='WebPart_85ecb3c0_3201_4e29_9f60_3829f78ae5e4' style='width:100%'><div style="text-align:center">کلیه حقوق این پایگاه متعلق به وزارت اطلاعات است و استفاده از مطالب آن با ذکر منبع بلامانع می باشد.</div>
+
+
+
+
+
+</div></div></div>
+</div>
+</footer>
+</div>
+
+	</div>
+<div id="panelLink" onmouseout="LinkMenu_StartHide(1500);" onmouseover="LinkMenu_StopHide();" style="z-index: 60000; left: 400px; width: 200px; position: absolute; top: 527px; background-color: #dbedff;display:none;	border-top: #000000 1px solid;border-left: #000000 1px solid;border-right: #000000 1px solid;border-bottom: #000000 1px solid;">
+    <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+        <tr>
+            <td style="width: 100%; padding:5px;line-height:15px">
+                <div id="lblLink" style="width:100%"></div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<!--<table class="site_footer">
+	<tr>
+		<td class="site_footer_right" align="right" >
+			
+			<table><tr><td><a href="/">خانه</a> | </td><td><a href="#" onclick="javasript:window.history.back()">بازگشت</a> | </td><td><a href="/Category/CategoryPrivacy.aspx">حريم خصوصي كاربران</a> | </td></td></tr></table>
+		</td>
+     <td class="site_footer_middle" align="center" >
+            <span id="ctl77_lblFooter"></span>
+			<span id="ctl77_lblSiteName" dir="ltr">www.vaja.com</span>
+        </td>
+		<td class="site_footer_left" align="left" >
+			<span id="ctl77_lblUser">PortalGuest (pguest)</span>
+		</td>
+	</tr>
+</table>-->
+
+</div>
+    <input name="__RequestVerificationToken" type="hidden" value="BcIs3T0u0CLnr36T_A_jjBIvh1Zvnk-xHU9HlzQSrERZt8BvPdBKFfp-g_TXvcpo-CuZZlX-KLNTrsZcJaIt2ya1DyrZWnFvxUigVlbjkFAlrZqopZcTKiMyqjYxphshAPDmqAR0kOiUiJE39pV-2LM5XtVkvw_jA0rdB70Qmpw8s_dTz2WGlkuQCfBiu-3abMV5DMPyXTJ8ydAS6k408Q2" />
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="83BB589F" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="tjiXWCU8qm6ZZqVgNMCPYQG4MfUl6MWCwE15NSA2RJHEW20brTlWUC/gEXN1YI9qMVLpVpOLJ1GTdvlEkcIxBWMfefcGfOWqTWfUsehEfvVwbFdg7eyWNVKiAYULLLfD/rMmu3e3lauieQsjDnCp93GnCArBSI11IKAanKJc/Hmr1i0YJxuvoUO3dytobOmN" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+Menu_Items_Go_Create('WebPart_8815521d_870d_40cd_aa00_0cee3a1d814b_lblMenu',0);imenus_load(0);Menu_Sub_Position_Set(0,'rtl','left');Menu_ScrollBar_Fix(0,'rtl');Menu_Items_Go_Init('WebPart_8815521d_870d_40cd_aa00_0cee3a1d814b_lblMenu',0);//]]>
+</script>
+</form>
+    
 </body>
 </html>
